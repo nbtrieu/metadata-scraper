@@ -10,6 +10,7 @@ python = "^3.11"
 requests = "^2.31.0"
 crossrefapi = "^1.6.0"
 fastapi = "^0.109.0"
+bardapi = "^0.1.39"
 
 
 [build-system]
