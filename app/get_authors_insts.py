@@ -12,13 +12,15 @@ def get_institution(doi):
 
     for author in author_list:
         if 'affiliation' in author and author['affiliation']:
-            institution_name = author['affiliation'][0]['name']
-            institution_set.add(institution_name)
+            affiliation_list = author['affiliation']
+            for affiliation in affiliation_list:
+                institution_name = affiliation['name']
+                institution_set.add(institution_name)
 
     institution_list = list(institution_set)
     return institution_list
 
 
 # Test:
-institutions = get_institution("10.1111/j.1750-3841.2007.00549.x")
-print(institutions)
+institutions = get_institution("10.1021/acs.biomac.3c01143")
+print("INSTITUTIONS:", institutions)
