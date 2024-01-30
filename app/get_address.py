@@ -28,29 +28,36 @@ def search_place(place, api_key):
 
 def get_address(place_name):
     search_result = search_place(place_name, my_api_key)
-    result_list = search_result["places"]
+    result_list = search_result.get("places", [])
 
-    key_words = place_name.replace(',', '').split()
-    key_words = set(key.lower() for key in key_words)
+    if not result_list:
+        return "No results found"
+
+    key_words = set(word.lower() for word in place_name.replace(',', '').split())
+    best_match = None
 
     for result in result_list:
         display_name_field = result["displayName"]["text"]
         address_field = result["formattedAddress"]
-        matched_words = sum(
-            word.lower() in display_name_field.lower() for word in key_words
-        )
+        matched_words = sum(word.lower() in display_name_field.lower() for word in key_words)
+        match_percentage = matched_words / len(key_words)
 
-        if matched_words >= len(key_words) / 2:
-            return address_field
+        if match_percentage == 1:
+            best_match = address_field
 
-    return None
+        elif match_percentage >= 0.5:
+            best_match = address_field
 
+        elif match_percentage < 0.5:
+            return result_list[0]["formattedAddress"]
 
-# FOR LATER: we can use Google Maps Address Validation API to validate address
+    return best_match
+
 
 # Test:
-# institution_name = 'Department of Microbiology and Immunology, University of Michigan Medical School'
-institution_name = 'Qingdao Institute of Bioenergy and Bioprocess Technology'
+institution_name = 'Department of Microbiology and Immunology, University of Michigan Medical School'  # case: ['displayName']['text'] is 50% match or above
+# institution_name = 'European Molecular Biology Laboratory (EMBL)'  # edge case: ['displayName']['text'] is lower than 50% match
+# institution_name = 'Surin Rajabhat University'  # case: multiple result
 search_result = search_place(institution_name, my_api_key)
 print('>>> SEARCH RESULT:', search_result)
 institution_address = get_address(institution_name)

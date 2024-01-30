@@ -115,7 +115,8 @@ class CitationAuthorAffiliation:
                       }
             doi_url_data = urllib.parse.urlencode(doi_values).encode('utf-8')
             # When I try doing the following as a POST rather than GET, the urlopen fails...
-            doi_req = urllib.request.Request(doi_url + '?' + doi_url_data)
+            doi_url_data_str = doi_url_data.decode('utf-8')
+            doi_req = urllib.request.Request(doi_url + '?' + doi_url_data_str)
             try:
                 doi_response = urllib.request.urlopen(doi_req)
             except (urllib.error.URLError) as e:
