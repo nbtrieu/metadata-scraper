@@ -22,5 +22,5 @@ def get_institution(doi):
 
 
 # Test:
-institutions = get_institution("10.1128/aem.01274-22")
+institutions = get_institution("10.3923/ijps.2023.12.16")
 print("INSTITUTIONS:", institutions)

@@ -11,6 +11,8 @@ requests = "^2.31.0"
 crossrefapi = "^1.6.0"
 fastapi = "^0.109.0"
 bardapi = "^0.1.39"
+pubmed-author-affiliation = "^0.3"
+lxml = "^5.1.0"
 
 
 [build-system]

@@ -49,7 +49,8 @@ def get_address(place_name):
 # FOR LATER: we can use Google Maps Address Validation API to validate address
 
 # Test:
-institution_name = 'Department of Microbiology and Immunology, University of Michigan Medical School'
+# institution_name = 'Department of Microbiology and Immunology, University of Michigan Medical School'
+institution_name = 'Qingdao Institute of Bioenergy and Bioprocess Technology'
 search_result = search_place(institution_name, my_api_key)
 print('>>> SEARCH RESULT:', search_result)
 institution_address = get_address(institution_name)
