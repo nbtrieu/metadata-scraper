@@ -55,9 +55,9 @@ def get_address(place_name):
 
 
 # Test:
-institution_name = 'Department of Microbiology and Immunology, University of Michigan Medical School'  # case: ['displayName']['text'] is 50% match or above
-# institution_name = 'European Molecular Biology Laboratory (EMBL)'  # edge case: ['displayName']['text'] is lower than 50% match
+# institution_name = 'Department of Microbiology and Immunology, University of Michigan Medical School'  # case: ['displayName']['text'] is 50% match or above
 # institution_name = 'Surin Rajabhat University'  # case: multiple result
+# institution_name = 'European Molecular Biology Laboratory (EMBL), Structural and Computational Biology Unit, Meyerhofstrasse 1, 69117 Heidelberg, Germany'
 search_result = search_place(institution_name, my_api_key)
 print('>>> SEARCH RESULT:', search_result)
 institution_address = get_address(institution_name)
