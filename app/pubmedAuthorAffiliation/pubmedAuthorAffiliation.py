@@ -92,7 +92,7 @@ class CitationAuthorAffiliation:
         @param json_input: input json that is to be converted
         """
         if self.outputFormat == 'json':
-            print(json_input)
+            print(json.dumps(json_input))  # Converts Python dict to JSON string
         elif self.outputFormat == 'text':
             print(self.json2text(json_input))
 
@@ -304,15 +304,11 @@ def main():
     if args.pubmedid:
         json_out = citation_author_affiliation.entrez_query(args.pubmedid)
         citation_author_affiliation.print_result(json_out)
-        print(json_out)
-        print(type(json_out))
     elif args.doi:
         json_out = citation_author_affiliation.entrez_query(doi=args.doi)
         citation_author_affiliation.print_result(json_out)
     elif args.infile:
         citation_author_affiliation.process_list(args.infile)
-
-    return json_out
 
 
 if __name__ == "__main__":
