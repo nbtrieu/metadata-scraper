@@ -2,9 +2,9 @@ import subprocess
 import json
 
 
-def get_affiliation(result_dict):
+def get_affiliation(result_dict: dict):
     """
-    Extract and format the 'affiliation' values from the 'authorList' in 'result_dict'.
+    Extracts/formats the 'affiliation' values from the 'authorList' in 'result_dict'.
 
     Parameters:
     result_dict (dict): A dictionary containing an 'authorList'.
@@ -31,7 +31,7 @@ def get_affiliation(result_dict):
     return affiliation_list
 
 
-def query_via_pmid_or_doi(values: list, command_flag: str):
+def get_affiliations(values: list, command_flag: str):
     """
     Queries the pubmedAuthorAffiliation.py script for authors' affiliations based on PMIDs or DOIs.
 
@@ -71,7 +71,7 @@ def query_via_pmid_or_doi(values: list, command_flag: str):
 
 # CHECKS:
 pmid_list = ['37444255', '37734358']
-all_affiliations = query_via_pmid_or_doi(pmid_list, 'i')
+all_affiliations = get_affiliations(pmid_list, 'i')
 print('QUERY VIA PMID:', all_affiliations)
 
 # doi_list = ['10.1016/j.molcel.2016.11.013', '10.3389/fmicb.2023.1194606']
