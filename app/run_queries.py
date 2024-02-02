@@ -7,7 +7,20 @@ my_api_key = 'AIzaSyBeVCa6qSE3QnzaVN4QvVIZWGNAjpvHTGk'
 # address_list = []
 
 pmid_list = ['37444255', '37734358']
-all_results = query_pubmed(pmid_list, 'i')
+# all_results = query_pubmed(pmid_list, 'i')
+
+doi_list = ["10.1038/s41598-023-47332-0", "10.3390/molecules28186548", "10.3389/fmicb.2023.1121720"]
+all_results = query_pubmed(doi_list, 'd')
+
+# NEXT STEPS:
+"""
+ask GPT to give PMIDs or DOIs of research papers focusing on the keywords
+compile two CSV tables: article_name | PMID & article_name | DOI
+get a list of PMIDs + a list of DOIs from the respective CSV columns
+call query_pubmed on each list
+combine all results into all_results []
+pass in all_results list to get_address_bulk etc.
+"""
 
 # for result in all_results:
 #     search_result = search_place(result, my_api_key)
@@ -37,4 +50,4 @@ print(df)
 print("DataFrame after removing duplicates:")
 print(df_unique)
 
-df_unique.to_csv('address_list.csv', sep=',', columns=['affiliation', 'institute', 'address'], header=True, index=False, encoding='utf-8')
+df_unique.to_csv('address_list_doi.csv', sep=',', columns=['affiliation', 'institute', 'address'], header=True, index=False, encoding='utf-8')

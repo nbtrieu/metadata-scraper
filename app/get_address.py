@@ -118,3 +118,8 @@ def get_address_bulk(places_list: list):
 # print('>>> SEARCH RESULT:', search_result)
 # institution_address = get_address(institution_name)
 # print('>>> BEST MATCH ADDRESS:', institution_address)
+
+
+institution_name = "Beijing National Laboratory for Molecular Sciences, State Key Laboratory of Molecular Reaction Dynamics"
+address = get_address(institution_name)
+print(address)
