@@ -17,6 +17,7 @@ all_results = query_pubmed(doi_list, 'd')
 ask GPT to give PMIDs or DOIs of research papers focusing on the keywords
 compile two CSV tables: article_name | PMID & article_name | DOI
 get a list of PMIDs + a list of DOIs from the respective CSV columns
+ADD TQDM TO TRACK PROGRESS!!!!
 call query_pubmed on each list
 combine all results into all_results []
 pass in all_results list to get_address_bulk etc.
