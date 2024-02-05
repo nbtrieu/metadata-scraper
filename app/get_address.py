@@ -1,4 +1,5 @@
 import requests
+from tqdm import tqdm
 
 my_api_key = 'AIzaSyBeVCa6qSE3QnzaVN4QvVIZWGNAjpvHTGk'
 
@@ -82,7 +83,7 @@ def filter_best_match(result_list: list, place_name: str):
 def get_address_bulk(places_list: list):
     all_results = []
 
-    for place in places_list:
+    for place in tqdm(places_list, desc="Getting Addresses"):
         for key in ['affiliation', 'institute']:
             if place[key] == "Unparsed":  # Skip 'Unparsed' institute values
                 continue

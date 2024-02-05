@@ -1,5 +1,6 @@
 import subprocess
 import json
+from tqdm import tqdm
 
 
 def get_affiliation(result_dict: dict):
@@ -78,7 +79,7 @@ def query_pubmed(values: list, command_flag: str):
     script_path = "pubmedAuthorAffiliation/pubmedAuthorAffiliation.py"
     all_results = []
 
-    for value in values:
+    for value in tqdm(values, desc="Querying PubMed"):
         try:
             command = f'poetry run python {script_path} -{command_flag} {value}'
             result = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.DEVNULL)

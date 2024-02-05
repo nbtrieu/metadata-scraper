@@ -14,6 +14,7 @@ bardapi = "^0.1.39"
 pubmed-author-affiliation = "^0.3"
 lxml = "^5.1.0"
 pandas = "^2.2.0"
+tqdm = "^4.66.1"
 
 
 [build-system]
