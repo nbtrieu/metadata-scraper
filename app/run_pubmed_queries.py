@@ -3,61 +3,36 @@ import json
 from tqdm import tqdm
 
 
-def get_affiliation(result_dict: dict):
+def get_author_data(result_dict: dict):
     """
-    Extracts/formats the 'affiliation' values from the 'authorList' in 'result_dict'.
+    Extracts/formats relevant values from the 'authorList' in 'result_dict'.
 
     Parameters:
     result_dict (dict): A dictionary containing an 'authorList'.
 
     Returns:
-    list: A list of formatted affiliation strings.
+    list: A list of formatted strings.
     """
-
     if "authorList" not in result_dict:
         print("No 'authorList' key in the dictionary.")
         return []
 
-    affiliation_list = []
+    all_author_data = []
 
     for author in result_dict["authorList"]:
-        affiliation = author.get("affiliation")
-        if affiliation:
-            formatted_affiliation = affiliation.replace(".", "")
-            affiliation_list.append(formatted_affiliation)
-            # print(f"Successfully added {formatted_affiliation} to the list")
-        else:
-            print(f"Affiliation value for {author} does not exist")
+        author_name = author.get("lastName") + " " + author.get("initials") if author.get("lastName") and author.get("initials") else None
+        affiliation = author.get("affiliation", None)
+        institute = author.get("institute", None)
 
-    return affiliation_list
+        author_data = {
+            "author_name": author_name,
+            "affiliation": affiliation,
+            "institute": institute
+        }
 
+        all_author_data.append(author_data)
 
-def get_institute(result_dict: dict):
-    """
-    Extracts/formats the 'institute' values from the 'authorList' in 'result_dict'.
-
-    Parameters:
-    result_dict (dict): A dictionary containing an 'authorList'.
-
-    Returns:
-    list: A list of formatted institute strings.
-    """
-
-    if "authorList" not in result_dict:
-        print("No 'authorList' key in the dictionary.")
-        return []
-
-    institute_list = []
-
-    for author in result_dict["authorList"]:
-        institute = author.get("institute")
-        if institute:
-            institute_list.append(institute)
-            # print(f"Successfully added {institute} to the list")
-        else:
-            print(f"Institute value for {author} does not exist")
-
-    return institute_list
+    return all_author_data
 
 
 def query_pubmed(values: list, command_flag: str):
@@ -85,10 +60,8 @@ def query_pubmed(values: list, command_flag: str):
             result = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.DEVNULL)
             # print("Attempting to parse JSON:", result[:500])
             result_dict = json.loads(result)
-            affiliations = get_affiliation(result_dict)
-            institutes = get_institute(result_dict)
-            for affiliation, institute in zip(affiliations, institutes):
-                all_results.append({"affiliation": affiliation, "institute": institute})
+            all_author_data = get_author_data(result_dict)
+            all_results.append(all_author_data)
 
         except subprocess.CalledProcessError as e:
             valueType = "PMID" if command_flag == 'i' else "DOI"
@@ -101,9 +74,9 @@ def query_pubmed(values: list, command_flag: str):
 
 
 # CHECKS:
-# pmid_list = ['37444255', '37734358']
-# all_affiliations = query_pubmed(pmid_list, 'i')
-# print('QUERY VIA PMID:', all_affiliations)
+pmid_list = ['37444255', '37734358']
+all_affiliations = query_pubmed(pmid_list, 'i')
+print('QUERY VIA PMID:', all_affiliations)
 
 # doi_list = ['10.1016/j.molcel.2016.11.013', '10.3389/fmicb.2023.1194606']
 # all_affiliations = query_pubmed(doi_list, 'd')

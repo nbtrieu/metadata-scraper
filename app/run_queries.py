@@ -20,6 +20,17 @@ ADD TQDM TO TRACK PROGRESS!!!!
 call query_pubmed on each list
 combine all results into all_results []
 pass in all_results list to get_address_bulk etc.
+
+NEXT STEPS:
+filter for full address
+connect with authors
+make 1 slide with flowchart of my workflow for today's meeting
+find API to get authors' email addresses
+
+create a portal to ingest data collected through this process
+list of keywords -> plug in pubmed advanced query (Nature, Science, Cell) -> get authors,affiliation,etc
+put the authors,affiliation,addresses + connected to keywords -> graph db (person/article nodes)
+might use GPT to search for keywords in abstracts, zymo kits in method sections later
 """
 
 # for result in all_results:
@@ -61,6 +72,6 @@ def retrieve_address_pubmed(data_list: list, command_flag: str):
     address_df_unique.to_csv('full_address_list.csv', sep=',', columns=['affiliation', 'institute', 'address'], header=True, index=False, encoding='utf-8')
 
 
-papers_df = pd.read_csv('relevant_papers.csv')
+papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv')
 doi_list = papers_df['doi'].tolist()
 retrieve_address_pubmed(doi_list, 'd')
