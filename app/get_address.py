@@ -91,7 +91,7 @@ def get_address_bulk(places_list: list):
             search_result = search_place(place[key], my_api_key)
 
             if search_result == {}:
-                continue  # Skip empty search result:
+                continue  # Skip empty search result
 
             result_list = search_result.get("places", [])
             if not result_list:
@@ -101,12 +101,13 @@ def get_address_bulk(places_list: list):
             best_match_address = filter_best_match(result_list, place[key])
             if best_match_address:
                 result_dict = {
-                    "affiliation": place['affiliation'] if 'affiliation' in place else "Unspecified",
-                    "institute": place['institute'] if 'institute' in place else "Unparsed",
+                    "author_name": place.get("author_name", "Unknown"),
+                    "affiliation": place.get('affiliation', "Unspecified"),
+                    "institute": place.get('institute', "Unparsed"),
                     "address": best_match_address
                 }
                 all_results.append(result_dict)
-                break  # Break after finding the first eligible and best match for either affiliation or institute
+                break
 
     return all_results
 
@@ -121,6 +122,6 @@ def get_address_bulk(places_list: list):
 # print('>>> BEST MATCH ADDRESS:', institution_address)
 
 
-institution_name = "Beijing National Laboratory for Molecular Sciences, State Key Laboratory of Molecular Reaction Dynamics"
-address = get_address(institution_name)
-print(address)
+# institution_name = "Beijing National Laboratory for Molecular Sciences, State Key Laboratory of Molecular Reaction Dynamics"
+# address = get_address(institution_name)
+# print(address)

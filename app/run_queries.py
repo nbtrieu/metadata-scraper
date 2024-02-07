@@ -65,11 +65,18 @@ might use GPT to search for keywords in abstracts, zymo kits in method sections 
 
 
 def retrieve_address_pubmed(data_list: list, command_flag: str):
-    all_results = query_pubmed(data_list, command_flag)
-    address_list = get_address_bulk(all_results)
+    pubmed_data = query_pubmed(data_list, command_flag)
+    address_list = get_address_bulk(pubmed_data)
     address_df = pd.DataFrame(address_list)
     address_df_unique = address_df.drop_duplicates()
-    address_df_unique.to_csv('full_address_list.csv', sep=',', columns=['affiliation', 'institute', 'address'], header=True, index=False, encoding='utf-8')
+    address_df_unique.to_csv(
+        'complete_address_list.csv',
+        sep=',',
+        columns=['author_name', 'affiliation', 'institute', 'address'],
+        header=True,
+        index=False,
+        encoding='utf-8'
+    )
 
 
 papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv')

@@ -61,7 +61,7 @@ def query_pubmed(values: list, command_flag: str):
             # print("Attempting to parse JSON:", result[:500])
             result_dict = json.loads(result)
             all_author_data = get_author_data(result_dict)
-            all_results.append(all_author_data)
+            all_results.extend(all_author_data)
 
         except subprocess.CalledProcessError as e:
             valueType = "PMID" if command_flag == 'i' else "DOI"
@@ -74,9 +74,9 @@ def query_pubmed(values: list, command_flag: str):
 
 
 # CHECKS:
-pmid_list = ['37444255', '37734358']
-all_affiliations = query_pubmed(pmid_list, 'i')
-print('QUERY VIA PMID:', all_affiliations)
+# pmid_list = ['37444255', '37734358']
+# all_affiliations = query_pubmed(pmid_list, 'i')
+# print('QUERY VIA PMID:', all_affiliations)
 
 # doi_list = ['10.1016/j.molcel.2016.11.013', '10.3389/fmicb.2023.1194606']
 # all_affiliations = query_pubmed(doi_list, 'd')
