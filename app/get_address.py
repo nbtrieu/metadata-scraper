@@ -24,7 +24,7 @@ def search_place(place, api_key):
     if response.status_code == 200:
         return response.json()
     else:
-        return f"Error: {response.status_code}, {response.text}"
+        return {"error": True, "message": f"Error: {response.status_code}, {response.text}"}
 
 
 def get_address(place_name):
@@ -80,34 +80,56 @@ def filter_best_match(result_list: list, place_name: str):
     return best_match
 
 
-def get_address_bulk(places_list: list):
+def get_address_bulk(publications_list: list, api_key: str):
     all_results = []
 
-    for place in tqdm(places_list, desc="Getting Addresses"):
-        for key in ['affiliation', 'institute']:
-            if place[key] == "Unparsed":  # Skip 'Unparsed' institute values
-                continue
+    for publication in tqdm(publications_list, desc="Getting Addresses"):
+        publication_results = []  # Storing results for each publication separately
 
-            search_result = search_place(place[key], my_api_key)
+        if "authorList" not in publication:
+            print(f"Skipping publication {publication.get('pubmedId', 'Unknown')} due to missing 'authorList'")
+            continue
 
-            if search_result == {}:
-                continue  # Skip empty search result
+        # Extracting 'keyword' and 'pubmedId' from the publication
+        keyword = publication.get("keyword", "Unknown")
+        pubmedId = publication.get("pubmedId", "Unknown")
+        original_articleTitle = publication.get("articleTitle", "Unknown")
+        articleTitle = original_articleTitle.replace('.', '')
 
-            result_list = search_result.get("places", [])
-            if not result_list:
-                continue  # Skip this place if no results found
+        for author in publication["authorList"]:
+            for key in ['affiliation', 'institute']:
+                if author.get(key, "") == "Unparsed":  # Skip 'Unparsed' institute values
+                    continue
 
-            # Find the best match:
-            best_match_address = filter_best_match(result_list, place[key])
-            if best_match_address:
-                result_dict = {
-                    "author_name": place.get("author_name", "Unknown"),
-                    "affiliation": place.get('affiliation', "Unspecified"),
-                    "institute": place.get('institute', "Unparsed"),
-                    "address": best_match_address
-                }
-                all_results.append(result_dict)
-                break
+                search_result = search_place(author[key], api_key)
+
+                if search_result == {}:
+                    continue  # Skip empty search result
+                if search_result.get("error"):
+                    print(search_result.get("message"))  # Log the error message
+                    continue
+
+                result_list = search_result.get("places", [])
+                if not result_list:
+                    continue  # Skip this place if no results found
+
+                # Find the best match:
+                best_match_address = filter_best_match(result_list, author[key])
+                if best_match_address:
+                    result_dict = {
+                        "keyword": keyword,
+                        "pubmedId": pubmedId,
+                        "articleTitle": articleTitle,
+                        "author_name": f"{author.get('lastName', '')} {author.get('initials', '')}".strip(),
+                        "affiliation": author.get('affiliation', "Unspecified"),
+                        "institute": author.get('institute', "Unparsed"),
+                        "address": best_match_address
+                    }
+                    publication_results.append(result_dict)
+                    break  # Optionally break if only one address per author is needed
+
+        # Combine all publication results into the main results list
+        all_results.extend(publication_results)
 
     return all_results
 
@@ -122,6 +144,10 @@ def get_address_bulk(places_list: list):
 # print('>>> BEST MATCH ADDRESS:', institution_address)
 
 
-# institution_name = "Beijing National Laboratory for Molecular Sciences, State Key Laboratory of Molecular Reaction Dynamics"
-# address = get_address(institution_name)
-# print(address)
+institution_name = "School of Food Technology, University of New South Wales, Kensington"
+address = get_address(institution_name)
+print(address)
+
+# publications_list = [{'error': False, 'pubmedId': '7275933', 'journalTitle': 'Journal of bacteriology', 'articleTitle': 'Isolation, properties, function, and regulation of endo-(1 leads to 3)-beta-glucanases in Schizosaccharomyces pombe.', 'authorList': [], 'keyword': 'Glucanases'}, {'error': False, 'pubmedId': '37110241', 'journalTitle': 'Microorganisms', 'articleTitle': None, 'authorList': [{'firstName': 'n/a', 'initials': 'SI', 'lastName': 'Codreanu', 'affiliation': 'Faculty of Medicine, "George Emil Palade" University of Medicine, Pharmacy, Sciences and Technology of Târgu Mures, 38 Gheorghe Marinescu Street, 540139 Târgu Mures, Romania.', 'country': 'Romania', 'institute': '"George Emil Palade" University of Medicine'}, {'firstName': 'n/a', 'initials': 'CN', 'lastName': 'Ciurea', 'affiliation': 'Department of Microbiology, Faculty of Medicine, "George Emil Palade" University of Medicine, Pharmacy, Sciences and Technology of Târgu Mures, 38 Gheorghe Marinescu Street, 540139 Târgu Mures, Romania.', 'country': 'Romania', 'institute': '"George Emil Palade" University of Medicine'}], 'keyword': 'Lyticase'}]
+# address_list = get_address_bulk(publications_list, my_api_key)
+# print('ADDRESS LIST:', address_list)

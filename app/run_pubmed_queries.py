@@ -1,9 +1,10 @@
 import subprocess
 import json
+import pandas as pd
 from tqdm import tqdm
 
 
-def get_author_data(result_dict: dict):
+def get_metadata(result_dict: dict):
     """
     Extracts/formats relevant values from the 'authorList' in 'result_dict'.
 
@@ -11,13 +12,15 @@ def get_author_data(result_dict: dict):
     result_dict (dict): A dictionary containing an 'authorList'.
 
     Returns:
-    list: A list of formatted strings.
+    list: A list of dicts.
     """
     if "authorList" not in result_dict:
         print("No 'authorList' key in the dictionary.")
         return []
 
-    all_author_data = []
+    all_metadata = []
+
+    pmid = result_dict.get("pubmedId")
 
     for author in result_dict["authorList"]:
         author_name = author.get("lastName") + " " + author.get("initials") if author.get("lastName") and author.get("initials") else None
@@ -30,12 +33,12 @@ def get_author_data(result_dict: dict):
             "institute": institute
         }
 
-        all_author_data.append(author_data)
+        all_metadata.append(author_data)
 
-    return all_author_data
+    return all_metadata
 
 
-def query_pubmed(values: list, command_flag: str):
+def query_pubmed(ids_list: list, command_flag: str, keywords_dict: dict):
     """
     Queries the pubmedAuthorAffiliation.py script for authors' affiliations based on PMIDs or DOIs.
 
@@ -54,14 +57,17 @@ def query_pubmed(values: list, command_flag: str):
     script_path = "pubmedAuthorAffiliation/pubmedAuthorAffiliation.py"
     all_results = []
 
-    for value in tqdm(values, desc="Querying PubMed"):
+    for value in tqdm(ids_list, desc="Querying PubMed"):
         try:
             command = f'poetry run python {script_path} -{command_flag} {value}'
             result = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.DEVNULL)
             # print("Attempting to parse JSON:", result[:500])
             result_dict = json.loads(result)
-            all_author_data = get_author_data(result_dict)
-            all_results.extend(all_author_data)
+
+            keyword = keywords_dict.get(value, 'Keyword Not Found')
+            result_dict['keyword'] = keyword
+
+            all_results.append(result_dict)
 
         except subprocess.CalledProcessError as e:
             valueType = "PMID" if command_flag == 'i' else "DOI"
@@ -74,9 +80,15 @@ def query_pubmed(values: list, command_flag: str):
 
 
 # CHECKS:
-# pmid_list = ['37444255', '37734358']
-# all_affiliations = query_pubmed(pmid_list, 'i')
-# print('QUERY VIA PMID:', all_affiliations)
+pmid_list = ['7275933', '37110241']
+
+papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv')
+papers_df['pmid'] = papers_df['pmid'].apply(lambda x: str(int(x)) if pd.notnull(x) and x.is_integer() else str(x))
+keywords_dict = papers_df.set_index('pmid')['keyword'].to_dict()
+print('>>> KEYWORDS DICT:', keywords_dict)
+
+pubmed_data = query_pubmed(pmid_list, 'i', keywords_dict)
+print('QUERY VIA PMID:', pubmed_data)
 
 # doi_list = ['10.1016/j.molcel.2016.11.013', '10.3389/fmicb.2023.1194606']
 # all_affiliations = query_pubmed(doi_list, 'd')
