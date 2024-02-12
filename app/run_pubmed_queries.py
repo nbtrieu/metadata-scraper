@@ -38,7 +38,7 @@ def get_metadata(result_dict: dict):
     return all_metadata
 
 
-def query_pubmed(ids_list: list, command_flag: str, keywords_dict: dict):
+def query_pubmed(ids_list: list, command_flag: str, papers_df: pd.DataFrame):
     """
     Queries the pubmedAuthorAffiliation.py script for authors' affiliations based on PMIDs or DOIs.
 
@@ -64,8 +64,15 @@ def query_pubmed(ids_list: list, command_flag: str, keywords_dict: dict):
             # print("Attempting to parse JSON:", result[:500])
             result_dict = json.loads(result)
 
-            keyword = keywords_dict.get(value, 'Keyword Not Found')
-            result_dict['keyword'] = keyword
+            # Extract 'keyword' and 'doi' based on 'pmid'
+            paper_info = papers_df[papers_df['pmid'] == value]
+
+            if not paper_info.empty:
+                result_dict['keyword'] = paper_info.iloc[0]['keyword']
+                result_dict['doi'] = paper_info.iloc[0]['doi']
+            else:
+                result_dict['keyword'] = 'Keyword Not Found'
+                result_dict['doi'] = 'DOI Not Found'
 
             all_results.append(result_dict)
 
@@ -80,15 +87,10 @@ def query_pubmed(ids_list: list, command_flag: str, keywords_dict: dict):
 
 
 # CHECKS:
-pmid_list = ['7275933', '37110241']
-
-papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv')
-papers_df['pmid'] = papers_df['pmid'].apply(lambda x: str(int(x)) if pd.notnull(x) and x.is_integer() else str(x))
-keywords_dict = papers_df.set_index('pmid')['keyword'].to_dict()
-print('>>> KEYWORDS DICT:', keywords_dict)
-
-pubmed_data = query_pubmed(pmid_list, 'i', keywords_dict)
-print('QUERY VIA PMID:', pubmed_data)
+# pmids_list = ['7275933', '37110241']
+# papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv', dtype={'pmid': str})
+# pubmed_data = query_pubmed(pmids_list, 'i', papers_df)
+# print('QUERY VIA PMID:', pubmed_data)
 
 # doi_list = ['10.1016/j.molcel.2016.11.013', '10.3389/fmicb.2023.1194606']
 # all_affiliations = query_pubmed(doi_list, 'd')

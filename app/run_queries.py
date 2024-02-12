@@ -27,14 +27,14 @@ might use GPT to search for keywords in abstracts, zymo kits in method sections 
 
 my_api_key = 'AIzaSyBeVCa6qSE3QnzaVN4QvVIZWGNAjpvHTGk'
 
-papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv')
-papers_df['pmid'] = papers_df['pmid'].apply(lambda x: str(int(x)) if pd.notnull(x) and x.is_integer() else str(x))
-keywords_dict = papers_df.set_index('pmid')['keyword'].to_dict()
-print('>>> KEYWORDS DICT:', keywords_dict)
-pmid_list = papers_df['pmid'].tolist()
-print(">>> PMID LIST:", pmid_list)
+papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv', dtype={'pmid': str})
+# papers_df['pmid'] = papers_df['pmid'].apply(lambda x: str(int(x)) if pd.notnull(x) and x.is_integer() else str(x))
+# keywords_dict = papers_df.set_index('pmid')['keyword'].to_dict()
+# print('>>> KEYWORDS DICT:', keywords_dict)
+pmids_list = papers_df['pmid'].tolist()
+print(">>> PMID LIST:", pmids_list)
 
-pubmed_data = query_pubmed(pmid_list, 'i', keywords_dict)
+pubmed_data = query_pubmed(pmids_list, 'i', papers_df)
 print('QUERY VIA PMID:', pubmed_data)
 
 
@@ -94,12 +94,12 @@ def create_address_list(pubmed_data: list):
     address_df_unique.to_csv(
         'official_address_list.csv',
         sep=',',
-        columns=['keyword', 'pubmedId', 'articleTitle', 'author_name', 'affiliation', 'institute', 'address'],
+        columns=['keyword', 'pubmed_id', 'doi', 'author_name', 'affiliation', 'institute', 'address'],
         header=True,
         index=False,
         encoding='utf-8'
     )
 
 
-# create_address_list(pubmed_data)
-compile_table(pubmed_data)
+create_address_list(pubmed_data)
+# compile_table(pubmed_data)

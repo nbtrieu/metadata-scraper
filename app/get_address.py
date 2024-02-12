@@ -93,10 +93,7 @@ def get_address_bulk(publications_list: list, api_key: str):
         # Extracting 'keyword' and 'pubmedId' from the publication
         keyword = publication.get("keyword", "Unknown")
         pubmedId = publication.get("pubmedId", "Unknown")
-        # articleTitle = publication.get("articleTitle", "Unknown")
-        original_articleTitle = publication.get("articleTitle", "Unknown")
-        articleTitle = original_articleTitle.replace('.', '') if original_articleTitle is not None else "Unknown"
-        print(f'ARTICLE TITLE FOR PMID {pubmedId}:', articleTitle)
+        doi = publication.get("doi", "Unknown")
 
         for author in publication["authorList"]:
             for key in ['affiliation', 'institute']:
@@ -120,8 +117,8 @@ def get_address_bulk(publications_list: list, api_key: str):
                 if best_match_address:
                     result_dict = {
                         "keyword": keyword,
-                        "pubmedId": pubmedId,
-                        "articleTitle": articleTitle,
+                        "pubmed_id": pubmedId,
+                        "doi": doi,
                         "author_name": f"{author.get('lastName', '')} {author.get('initials', '')}".strip(),
                         "affiliation": author.get('affiliation', "Unspecified"),
                         "institute": author.get('institute', "Unparsed"),
@@ -146,7 +143,7 @@ def get_address_bulk(publications_list: list, api_key: str):
 # print('>>> BEST MATCH ADDRESS:', institution_address)
 
 
-institution_name = "School of Food Technology, University of New South Wales, Kensington"
+institution_name = "Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA"
 address = get_address(institution_name)
 print(address)
 

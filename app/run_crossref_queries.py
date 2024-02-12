@@ -1,7 +1,7 @@
 import requests
 
 
-def get_authors_names(doi_list: list):
+def query_crossref(doi_list: list):
     for doi in doi_list:
         url = f"https://api.crossref.org/works/{doi}"
 
@@ -13,6 +13,7 @@ def get_authors_names(doi_list: list):
 
         if response.status_code == 200:
             data = response.json()
+            print("DATA:", data)
 
             title = data.get('message', {}).get('title', ['No Title'])[0]
             print("Title:", title)
@@ -31,5 +32,5 @@ def get_authors_names(doi_list: list):
             print(f"Error fetching data: {response.status_code}, {response.text}")
 
 
-doi_list = ["10.1177/0300985817698207", "10.4049/jimmunol.2000447"]
-get_authors_names(doi_list)
+doi_list = ["10.1177/0300985817698207", "10.1128/jb.173.10.3101-3108.1991"]
+query_crossref(doi_list)
