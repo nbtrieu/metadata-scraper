@@ -47,7 +47,7 @@ def query_pubmed(ids_list: list, command_flag: str, keywords_dict: dict):
     command_flag (str): 'i' to query by PMID, 'd' to query by DOI.
 
     Returns:
-    list: A list of dictionaries, each with 'affiliation' and 'institute' keys for the queries.
+    list: A list of dictionaries.
     """
 
     if command_flag not in ['i', 'd']:

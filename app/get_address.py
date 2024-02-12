@@ -93,8 +93,10 @@ def get_address_bulk(publications_list: list, api_key: str):
         # Extracting 'keyword' and 'pubmedId' from the publication
         keyword = publication.get("keyword", "Unknown")
         pubmedId = publication.get("pubmedId", "Unknown")
+        # articleTitle = publication.get("articleTitle", "Unknown")
         original_articleTitle = publication.get("articleTitle", "Unknown")
-        articleTitle = original_articleTitle.replace('.', '')
+        articleTitle = original_articleTitle.replace('.', '') if original_articleTitle is not None else "Unknown"
+        print(f'ARTICLE TITLE FOR PMID {pubmedId}:', articleTitle)
 
         for author in publication["authorList"]:
             for key in ['affiliation', 'institute']:

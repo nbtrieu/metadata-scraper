@@ -1,5 +1,6 @@
 import pandas as pd
 
+from tqdm import tqdm
 from get_address import get_address_bulk
 from run_pubmed_queries import query_pubmed
 
@@ -37,6 +38,55 @@ pubmed_data = query_pubmed(pmid_list, 'i', keywords_dict)
 print('QUERY VIA PMID:', pubmed_data)
 
 
+def compile_table(publications_list: list):
+    all_results = []
+
+    for publication in tqdm(publications_list, desc="Making Table"):
+        publication_results = []  # Storing results for each publication separately
+
+        if "authorList" not in publication:
+            print(f"Skipping publication {publication.get('pubmedId', 'Unknown')} due to missing 'authorList'")
+            continue
+
+        # Extracting 'keyword' and 'pubmedId' from the publication
+        keyword = publication.get("keyword", "Unknown")
+        pubmedId = publication.get("pubmedId", "Unknown")
+        # articleTitle = publication.get("articleTitle", "Unknown")
+        original_articleTitle = publication.get("articleTitle", "Unknown")
+        articleTitle = original_articleTitle.replace('.', '') if original_articleTitle is not None else "Unknown"
+        print(f'ARTICLE TITLE FOR PMID {pubmedId}:', articleTitle)
+
+        for author in publication["authorList"]:
+            for key in ['affiliation', 'institute']:
+                if author.get(key, "") == "Unparsed":  # Skip 'Unparsed' institute values
+                    continue
+
+                result_dict = {
+                        "keyword": keyword,
+                        "pubmedId": pubmedId,
+                        "articleTitle": articleTitle,
+                        "author_name": f"{author.get('lastName', '')} {author.get('initials', '')}".strip(),
+                        "affiliation": author.get('affiliation', "Unspecified"),
+                        "institute": author.get('institute', "Unparsed"),
+                    }
+                
+                publication_results.append(result_dict)
+                break
+            
+        all_results.extend(publication_results)
+
+    result_df = pd.DataFrame(all_results)
+    result_df_unique = result_df.drop_duplicates()
+    result_df_unique.to_csv(
+        'testing_list.csv',
+        sep=',',
+        columns=['keyword', 'pubmedId', 'articleTitle', 'author_name', 'affiliation', 'institute'],
+        header=True,
+        index=False,
+        encoding='utf-8'
+    )
+
+
 def create_address_list(pubmed_data: list):
     address_list = get_address_bulk(pubmed_data, my_api_key)
     address_df = pd.DataFrame(address_list)
@@ -51,4 +101,5 @@ def create_address_list(pubmed_data: list):
     )
 
 
-create_address_list(pubmed_data)
+# create_address_list(pubmed_data)
+compile_table(pubmed_data)
