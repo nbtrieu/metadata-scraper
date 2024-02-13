@@ -1,8 +1,9 @@
 import pandas as pd
 
 from tqdm import tqdm
-from get_address import get_address_bulk
+from get_address import get_address_from_pubmed, get_address_from_crossref
 from run_pubmed_queries import query_pubmed
+from run_crossref_queries import query_crossref
 
 """
 ask GPT to give PMIDs or DOIs of research papers focusing on the keywords
@@ -28,14 +29,14 @@ might use GPT to search for keywords in abstracts, zymo kits in method sections 
 my_api_key = 'AIzaSyBeVCa6qSE3QnzaVN4QvVIZWGNAjpvHTGk'
 
 papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv', dtype={'pmid': str})
-# papers_df['pmid'] = papers_df['pmid'].apply(lambda x: str(int(x)) if pd.notnull(x) and x.is_integer() else str(x))
-# keywords_dict = papers_df.set_index('pmid')['keyword'].to_dict()
-# print('>>> KEYWORDS DICT:', keywords_dict)
+
 pmids_list = papers_df['pmid'].tolist()
 print(">>> PMID LIST:", pmids_list)
-
 pubmed_data = query_pubmed(pmids_list, 'i', papers_df)
-print('QUERY VIA PMID:', pubmed_data)
+print("QUERY VIA PMID:", pubmed_data)
+
+# dois_list = papers_df['doi'].tolist()
+# crossref_data = query_crossref(dois_list, papers_df)
 
 
 def compile_table(publications_list: list):
@@ -87,12 +88,12 @@ def compile_table(publications_list: list):
     )
 
 
-def create_address_list(pubmed_data: list):
-    address_list = get_address_bulk(pubmed_data, my_api_key)
+def create_address_table_from_pubmed(pubmed_data: list):
+    address_list = get_address_from_pubmed(pubmed_data, my_api_key)
     address_df = pd.DataFrame(address_list)
     address_df_unique = address_df.drop_duplicates()
     address_df_unique.to_csv(
-        'official_address_list.csv',
+        'pubmed_address_list.csv',
         sep=',',
         columns=['keyword', 'pubmed_id', 'doi', 'author_name', 'affiliation', 'institute', 'address'],
         header=True,
@@ -101,5 +102,18 @@ def create_address_list(pubmed_data: list):
     )
 
 
-create_address_list(pubmed_data)
-# compile_table(pubmed_data)
+def create_address_table_from_crossref(crossref_data: list):
+    address_list = get_address_from_crossref(crossref_data, my_api_key)
+    address_df = pd.DataFrame(address_list)
+    address_df_unique = address_df.drop_duplicates()
+    address_df_unique.to_csv(
+        'crossref_address_list.csv',
+        sep=',',
+        columns=['doi', 'keyword', 'given_name', 'family_name', 'affiliation', 'address'],
+        header=True,
+        index=False,
+        encoding='utf-8'
+    )
+
+
+create_address_table_from_pubmed(pubmed_data)

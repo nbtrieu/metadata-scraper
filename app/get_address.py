@@ -80,7 +80,7 @@ def filter_best_match(result_list: list, place_name: str):
     return best_match
 
 
-def get_address_bulk(publications_list: list, api_key: str):
+def get_address_from_pubmed(publications_list: list, api_key: str):
     all_results = []
 
     for publication in tqdm(publications_list, desc="Getting Addresses"):
@@ -133,6 +133,55 @@ def get_address_bulk(publications_list: list, api_key: str):
     return all_results
 
 
+def get_address_from_crossref(publications_list: list, api_key: str):
+    all_results = []
+
+    for publication in tqdm(publications_list, desc="Getting Addresses"):
+        publication_results = []  # Storing results for each publication separately
+
+        if publication.get("authors") == []:
+            print(f"Skipping publication {publication.get('doi', 'Unknown')} due to missing 'authors'")
+            continue
+
+        # Extracting 'keyword' and 'doi' from the publication
+        doi = publication.get("doi", "Unknown")
+        keyword = publication.get("keyword", "Unknown")
+
+        for author in publication["authors"]:
+            affiliations = author.get("affiliation", [])
+            if not affiliations:  # Skip authors with no affiliations
+                continue
+
+            # Use only the first affiliation for searching
+            first_affiliation = affiliations[0]
+
+            search_result = search_place(first_affiliation, api_key)
+            if search_result == {} or search_result.get("error"):
+                print(search_result.get("message", "Error during search"))  # Log the error message or a default error message
+                continue
+
+            result_list = search_result.get("places", [])
+            if not result_list:
+                continue  # Skip this place if no results found
+
+            best_match_address = filter_best_match(result_list, first_affiliation)
+            if best_match_address:
+                result_dict = {
+                    "doi": doi,
+                    "keyword": keyword,
+                    "given_name": author.get('given_name', "Unknown"),
+                    "family_name": author.get('family_name', "Unknown"),
+                    "affiliation": first_affiliation,  # Store the used affiliation
+                    "address": best_match_address
+                }
+                publication_results.append(result_dict)
+                # No break here to allow processing for all authors
+
+        all_results.extend(publication_results)
+
+    return all_results
+
+
 # Test:
 # institution_name = 'University of New England'
 # institution_name = 'Surin Rajabhat University'  # case: multiple result
@@ -143,10 +192,14 @@ def get_address_bulk(publications_list: list, api_key: str):
 # print('>>> BEST MATCH ADDRESS:', institution_address)
 
 
-institution_name = "Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA"
-address = get_address(institution_name)
-print(address)
+# institution_name = "Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA"
+# address = get_address(institution_name)
+# print(address)
 
 # publications_list = [{'error': False, 'pubmedId': '7275933', 'journalTitle': 'Journal of bacteriology', 'articleTitle': 'Isolation, properties, function, and regulation of endo-(1 leads to 3)-beta-glucanases in Schizosaccharomyces pombe.', 'authorList': [], 'keyword': 'Glucanases'}, {'error': False, 'pubmedId': '37110241', 'journalTitle': 'Microorganisms', 'articleTitle': None, 'authorList': [{'firstName': 'n/a', 'initials': 'SI', 'lastName': 'Codreanu', 'affiliation': 'Faculty of Medicine, "George Emil Palade" University of Medicine, Pharmacy, Sciences and Technology of Târgu Mures, 38 Gheorghe Marinescu Street, 540139 Târgu Mures, Romania.', 'country': 'Romania', 'institute': '"George Emil Palade" University of Medicine'}, {'firstName': 'n/a', 'initials': 'CN', 'lastName': 'Ciurea', 'affiliation': 'Department of Microbiology, Faculty of Medicine, "George Emil Palade" University of Medicine, Pharmacy, Sciences and Technology of Târgu Mures, 38 Gheorghe Marinescu Street, 540139 Târgu Mures, Romania.', 'country': 'Romania', 'institute': '"George Emil Palade" University of Medicine'}], 'keyword': 'Lyticase'}]
 # address_list = get_address_bulk(publications_list, my_api_key)
 # print('ADDRESS LIST:', address_list)
+
+# crossref_data = [{'doi': '10.1177/0300985817698207', 'keyword': 'Lyticase', 'authors': [{'given_name': 'Courtney', 'family_name': 'Meason-Smith', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Erin E.', 'family_name': 'Edwards', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Caitlin E.', 'family_name': 'Older', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Mackenzie', 'family_name': 'Branco', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Laura K.', 'family_name': 'Bryan', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Sara D.', 'family_name': 'Lawhon', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Jan S.', 'family_name': 'Suchodolski', 'affiliation': ['Department of Small Animal Clinical Sciences, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Gabriel', 'family_name': 'Gomez', 'affiliation': ['Texas A&M Veterinary Medical Diagnostic Laboratory, College Station, TX, USA']}, {'given_name': 'Joanne', 'family_name': 'Mansell', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Aline Rodrigues', 'family_name': 'Hoffmann', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}]}, {'doi': '10.1128/jb.173.10.3101-3108.1991', 'keyword': 'Lyticase', 'authors': [{'given_name': 'J L', 'family_name': 'Patton', 'affiliation': ['Department of Biochemistry, University of Kentucky, Lexington 40536.']}, {'given_name': 'R L', 'family_name': 'Lester', 'affiliation': ['Department of Biochemistry, University of Kentucky, Lexington 40536.']}]}]
+# address_list = get_address_from_crossref(crossref_data, my_api_key)
+# print("ADDRESS LIST:", address_list)
