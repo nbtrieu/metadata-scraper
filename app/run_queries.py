@@ -30,13 +30,13 @@ my_api_key = 'AIzaSyBeVCa6qSE3QnzaVN4QvVIZWGNAjpvHTGk'
 
 papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv', dtype={'pmid': str})
 
-pmids_list = papers_df['pmid'].tolist()
-print(">>> PMID LIST:", pmids_list)
-pubmed_data = query_pubmed(pmids_list, 'i', papers_df)
-print("QUERY VIA PMID:", pubmed_data)
+# pmids_list = papers_df['pmid'].tolist()
+# print(">>> PMID LIST:", pmids_list)
+# pubmed_data = query_pubmed(pmids_list, 'i', papers_df)
+# print("QUERY VIA PMID:", pubmed_data)
 
-# dois_list = papers_df['doi'].tolist()
-# crossref_data = query_crossref(dois_list, papers_df)
+dois_list = papers_df['doi'].tolist()
+crossref_data = query_crossref(dois_list, papers_df)
 
 
 def compile_table(publications_list: list):
@@ -116,4 +116,5 @@ def create_address_table_from_crossref(crossref_data: list):
     )
 
 
-create_address_table_from_pubmed(pubmed_data)
+# create_address_table_from_pubmed(pubmed_data)
+create_address_table_from_crossref(crossref_data)

@@ -47,52 +47,89 @@ def query_crossref(doi_list: list, papers_df: pd.DataFrame):
     return all_results
 
 
+def format_author_name(given_name, family_name):
+    # Replace periods to handle middle initials correctly and then extract initials
+    initials = "".join([name[0] for name in given_name.replace('.', ' ').split() if name]).upper()
+    # Concatenate initials with the family name
+    formatted_name = f"{family_name} {initials}"
+    # print("FORMATTED NAME:", formatted_name)
+    return formatted_name
+
+
 def get_authors_name(doi_list: list):
     authors_names = []
 
-    for doi in tqdm(doi_list, desc="Querying Crossref Authors' Names"):
+    for doi in tqdm(doi_list, desc="Querying Crossref"):
         url = f"https://api.crossref.org/works/{doi}"
         headers = {"User-Agent": "Email example@example.com"}  # Change to your actual email
         response = requests.get(url, headers=headers)
 
         if response.status_code == 200:
             result_dict = response.json()['message']
-
             authors_list = result_dict.get('author', [])
             for author in authors_list:
+                given_name = author.get('given', "")
+                family_name = author.get('family', "")
+                formatted_author_name = format_author_name(given_name, family_name)
                 author_dict = {
                     'doi': doi,
-                    'given_name': author.get('given', "Unknown"),
-                    'family_name': author.get('family', "Unknown"),
+                    'author_name': formatted_author_name,  # This will be used for matching
+                    'given_name': given_name,
+                    'family_name': family_name,
                 }
-                authors_names.append(author_dict)  # Corrected line: append inside the loop
+                authors_names.append(author_dict)
 
         else:
             print(f"Error fetching data for DOI {doi}: {response.status_code}, {response.text}")
 
-    authors_df = pd.DataFrame(authors_names)
-    authors_df_unique = authors_df.drop_duplicates()
-    authors_df_unique.to_csv(
+    authors_names_df = pd.DataFrame(authors_names)
+    authors_names_df.to_csv(
         'authors_names_list.csv',
         sep=',',
-        columns=['doi', 'given_name', 'family_name'],
+        columns=['doi', 'author_name', 'given_name', 'family_name'],
         header=True,
         index=False,
         encoding='utf-8'
     )
-    return authors_df_unique
+
+    return authors_names_df
 
 
-papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv', dtype={'doi': str})
-doi_list = papers_df['doi'].tolist()
+pubmed_address_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/pubmed_address_list.csv', dtype={'doi': str})
+doi_list = pubmed_address_df['doi'].tolist()
 authors_names_df = get_authors_name(doi_list)
-official_address_df = pd.read_csv('official_address_list.csv')
+# authors_names_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/authors_names_list.csv')
 
-# Joining the DataFrames
-merged_df = pd.merge(official_address_df, authors_names_df, on='doi', how='left')
+# Merge using both 'doi' and 'author_name' for a precise match
+merged_df = pd.merge(authors_names_df, pubmed_address_df, on=['doi', 'author_name'], how='left')
 
-column_order = ['keyword', 'pubmed_id', 'doi', 'author_name', 'given_name', 'family_name', 'affiliation', 'institute', 'address']
-merged_df.to_csv('joined_official_address_authors.csv', index=False, columns=column_order, encoding='utf-8')
+column_order = [
+    'doi',
+    'author_name',
+    'given_name',
+    'family_name',
+    'keyword',
+    'pubmed_id',
+    'affiliation',
+    'institute',
+    'address'
+]
+
+# Reordering columns if needed and ensuring all columns exist
+column_order = [col for col in column_order if col in merged_df.columns]
+merged_df = merged_df[column_order].drop_duplicates()
+
+# Save to CSV
+merged_df.to_csv('joined_authors_with_official_address.csv', index=False, encoding='utf-8')
+
+
+# SMALLER TESTS:
+# test_name = format_author_name("Anastasia M.W.", "Cooper")
+# print(test_name)
+
+# doi_list = ["10.1016/j.pestbp.2019.08.002"]
+# test_df = get_authors_name(doi_list)
+# print(test_df)
 
 # doi_list = ["10.1177/0300985817698207", "10.1128/jb.173.10.3101-3108.1991"]
 # papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv', dtype={'doi': str})
