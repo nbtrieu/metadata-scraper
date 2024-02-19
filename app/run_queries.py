@@ -117,4 +117,4 @@ def create_address_table_from_crossref(crossref_data: list):
 
 
 # create_address_table_from_pubmed(pubmed_data)
-create_address_table_from_crossref(crossref_data)
+# create_address_table_from_crossref(crossref_data)

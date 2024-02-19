@@ -95,33 +95,38 @@ def get_authors_name(doi_list: list):
     return authors_names_df
 
 
-pubmed_address_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/pubmed_address_list.csv', dtype={'doi': str})
-doi_list = pubmed_address_df['doi'].tolist()
-authors_names_df = get_authors_name(doi_list)
-# authors_names_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/authors_names_list.csv')
+def create_authors_address_table():
+    pubmed_address_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/pubmed_address_list.csv', dtype={'doi': str})
+    doi_list = pubmed_address_df['doi'].tolist()
+    authors_names_df = get_authors_name(doi_list)
 
-# Merge using both 'doi' and 'author_name' for a precise match
-merged_df = pd.merge(authors_names_df, pubmed_address_df, on=['doi', 'author_name'], how='left')
+    # Merge using both 'doi' and 'author_name' for a precise match
+    merged_df = pd.merge(authors_names_df, pubmed_address_df, on=['doi', 'author_name'], how='left')
 
-column_order = [
-    'doi',
-    'author_name',
-    'given_name',
-    'family_name',
-    'keyword',
-    'pubmed_id',
-    'affiliation',
-    'institute',
-    'address'
-]
+    column_order = [
+        'doi',
+        'author_name',
+        'given_name',
+        'family_name',
+        'keyword',
+        'pubmed_id',
+        'affiliation',
+        'institute',
+        'address'
+    ]
 
-# Reordering columns if needed and ensuring all columns exist
-column_order = [col for col in column_order if col in merged_df.columns]
-merged_df = merged_df[column_order].drop_duplicates()
+    # Reordering columns if needed and ensuring all columns exist
+    column_order = [col for col in column_order if col in merged_df.columns]
+    merged_df = merged_df[column_order].drop_duplicates()
 
-# Save to CSV
-merged_df.to_csv('joined_authors_with_official_address.csv', index=False, encoding='utf-8')
+    # Save to CSV
+    merged_df.to_csv('joined_authors_with_official_address.csv', index=False, encoding='utf-8')
 
+    return merged_df
+
+
+address_df = create_authors_address_table()
+print(address_df)
 
 # SMALLER TESTS:
 # test_name = format_author_name("Anastasia M.W.", "Cooper")
