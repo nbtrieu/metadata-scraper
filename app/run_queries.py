@@ -30,13 +30,17 @@ my_api_key = 'AIzaSyBeVCa6qSE3QnzaVN4QvVIZWGNAjpvHTGk'
 
 papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv', dtype={'pmid': str})
 
-# pmids_list = papers_df['pmid'].tolist()
-# print(">>> PMID LIST:", pmids_list)
-# pubmed_data = query_pubmed(pmids_list, 'i', papers_df)
+pmids_list = papers_df['pmid'].tolist()
+print(">>> PMID LIST:", pmids_list)
+pubmed_data = query_pubmed(pmids_list, 'i', papers_df)
 # print("QUERY VIA PMID:", pubmed_data)
+if pubmed_data:
+    print("First 3 elements of pubmed_data list:")
+    for data in pubmed_data[:3]:
+        print(data)
 
-dois_list = papers_df['doi'].tolist()
-crossref_data = query_crossref(dois_list, papers_df)
+# dois_list = papers_df['doi'].tolist()
+# crossref_data = query_crossref(dois_list, papers_df)
 
 
 def compile_table(publications_list: list):
@@ -93,7 +97,7 @@ def create_address_table_from_pubmed(pubmed_data: list):
     address_df = pd.DataFrame(address_list)
     address_df_unique = address_df.drop_duplicates()
     address_df_unique.to_csv(
-        'pubmed_address_list.csv',
+        'pubmed_address_list_new.csv',
         sep=',',
         columns=['keyword', 'pubmed_id', 'doi', 'author_name', 'affiliation', 'institute', 'address'],
         header=True,
@@ -116,5 +120,5 @@ def create_address_table_from_crossref(crossref_data: list):
     )
 
 
-# create_address_table_from_pubmed(pubmed_data)
+create_address_table_from_pubmed(pubmed_data)
 # create_address_table_from_crossref(crossref_data)

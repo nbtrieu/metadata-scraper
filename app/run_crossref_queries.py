@@ -125,8 +125,8 @@ def create_authors_address_table():
     return merged_df
 
 
-address_df = create_authors_address_table()
-print(address_df)
+# address_df = create_authors_address_table()
+# print(address_df)
 
 # SMALLER TESTS:
 # test_name = format_author_name("Anastasia M.W.", "Cooper")
