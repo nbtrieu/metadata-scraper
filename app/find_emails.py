@@ -3,9 +3,9 @@ import requests
 url = "https://api.hunter.io/v2/email-finder"
 
 params = {
-    "domain": "chem.ucla.edu",
-    "first_name": "Daniel",
-    "last_name": "Jacobs",
+    "domain": "mednet.ucla.edu",
+    "first_name": "Joan",
+    "last_name": "Warner",
     "api_key": "a72ec8033998a514e9dbad54319ed4b52256a907"
 }
 
