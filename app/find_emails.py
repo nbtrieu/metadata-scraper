@@ -71,5 +71,5 @@ my_api_key = "a72ec8033998a514e9dbad54319ed4b52256a907"
 # hunter_email_df = find_email_bulk(params_list)
 # print(hunter_email_df)
 
-test_email = find_email("mednet.ucla.edu", "Jennifer", "Lowe", my_api_key)
+test_email = find_email("pfizer.com", "Mili", "Kapoor", my_api_key)
 print(test_email)
