@@ -1,8 +1,11 @@
 import requests
 import logging
+import json
 from tqdm import tqdm
 
-my_api_key = 'AIzaSyBeVCa6qSE3QnzaVN4QvVIZWGNAjpvHTGk'
+with open('config.json', 'r') as file:
+    config = json.load(file)
+google_maps_places_api_key = config['apiKeys']['googleMapsPlaces']
 
 
 def search_place(place, api_key):
@@ -34,7 +37,7 @@ def search_place(place, api_key):
 
 
 def get_address(place_name):
-    search_result = search_place(place_name, my_api_key)
+    search_result = search_place(place_name, google_maps_places_api_key)
     # print('>>> SEARCH RESULT:', search_result)
 
     result_list = search_result.get("places", [])
@@ -192,7 +195,7 @@ def get_address_from_crossref(publications_list: list, api_key: str):
 # institution_name = 'University of New England'
 # institution_name = 'Surin Rajabhat University'  # case: multiple result
 # institution_name = 'European Molecular Biology Laboratory (EMBL), Structural and Computational Biology Unit, Meyerhofstrasse 1, 69117 Heidelberg, Germany'
-# search_result = search_place(institution_name, my_api_key)
+# search_result = search_place(institution_name, google_maps_places_api_key)
 # print('>>> SEARCH RESULT:', search_result)
 # institution_address = get_address(institution_name)
 # print('>>> BEST MATCH ADDRESS:', institution_address)
@@ -203,9 +206,9 @@ def get_address_from_crossref(publications_list: list, api_key: str):
 # print(address)
 
 # publications_list = [{'error': False, 'pubmedId': '7275933', 'journalTitle': 'Journal of bacteriology', 'articleTitle': 'Isolation, properties, function, and regulation of endo-(1 leads to 3)-beta-glucanases in Schizosaccharomyces pombe.', 'authorList': [], 'keyword': 'Glucanases'}, {'error': False, 'pubmedId': '37110241', 'journalTitle': 'Microorganisms', 'articleTitle': None, 'authorList': [{'firstName': 'n/a', 'initials': 'SI', 'lastName': 'Codreanu', 'affiliation': 'Faculty of Medicine, "George Emil Palade" University of Medicine, Pharmacy, Sciences and Technology of Târgu Mures, 38 Gheorghe Marinescu Street, 540139 Târgu Mures, Romania.', 'country': 'Romania', 'institute': '"George Emil Palade" University of Medicine'}, {'firstName': 'n/a', 'initials': 'CN', 'lastName': 'Ciurea', 'affiliation': 'Department of Microbiology, Faculty of Medicine, "George Emil Palade" University of Medicine, Pharmacy, Sciences and Technology of Târgu Mures, 38 Gheorghe Marinescu Street, 540139 Târgu Mures, Romania.', 'country': 'Romania', 'institute': '"George Emil Palade" University of Medicine'}], 'keyword': 'Lyticase'}]
-# address_list = get_address_bulk(publications_list, my_api_key)
+# address_list = get_address_bulk(publications_list, google_maps_places_api_key)
 # print('ADDRESS LIST:', address_list)
 
 # crossref_data = [{'doi': '10.1177/0300985817698207', 'keyword': 'Lyticase', 'authors': [{'given_name': 'Courtney', 'family_name': 'Meason-Smith', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Erin E.', 'family_name': 'Edwards', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Caitlin E.', 'family_name': 'Older', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Mackenzie', 'family_name': 'Branco', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Laura K.', 'family_name': 'Bryan', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Sara D.', 'family_name': 'Lawhon', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Jan S.', 'family_name': 'Suchodolski', 'affiliation': ['Department of Small Animal Clinical Sciences, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Gabriel', 'family_name': 'Gomez', 'affiliation': ['Texas A&M Veterinary Medical Diagnostic Laboratory, College Station, TX, USA']}, {'given_name': 'Joanne', 'family_name': 'Mansell', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}, {'given_name': 'Aline Rodrigues', 'family_name': 'Hoffmann', 'affiliation': ['Department of Veterinary Pathobiology, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX, USA']}]}, {'doi': '10.1128/jb.173.10.3101-3108.1991', 'keyword': 'Lyticase', 'authors': [{'given_name': 'J L', 'family_name': 'Patton', 'affiliation': ['Department of Biochemistry, University of Kentucky, Lexington 40536.']}, {'given_name': 'R L', 'family_name': 'Lester', 'affiliation': ['Department of Biochemistry, University of Kentucky, Lexington 40536.']}]}]
-# address_list = get_address_from_crossref(crossref_data, my_api_key)
+# address_list = get_address_from_crossref(crossref_data, google_maps_places_api_key)
 # print("ADDRESS LIST:", address_list)

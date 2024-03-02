@@ -1,5 +1,5 @@
 import pandas as pd
-
+import json
 from tqdm import tqdm
 from get_address import get_address_from_pubmed, get_address_from_crossref
 from run_pubmed_queries import query_pubmed
@@ -26,7 +26,9 @@ put the authors,affiliation,addresses + connected to keywords -> graph db (perso
 might use GPT to search for keywords in abstracts, zymo kits in method sections later
 """
 
-my_api_key = 'AIzaSyBeVCa6qSE3QnzaVN4QvVIZWGNAjpvHTGk'
+with open('config.json', 'r') as file:
+    config = json.load(file)
+google_maps_places_api_key = config['apiKeys']['googleMapsPlaces']
 
 papers_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/relevant_papers.csv', dtype={'pmid': str})
 
@@ -93,7 +95,7 @@ def compile_table(publications_list: list):
 
 
 def create_address_table_from_pubmed(pubmed_data: list):
-    address_list = get_address_from_pubmed(pubmed_data, my_api_key)
+    address_list = get_address_from_pubmed(pubmed_data, google_maps_places_api_key)
     address_df = pd.DataFrame(address_list)
     address_df_unique = address_df.drop_duplicates()
     address_df_unique.to_csv(
@@ -107,7 +109,7 @@ def create_address_table_from_pubmed(pubmed_data: list):
 
 
 def create_address_table_from_crossref(crossref_data: list):
-    address_list = get_address_from_crossref(crossref_data, my_api_key)
+    address_list = get_address_from_crossref(crossref_data, google_maps_places_api_key)
     address_df = pd.DataFrame(address_list)
     address_df_unique = address_df.drop_duplicates()
     address_df_unique.to_csv(

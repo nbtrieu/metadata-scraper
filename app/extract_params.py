@@ -1,6 +1,11 @@
 import pandas as pd
+import json
 from typing import List
 from tqdm import tqdm
+
+with open('config.json', 'r') as file:
+    config = json.load(file)
+hunter_api_key = config['apiKeys']['hunter']
 
 
 def get_domain(email: str) -> str:
@@ -37,8 +42,7 @@ def create_params_list(email_df: pd.DataFrame, api_key: str) -> List:
 
 # ucla_email_df = pd.read_csv("data/ucla_contacts.csv")
 # # print(ucla_email_df)
-# my_api_key = "a72ec8033998a514e9dbad54319ed4b52256a907"
-# ucla_params = create_params_list(ucla_email_df, my_api_key)
+# ucla_params = create_params_list(ucla_email_df, hunter_api_key)
 # if ucla_params:
 #     for param in ucla_params[-3:]:
 #         print(param)

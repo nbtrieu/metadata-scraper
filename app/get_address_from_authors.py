@@ -1,10 +1,13 @@
 import requests
+import json
 
-my_api_key = 'AIzaSyBeVCa6qSE3QnzaVN4QvVIZWGNAjpvHTGk'
+with open('config.json', 'r') as file:
+    config = json.load(file)
+google_maps_places_api_key = config['apiKeys']['googleMapsPlaces']
 
 
 def search_place_from_authors(author, api_key):
-    api_key = my_api_key
+    api_key = google_maps_places_api_key
 
     url = 'https://places.googleapis.com/v1/places:searchText'
 
@@ -27,7 +30,7 @@ def search_place_from_authors(author, api_key):
 
 
 # def filter_address(place_name):
-#     search_result = search_place_from_authors(place_name, my_api_key)
+#     search_result = search_place_from_authors(place_name, google_maps_places_api_key)
 #     result_list = search_result["places"]
 #     for result in result_list:
 #         display_name_field = result["displayName"]["text"]
@@ -40,5 +43,5 @@ def search_place_from_authors(author, api_key):
 
 # Test:
 author_name = 'Joseph Stephen Glavy'
-institution_address = search_place_from_authors(author_name, my_api_key)
+institution_address = search_place_from_authors(author_name, google_maps_places_api_key)
 print(institution_address)

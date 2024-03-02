@@ -1,8 +1,13 @@
 import requests
 import pandas as pd
+import json
 from typing import Dict
 from tqdm import tqdm
 from extract_params import *
+
+with open('config.json', 'r') as file:
+    config = json.load(file)
+hunter_api_key = config['apiKeys']['hunter']
 
 
 def find_email(domain: str, first_name: str, last_name: str, api_key: str) -> Dict:
@@ -59,10 +64,8 @@ def find_email_bulk(params_list: list) -> pd.DataFrame:
     return email_df
 
 
-my_api_key = "a72ec8033998a514e9dbad54319ed4b52256a907"
-
 # ucla_email_df = pd.read_csv("data/ucla_contacts.csv")
-# params_list = create_params_list(ucla_email_df, my_api_key)
+# params_list = create_params_list(ucla_email_df, hunter_api_key)
 # params_list = [
 #     {'domain': 'mednet.ucla.edu', 'first_name': 'Rita', 'last_name': 'Simon', 'api_key': 'a72ec8033998a514e9dbad54319ed4b52256a907'},
 #     {'domain': 'mednet.ucla.edu', 'first_name': 'Ivan', 'last_name': 'Cortes', 'api_key': 'a72ec8033998a514e9dbad54319ed4b52256a907'},
@@ -71,5 +74,5 @@ my_api_key = "a72ec8033998a514e9dbad54319ed4b52256a907"
 # hunter_email_df = find_email_bulk(params_list)
 # print(hunter_email_df)
 
-test_email = find_email("pfizer.com", "Mili", "Kapoor", my_api_key)
+test_email = find_email("pfizer.com", "Mili", "Kapoor", hunter_api_key)
 print(test_email)

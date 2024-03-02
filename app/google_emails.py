@@ -1,4 +1,10 @@
 import requests
+import json
+
+with open('config.json', 'r') as file:
+    config = json.load(file)
+google_custom_search_api_key = config['apiKeys']['googleCustomSearch']
+search_engine_id = config['searchEngineId']
 
 
 def google_emails(api_key: str, se_id: str, query: str):
@@ -19,7 +25,5 @@ def google_emails(api_key: str, se_id: str, query: str):
         print(f"Failed to retrieve search result: {response.status_code}")
 
 
-my_api_key = "AIzaSyDDoyxDjSolmfvXNswzIEfng15JQzmGNWc"
-my_se_id = "e7ecd2aa0903946a1"
 my_query = "Stephan Sommer Viticulture and Enology Research Center , California State University"
-google_emails(my_api_key, my_se_id, my_query)
+google_emails(google_custom_search_api_key, search_engine_id, my_query)

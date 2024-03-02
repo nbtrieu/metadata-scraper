@@ -6,6 +6,7 @@ conf/local/**
 !conf/local/**/
 !conf/local/**/.gitkeep
 !conf/**/README.md
+config.json
 
 # .telemetry
 
