@@ -20,8 +20,11 @@ def get_pmids_from_author(api_key: str, author_name: str):
     response = requests.get(url=url, params=params)
 
     if response.status_code == 200:
-        result = response.json()  # get specifically the 'idlist' field value
-        print(result)
+        data = response.json()  # get specifically the 'idlist' field value
+        idlist = data['esearchresult']['idlist']
+        pmids = ','.join(idlist)
+        return pmids
+
     else:
         print(f"Failed to retrieve search result: {response.status_code}")
 
@@ -32,7 +35,6 @@ def get_keywords_from_pmids(api_key: str, pmids: str):
     params = {
         "db": "pubmed",
         "id": pmids,
-        # "rettype":
         "retmode": "xml",
         "api_key": api_key
     }
@@ -40,6 +42,7 @@ def get_keywords_from_pmids(api_key: str, pmids: str):
     response = requests.get(url=url, params=params)
 
     if response.status_code == 200:
+        all_results = []
         # Parse the XML response
         root = ET.fromstring(response.text)
         for article in root.findall('.//PubmedArticle'):
@@ -49,12 +52,25 @@ def get_keywords_from_pmids(api_key: str, pmids: str):
             if keywords_list is not None:
                 for keyword in keywords_list:
                     keywords.append(keyword.text)
-            print(f"PMID: {pmid}, Keywords: {', '.join(keywords)}")
+            # print(f"PMID: {pmid}, Keywords: {', '.join(keywords)}")
+            result_dict = {
+                "pmid": pmid,
+                "keywords": keywords
+            }
+            all_results.append(result_dict)
+
+        return all_results
+
     else:
         print(f"Failed to retrieve search result: {response.status_code}")
 
 
-# author_name = "Courtney Meason-Smith"
-# get_pmids_from_author(ncbi_api_key, author_name)
-pmids = "28346123,26542075"
-get_keywords_from_pmids(ncbi_api_key, pmids)
+def get_keywords_from_authors()
+
+
+author_name = "Courtney Meason-Smith"
+pmids = get_pmids_from_author(ncbi_api_key, author_name)
+print(pmids)
+# pmids = "28346123,26542075"
+keywords = get_keywords_from_pmids(ncbi_api_key, pmids)
+print(keywords)
