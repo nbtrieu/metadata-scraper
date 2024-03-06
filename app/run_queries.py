@@ -76,10 +76,10 @@ def compile_table(publications_list: list):
                         "affiliation": author.get('affiliation', "Unspecified"),
                         "institute": author.get('institute', "Unparsed"),
                     }
-                
+
                 publication_results.append(result_dict)
                 break
-            
+
         all_results.extend(publication_results)
 
     result_df = pd.DataFrame(all_results)
