@@ -3,10 +3,45 @@ import json
 import xml.etree.ElementTree as ET
 import pandas as pd
 from tqdm import tqdm
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
+import time
 
 with open('../config.json', 'r') as file:
     config = json.load(file)
 ncbi_api_key = config['apiKeys']['ncbi']
+
+
+# def get_pmids_from_term(api_key: str, term: str):
+#     url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+
+#     params = {
+#         "db": "pubmed",
+#         "term": term,
+#         "retmode": "json",
+#         "api_key": api_key
+#     }
+
+#     response = requests.get(url=url, params=params)
+
+#     if response.status_code == 200:
+#         data = response.json()  # get specifically the 'idlist' field value
+
+#         if 'esearchresult' in data and 'idlist' in data['esearchresult']:
+#             idlist = data['esearchresult']['idlist']
+#         else:
+#             print(f"The expected 'idlist' for {term} was not found in the response.")
+#             return []
+
+#         if not idlist:
+#             print(f"No PMIDs found for term: {term}")
+#             return []
+#         else:
+#             pmids = ','.join(idlist)
+#             return pmids
+
+#     else:
+#         print(f"Failed to retrieve search result: {response.status_code}")
 
 
 def get_pmids_from_term(api_key: str, term: str):
@@ -19,26 +54,48 @@ def get_pmids_from_term(api_key: str, term: str):
         "api_key": api_key
     }
 
-    response = requests.get(url=url, params=params)
+    # Create a session object
+    session = requests.Session()
 
-    if response.status_code == 200:
-        data = response.json()  # get specifically the 'idlist' field value
+    # Define retry strategy
+    retries = Retry(total=5,  # Total number of retries to allow
+                    backoff_factor=1,  # A backoff factor to apply between attempts
+                    status_forcelist=[500, 502, 503, 504],  # A set of HTTP status codes that we should force a retry on
+                    method_whitelist=["GET"])  # Enable retries for GET method
 
-        if 'esearchresult' in data and 'idlist' in data['esearchresult']:
-            idlist = data['esearchresult']['idlist']
+    # Mount it to the session
+    adapter = HTTPAdapter(max_retries=retries)
+    session.mount('http://', adapter)
+    session.mount('https://', adapter)
+
+    try:
+        # Ensure we respect the rate limit by sleeping 1 second / 10 requests
+        time.sleep(0.1)
+
+        response = session.get(url=url, params=params)
+
+        if response.status_code == 200:
+            data = response.json()
+
+            if 'esearchresult' in data and 'idlist' in data['esearchresult']:
+                idlist = data['esearchresult']['idlist']
+            else:
+                print(f"The expected 'idlist' for {term} was not found in the response.")
+                return []
+
+            if not idlist:
+                print(f"No PMIDs found for term: {term}")
+                return []
+            else:
+                pmids = ','.join(idlist)
+                return pmids
         else:
-            print(f"The expected 'idlist' for {term} was not found in the response.")
+            print(f"Failed to retrieve search result: {response.status_code}")
             return []
 
-        if not idlist:
-            print(f"No PMIDs found for term: {term}")
-            return []
-        else:
-            pmids = ','.join(idlist)
-            return pmids
-
-    else:
-        print(f"Failed to retrieve search result: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
+        return []
 
 
 def get_keywords_from_pmids(api_key: str, pmids: str):
@@ -104,16 +161,21 @@ def get_keywords_from_author_names(api_key: str, author_name_list: list):
 # keywords = get_keywords_from_pmids(ncbi_api_key, pmids)
 # print(keywords)
 
-# author_name_list = ["Philip Bennallack", "Anne Keller-Novak"]
+# leads_name_list = ["Philip Bennallack", "Anne Keller-Novak"]
 # all_keywords = get_keywords_from_author_names(ncbi_api_key, author_name_list)
 # print(all_keywords)
 
-leads_df = pd.read_csv("data/2019-2023_Leads_List_Test_deduped.csv")
+leads_df = pd.read_csv("data/split_tables/split_1.csv")
 leads_name_list = leads_df["Full Name"].tolist()
 leads_keywords_list = get_keywords_from_author_names(ncbi_api_key, leads_name_list)
 # print(leads_keywords_list)
 leads_keywords_df = pd.DataFrame(leads_keywords_list)
-# print(leads_keywords_df)
-leads_keywords_df['keywords'] = leads_keywords_df['keywords'].apply(lambda x: ', '.join(x))
-filename = './outputs/leads_keywords.csv'
+leads_keywords_df.to_pickle('./outputs/leads_keywords_1.pkl')
+leads_keywords_df = pd.read_pickle('./outputs/leads_keywords_1.pkl')
+print("FROM PICKLE:\n", leads_keywords_df)
+leads_keywords_df['keywords'] = leads_keywords_df['keywords'].apply(
+    lambda x: ', '.join([str(k).lower().capitalize() for k in x if k is not None])
+)
+print("POST LAMBDA:\n", leads_keywords_df)
+filename = './outputs/leads_keywords_1.csv'
 leads_keywords_df.to_csv(filename, index=False)
