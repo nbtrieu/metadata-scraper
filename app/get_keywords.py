@@ -1,3 +1,4 @@
+# %%
 import requests
 import json
 import xml.etree.ElementTree as ET
@@ -44,6 +45,7 @@ ncbi_api_key = config['apiKeys']['ncbi']
 #         print(f"Failed to retrieve search result: {response.status_code}")
 
 
+# %%
 def get_pmids_from_term(api_key: str, term: str):
     url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 
@@ -121,7 +123,10 @@ def get_keywords_from_pmids(api_key: str, pmids: str):
             if keywords_list is not None:
                 for keyword in keywords_list:
                     keywords.append(keyword.text)
-            # print(f"PMID: {pmid}, Keywords: {', '.join(keywords)}")
+            # Skip the article if the keywords list is empty
+            if not keywords:
+                print("Skipping this article due to empy KeywordList")
+                continue
             result_dict = {
                 "pmid": pmid,
                 "keywords": keywords
@@ -141,19 +146,20 @@ def get_keywords_from_author_names(api_key: str, author_name_list: list):
         pmids = get_pmids_from_term(api_key, author_name)
         if pmids:
             keyword_lists = get_keywords_from_pmids(api_key, pmids)
-            for keyword_list in tqdm(keyword_lists, desc="Processing keywords"):
+            for keyword_list in keyword_lists:
                 keyword_list["author_name"] = author_name
                 # print(keyword_list)
 
             all_results.extend(keyword_lists)
 
         else:
-            print(f"Skipping author '{author_name}' due to no PMIDs found.")
-            continue  # Skip this author and continue with the next one
+            # print(f"Skipping author '{author_name}' due to no PMIDs found.")
+            continue
 
     return all_results
 
 
+# %%
 # author_name = "RNeasy 96 Kit"
 # pmids = get_pmids_from_term(ncbi_api_key, author_name)
 # print(pmids)
@@ -161,7 +167,7 @@ def get_keywords_from_author_names(api_key: str, author_name_list: list):
 # keywords = get_keywords_from_pmids(ncbi_api_key, pmids)
 # print(keywords)
 
-# leads_name_list = ["Philip Bennallack", "Anne Keller-Novak"]
+# leads_name_list = ["Juan Roman", "Nataliya Bulayeva"]
 # all_keywords = get_keywords_from_author_names(ncbi_api_key, author_name_list)
 # print(all_keywords)
 
@@ -171,6 +177,8 @@ leads_keywords_list = get_keywords_from_author_names(ncbi_api_key, leads_name_li
 # print(leads_keywords_list)
 leads_keywords_df = pd.DataFrame(leads_keywords_list)
 leads_keywords_df.to_pickle('./outputs/leads_keywords_1.pkl')
+
+# %%
 leads_keywords_df = pd.read_pickle('./outputs/leads_keywords_1.pkl')
 print("FROM PICKLE:\n", leads_keywords_df)
 leads_keywords_df['keywords'] = leads_keywords_df['keywords'].apply(
