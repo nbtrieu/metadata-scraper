@@ -1,4 +1,6 @@
 # %%
+import asyncio
+import nest_asyncio
 import requests
 import xml.etree.ElementTree as ET
 import json
@@ -114,26 +116,128 @@ def query_pubmed(pmids_list: list) -> list:
     Queries the pubmedAuthorAffiliation.py script for authors' affiliations based on PMIDs or DOIs.
 
     Parameters:
-    values (list): A list of PMID strings
+    pmids_list (list): A list of PMID strings
 
     Returns:
     list: A list of dictionaries.
     """
-
     script_path = "pubmedAuthorAffiliation/pubmedAuthorAffiliation.py"
     all_author_data = []
+    max_retries = 3  # Maximum number of retries
+    retry_delay = 5  # Seconds to wait between retries
 
-    for pmid in tqdm(pmids_list, desc="Querying PubMed"):
-        command = f'poetry run python {script_path} -i {pmid}'
-        result = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.DEVNULL)
-        # print("Attempting to parse JSON:", result[:500])
-        pubmed_data = json.loads(result)
-
-        for author_data in pubmed_data["authorList"]:
-            all_author_data.append(author_data)
+    for pmid in tqdm(pmids_list, desc="Getting PubMed Author Data"):
+        retries = 0
+        while retries <= max_retries:
+            try:
+                command = f'poetry run python {script_path} -i {pmid}'
+                result = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.DEVNULL)
+                pubmed_data = json.loads(result)
+                if not pubmed_data["authorList"]:
+                    print(f"No authorList found for PMID {pmid}")
+                else:
+                    all_author_data.extend(pubmed_data["authorList"])
+                break  # Break out of the retry loop on success
+            except subprocess.CalledProcessError as e:
+                print(f"Error querying PMID {pmid}: {e}, attempt {retries + 1} of {max_retries}")
+                retries += 1
+                if retries > max_retries:
+                    print(f"Max retries reached for PMID {pmid}. Moving on.")
+                else:
+                    time.sleep(retry_delay)  # Wait only if we're going to retry
 
     return all_author_data
 
+
+# %%
+async def fetch_pmid_data(pmid, script_path):
+    """
+    Asynchronously executes the pubmedAuthorAffiliation.py script for a given PMID
+    and returns the parsed JSON data.
+
+    Parameters:
+    pmid (str): The PMID for which to fetch author affiliation data.
+    script_path (str): The path to the pubmedAuthorAffiliation.py script.
+
+    Returns:
+    dict: The JSON data returned by the pubmedAuthorAffiliation.py script.
+    """
+    command = f'poetry run python {script_path} -i {pmid}'
+    # Create subprocess
+    process = await asyncio.create_subprocess_shell(
+        command,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE)
+
+    # Wait for the subprocess to finish
+    stdout, stderr = await process.communicate()
+
+    if process.returncode == 0:
+        # Process finished successfully, parse JSON output
+        try:
+            return json.loads(stdout.decode())
+        except json.JSONDecodeError:
+            print(f"Failed to decode JSON output for PMID {pmid}.")
+            return None
+    else:
+        # Process failed, log error
+        print(f"Error querying PMID {pmid}: {stderr.decode()}")
+        return None
+
+
+async def query_pubmed_async(pmids_list: list):
+    """
+    Query PubMed asynchronously for a list of PMIDs and extract "authorList" from each result,
+    with a progress bar.
+    """
+    script_path = "pubmedAuthorAffiliation/pubmedAuthorAffiliation.py"
+    all_author_data = []  # This will store all the authorLists
+
+    progress_bar = tqdm(total=len(pmids_list), desc="Processing PMIDs")
+
+    for i in range(0, len(pmids_list), 10):
+        batch_pmids = pmids_list[i:i+10]
+        tasks = [asyncio.create_task(fetch_pmid_data(pmid, script_path)) for pmid in batch_pmids]
+        results = await asyncio.gather(*tasks)
+        for result in results:
+            if result and "authorList" in result:
+                all_author_data.extend(result["authorList"])
+            progress_bar.update(1)  # Update progress bar per PMID processed
+        await asyncio.sleep(1)  # Respect the rate limit
+
+    progress_bar.close()
+    return all_author_data
+
+
+# %% Running the asynchronous function (in an event loop):
+pmids_list_test = ["37971890", "37630833"]
+
+nest_asyncio.apply()
+
+loop = asyncio.get_event_loop()
+if loop.is_running():
+    # Run the coroutine in the already running loop
+    task = asyncio.ensure_future(query_pubmed_async(pmids_list_test))
+    result = loop.run_until_complete(task)
+else:
+    # If the loop is not running (unlikely in Jupyter), this runs it
+    result = loop.run_until_complete(query_pubmed_async(pmids_list_test))
+
+print(result)
+
+# %%
+nest_asyncio.apply()
+
+loop = asyncio.get_event_loop()
+if loop.is_running():
+    # Run the coroutine in the already running loop
+    task = asyncio.ensure_future(query_pubmed_async(pmids_list))
+    result = loop.run_until_complete(task)
+else:
+    # If the loop is not running (unlikely in Jupyter), this runs it
+    result = loop.run_until_complete(query_pubmed_async(pmids_list))
+
+print(result)
 
 # %%
 pmids_test = ["37971890", "37630833"]
@@ -141,3 +245,13 @@ author_data_test = query_pubmed(pmids_list=pmids_test)
 print(author_data_test)
 
 # %%
+author_data_list = query_pubmed(pmids_list)
+print(author_data_list)
+
+# %%
+author_data_df = pd.DataFrame(author_data_list)
+author_data_df.to_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
+
+# %%
+author_data_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
+print("AUTHOR_DATA_DF FROM PICKLE:", author_data_df)
