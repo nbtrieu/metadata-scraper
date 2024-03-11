@@ -3,7 +3,7 @@ import logging
 import json
 from tqdm import tqdm
 
-with open('config.json', 'r') as file:
+with open('../config.json', 'r') as file:
     config = json.load(file)
 google_maps_places_api_key = config['apiKeys']['googleMapsPlaces']
 

@@ -1,6 +1,7 @@
 # %%
 import json
 import pandas as pd
+from tqdm import tqdm
 from get_address import search_place, filter_best_match
 
 # %%
@@ -18,32 +19,34 @@ print("RNEASY DF:\n", rneasy_df)
 
 # %%
 filtered_df = result_df[result_df['lastName'].isin(rneasy_df["LastName"])]
-# print("RNEASY DF:\n", rneasy_df)
 print("FILTERED DF:\n", filtered_df)
 
 # %%
-selected_columns_df = filtered_df['lastName', 'affiliation', 'institute']
+deduped_filtered_df = filtered_df.drop_duplicates()
+print("DEDUPED FILTERED DF:\n", deduped_filtered_df)
+
+# %%
+selected_columns_df = deduped_filtered_df[['lastName', 'affiliation', 'institute']]
+print("SELECTED COLUMNS DF:\n", selected_columns_df)
+
+# %%
 author_dicts = selected_columns_df.to_dict('records')
-print("AUTHOR DICTS:\n", author_dicts)
+
+# %%
+print("length of author_dicts:", len(author_dicts))
+
+# %%
+print("first few author dicts:", author_dicts[:5])
 
 
 # %%
 def get_address_from_author_dicts(author_dicts: list, api_key: str):
     all_results = []
 
-    for publication in tqdm(author_dicts, desc="Getting Addresses"):
-        publication_results = []  # Storing results for each publication separately
+    for author_dict in tqdm(author_dicts, desc="Getting Addresses"):
+        author_results = []
 
-        if "authorList" not in publication:
-            print(f"Skipping publication {publication.get('pubmedId', 'Unknown')} due to missing 'authorList'")
-            continue
-
-        # Extracting 'keyword' and 'pubmedId' from the publication
-        keyword = publication.get("keyword", "Unknown")
-        pubmedId = publication.get("pubmedId", "Unknown")
-        doi = publication.get("doi", "Unknown")
-
-        for author in publication["authorList"]:
+        for author in author_dict["authorList"]:
             for key in ['affiliation', 'institute']:
                 if author.get(key, "") == "Unparsed":  # Skip 'Unparsed' institute values
                     continue
@@ -64,18 +67,28 @@ def get_address_from_author_dicts(author_dicts: list, api_key: str):
                 best_match_address = filter_best_match(result_list, author[key])
                 if best_match_address:
                     result_dict = {
-                        "keyword": keyword,
-                        "pubmed_id": pubmedId,
-                        "doi": doi,
-                        "author_name": f"{author.get('lastName', '')} {author.get('initials', '')}".strip(),
+                        "lastName": author.get('lastName'),
                         "affiliation": author.get('affiliation', "Unspecified"),
                         "institute": author.get('institute', "Unparsed"),
                         "address": best_match_address
                     }
-                    publication_results.append(result_dict)
-                    break  # Optionally break if only one address per author is needed
+                    author_results.append(result_dict)
+                    break
 
         # Combine all publication results into the main results list
-        all_results.extend(publication_results)
+        all_results.extend(author_results)
 
     return all_results
+
+
+# %%
+address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_api_key)
+
+# %%
+address_df = pd.DataFrame(address_dicts)
+address_df.to_pickle('./outputs/addresses_from_names/rneasy_addresses.pkl')
+
+# %%
+address_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_addresses.pkl')
+print("ADDRESS DF:\n", address_df)
+
