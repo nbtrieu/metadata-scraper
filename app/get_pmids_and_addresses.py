@@ -10,10 +10,12 @@ import pandas as pd
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 from tqdm import tqdm
+from get_address import search_place, filter_best_match
 
 with open('../config.json', 'r') as file:
     config = json.load(file)
 ncbi_api_key = config['apiKeys']['ncbi']
+google_maps_places_api_key = config['apiKeys']['googleMapsPlaces']
 
 
 # %%
@@ -240,18 +242,86 @@ else:
 print(result)
 
 # %%
+result_df = pd.DataFrame(result)
+result_df.to_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
+
+# %%
+result_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
+print(result_df)
+
+# %%
+filtered_df = result_df[result_df['lastName'].isin(rneasy_df["LastName"])]
+# print("RNEASY DF:\n", rneasy_df)
+print("FILTERED DF:\n", filtered_df)
+
+# %%
 pmids_test = ["37971890", "37630833"]
 author_data_test = query_pubmed(pmids_list=pmids_test)
 print(author_data_test)
 
-# %%
-author_data_list = query_pubmed(pmids_list)
-print(author_data_list)
 
 # %%
-author_data_df = pd.DataFrame(author_data_list)
-author_data_df.to_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
+def get_address_from_author_dicts(author_dicts: list, api_key: str):
+    all_results = []
 
-# %%
-author_data_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
-print("AUTHOR_DATA_DF FROM PICKLE:", author_data_df)
+    for publication in tqdm(author_dicts, desc="Getting Addresses"):
+        publication_results = []  # Storing results for each publication separately
+
+        if "authorList" not in publication:
+            print(f"Skipping publication {publication.get('pubmedId', 'Unknown')} due to missing 'authorList'")
+            continue
+
+        # Extracting 'keyword' and 'pubmedId' from the publication
+        keyword = publication.get("keyword", "Unknown")
+        pubmedId = publication.get("pubmedId", "Unknown")
+        doi = publication.get("doi", "Unknown")
+
+        for author in publication["authorList"]:
+            for key in ['affiliation', 'institute']:
+                if author.get(key, "") == "Unparsed":  # Skip 'Unparsed' institute values
+                    continue
+
+                search_result = search_place(author[key], api_key)
+
+                if search_result == {}:
+                    continue  # Skip empty search result
+                if search_result.get("error"):
+                    print(search_result.get("message"))  # Log the error message
+                    continue
+
+                result_list = search_result.get("places", [])
+                if not result_list:
+                    continue  # Skip this place if no results found
+
+                # Find the best match:
+                best_match_address = filter_best_match(result_list, author[key])
+                if best_match_address:
+                    result_dict = {
+                        "keyword": keyword,
+                        "pubmed_id": pubmedId,
+                        "doi": doi,
+                        "author_name": f"{author.get('lastName', '')} {author.get('initials', '')}".strip(),
+                        "affiliation": author.get('affiliation', "Unspecified"),
+                        "institute": author.get('institute', "Unparsed"),
+                        "address": best_match_address
+                    }
+                    publication_results.append(result_dict)
+                    break  # Optionally break if only one address per author is needed
+
+        # Combine all publication results into the main results list
+        all_results.extend(publication_results)
+
+    return all_results
+
+
+# # %%
+# author_data_list = query_pubmed(pmids_list)
+# print(author_data_list)
+
+# # %%
+# author_data_df = pd.DataFrame(author_data_list)
+# author_data_df.to_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
+
+# # %%
+# author_data_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
+# print("AUTHOR_DATA_DF FROM PICKLE:", author_data_df)
