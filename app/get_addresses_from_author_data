@@ -82,7 +82,7 @@ def get_address_from_author_dicts(author_dicts: list, api_key: str):
             best_match_address = filter_best_match(result_list, author_dict[key])
             if best_match_address:
                 result_dict = {
-                    "intials": author_dict.get('initials'),
+                    "initials": author_dict.get('initials'),
                     "lastName": author_dict.get('lastName'),
                     "affiliation": author_dict.get('affiliation', "Unspecified"),
                     "institute": author_dict.get('institute', "Unparsed"),
@@ -103,6 +103,7 @@ address_df.to_pickle('./outputs/addresses_from_names/rneasy_addresses.pkl')
 
 # %%
 address_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_addresses.pkl')
+address_df = address_df.rename(columns={'intials': 'initials'})
 print("ADDRESS DF:\n", address_df)
 
 # %%
@@ -113,36 +114,57 @@ filename = './outputs/addresses_from_names/rneasy_addresses.csv'
 address_df.to_csv(filename, index=False)
 
 # %%
-rneasy_renamed_df = rneasy_df.rename(columns={'LastName': 'lastName', 'Organisation': 'institute'})
+rneasy_renamed_df = rneasy_df.rename(columns={'LastName': 'lastName', 'Organisation': 'institute', 'Initials': 'initials'})
 print("RNEASY RENAMED DF:\n", rneasy_renamed_df)
 
 # %% Get rows with matching last name and institute
-matching_df = pd.merge(address_df, rneasy_renamed_df, on=['lastName', 'institute']).drop_duplicates().reset_index(drop=True)
-print("MATCHING ROWS DF:\n", matching_df)
+matching_df = pd.merge(address_df, rneasy_renamed_df, on=['initials', 'lastName', 'institute']).drop_duplicates().reset_index(drop=True)
+print("MATCHING DF:\n", matching_df)
 
 # %%
 filename = './outputs/addresses_from_names/matched_rneasy_addresses.csv'
 matching_df.to_csv(filename, index=False)
 
 # %%
+unparsed_institute_df = address_df[address_df['institute'] == 'Unparsed']
+print("UNPARSED INSTITUTE DF:\n", unparsed_institute_df)
+
+# %%
+matching_unparsed_df = pd.merge(unparsed_institute_df, rneasy_renamed_df, on=['initials', 'lastName']).drop_duplicates().reset_index(drop=True)
+print("MATCHING UNPARSED DF:\n", matching_unparsed_df)
+
+# %%
+filename = './outputs/addresses_from_names/matched_unparsed_rneasy_addresses.csv'
+matching_unparsed_df.to_csv(filename, index=False)
+
+
+
+# %%
+deduped_filtered_df = deduped_filtered_df.copy()
 deduped_filtered_df['unique_id'] = deduped_filtered_df['lastName'].str.lower() + deduped_filtered_df['initials'].str.lower() + deduped_filtered_df['institute'].str.lower()
+print("DEDUPED FILTERED DF WITH UNIQUE ID:\n", deduped_filtered_df)
+
+# %%
 matching_df['unique_id'] = matching_df['FirstName'].str.lower() + matching_df['lastName'].str.lower() + matching_df['institute'].str.lower()
+print("MATCHING DF WITH UNIQUE ID:\n", matching_df)
+
+# %%
 remaining_leads_df = deduped_filtered_df[~deduped_filtered_df['unique_id'].isin(matching_df['unique_id'])]
-print("FILTERED RNEASY DF:\n", remaining_leads_df)
+print("REMAINING LEADS DF:\n", remaining_leads_df)
+
+# %%
+sample_unique_id = deduped_filtered_df['unique_id'].iloc[0]  # Example
+print(sample_unique_id in matching_df['unique_id'].values)
 
 # %%
 remaining_author_dicts = remaining_leads_df.apply(lambda row: {
-    "initials": row["Initials"],
+    "initials": row["initials"],
     "lastName": row["lastName"],
     "affiliation": row["affiliation"],
     "institute": row["institute"]
 }, axis=1).tolist()
 
 print("first few remaining author dicts:", remaining_author_dicts[:5])
-
-# # %%
-# unparsed_institute_df = address_df[address_df['institute'] == 'Unparsed']
-# print("UNPARSED INSTITUTE DF:\n", unparsed_institute_df)
 
 # # %%
 # filtered_address_df = pd.concat([matching_df, unparsed_institute_df]).drop_duplicates().reset_index(drop=True)
