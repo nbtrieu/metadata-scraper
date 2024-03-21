@@ -22,6 +22,12 @@ print("RESULT DF:\n", result_df)
 rneasy_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rneasy_20_23.csv')
 print("RNEASY DF:\n", rneasy_df)
 
+# %%
+rna_authors_df = pd.read_pickle('./outputs/rna_group/rna_authors.pkl')
+print(rna_authors_df)
+
+# %%
+# deduped_rna_authors_df = rna_authors_df
 
 # %%
 def get_intials(row):

@@ -211,8 +211,7 @@ async def query_pubmed_async(pmids_list: list):
     return all_author_data
 
 
-# %% Running the asynchronous function (in an event loop):
-# pmids_list_test = ["37971890", "37630833"]
+# %%
 def extract_pmids(url_list: list):
     pmid_list = []
     pattern = r"https://pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/"
@@ -231,8 +230,14 @@ def extract_pmids(url_list: list):
 
 
 # %%
-url_list = 
-pmid_list = extract_pmids()
+rna_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rna_group/rna_domestic_only.csv')
+url_list = rna_df['publication link'].tolist()
+print(url_list)
+
+# %% Running the asynchronous function (in an event loop):
+# pmids_list_test = ["37971890", "37630833"]
+pmid_list = extract_pmids(url_list)
+print(pmid_list)
 
 # %%
 nest_asyncio.apply()
@@ -240,34 +245,20 @@ nest_asyncio.apply()
 loop = asyncio.get_event_loop()
 if loop.is_running():
     # Run the coroutine in the already running loop
-    task = asyncio.ensure_future(query_pubmed_async(pmids_list_test))
+    task = asyncio.ensure_future(query_pubmed_async(pmid_list))
     result = loop.run_until_complete(task)
 else:
     # If the loop is not running (unlikely in Jupyter), this runs it
-    result = loop.run_until_complete(query_pubmed_async(pmids_list_test))
-
-print(result)
-
-# %%
-nest_asyncio.apply()
-
-loop = asyncio.get_event_loop()
-if loop.is_running():
-    # Run the coroutine in the already running loop
-    task = asyncio.ensure_future(query_pubmed_async(pmids_list))
-    result = loop.run_until_complete(task)
-else:
-    # If the loop is not running (unlikely in Jupyter), this runs it
-    result = loop.run_until_complete(query_pubmed_async(pmids_list))
+    result = loop.run_until_complete(query_pubmed_async(pmid_list))
 
 print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
+result_df.to_pickle('./outputs/rna_group/rna_authors.pkl')
 
 # %%
-result_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
+result_df = pd.read_pickle('./outputs/rna_group/rna_authors.pkl')
 print(result_df)
 
 # %%
