@@ -103,6 +103,7 @@ address_df.to_pickle('./outputs/addresses_from_names/rneasy_addresses.pkl')
 
 # %%
 address_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_addresses.pkl')
+# Rename address_df "initials" column due to typo in get_address_from_author_dicts at the time the code was run:
 address_df = address_df.rename(columns={'intials': 'initials'})
 print("ADDRESS DF:\n", address_df)
 
@@ -119,6 +120,7 @@ print("RNEASY RENAMED DF:\n", rneasy_renamed_df)
 
 # %% Get rows with matching last name and institute
 matching_df = pd.merge(address_df, rneasy_renamed_df, on=['initials', 'lastName', 'institute']).drop_duplicates().reset_index(drop=True)
+# %%
 print("MATCHING DF:\n", matching_df)
 
 # %%
@@ -137,6 +139,32 @@ print("MATCHING UNPARSED DF:\n", matching_unparsed_df)
 filename = './outputs/addresses_from_names/matched_unparsed_rneasy_addresses.csv'
 matching_unparsed_df.to_csv(filename, index=False)
 
+# %% Drop "institute_x" column because it contains all "Unparsed" values:
+matching_unparsed_df_cleaned = matching_unparsed_df.drop(columns=['institute_x'])
+# %% Rename "institute_y" as just "institute":
+matching_unparsed_df_cleaned = matching_unparsed_df_cleaned.rename(columns={'institute_y': 'institute'})
+# %%
+print("MATCHING UNPARSED CLEANED DF:\n", matching_unparsed_df_cleaned)
+
+# %% Check to see if their indices are aligned:
+indices_are_aligned = matching_df.index.equals(matching_unparsed_df_cleaned.index)
+print(f"Indices are aligned: {indices_are_aligned}")
+
+# %% Reorder columns in matching_unparsed_df_cleaned to be same as that of matching_df:
+matching_unparsed_df_cleaned = matching_unparsed_df_cleaned[matching_df.columns]
+print("MATCHING UNPARSED CLEANED REORDERED DF:\n", matching_unparsed_df_cleaned)
+
+# %%
+filename = './outputs/addresses_from_names/matched_cleaned_unparsed_rneasy_addresses.csv'
+matching_unparsed_df_cleaned.to_csv(filename, index=False)
+
+# %% Concatenate dataframes vertically:
+combined_matching_df = pd.concat([matching_df, matching_unparsed_df_cleaned], axis=0).reset_index(drop=True)
+print("COMBINED MATCHING DF:\n", combined_matching_df)
+
+# %%
+filename = './outputs/addresses_from_names/combined_matching_rneasy_addresses.csv'
+combined_matching_df.to_csv(filename, index=False)
 
 
 # %%

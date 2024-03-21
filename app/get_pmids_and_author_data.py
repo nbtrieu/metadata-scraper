@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 import json
 import subprocess
 import time
+import re
 import pandas as pd
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
@@ -211,8 +212,29 @@ async def query_pubmed_async(pmids_list: list):
 
 
 # %% Running the asynchronous function (in an event loop):
-pmids_list_test = ["37971890", "37630833"]
+# pmids_list_test = ["37971890", "37630833"]
+def extract_pmids(url_list: list):
+    pmid_list = []
+    pattern = r"https://pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/"
 
+    for url in url_list:
+        match = re.search(pattern, url)
+
+        if match:
+            pmid = match.group(1)
+        else:
+            pmid = None
+
+        pmid_list.append(pmid)
+
+    return pmid_list
+
+
+# %%
+url_list = 
+pmid_list = extract_pmids()
+
+# %%
 nest_asyncio.apply()
 
 loop = asyncio.get_event_loop()
