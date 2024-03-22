@@ -19,20 +19,35 @@ result_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
 print("RESULT DF:\n", result_df)
 
 # %%
-rneasy_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rneasy_20_23.csv')
-print("RNEASY DF:\n", rneasy_df)
+# rneasy_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rneasy_20_23.csv')
+rna_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rna_group/rna_domestic_only.csv')
+
+# %%
+zymolase_df = pd.read_csv('./data/zymolase/zymolase_leads_updated.csv').rename(columns={'LastName': 'lastName', 'FirstName': 'firstName'})
+
+# %%
+print("ZYMOLASE DF:\n", zymolase_df)
 
 # %%
 rna_authors_df = pd.read_pickle('./outputs/rna_group/rna_authors.pkl')
 print(rna_authors_df)
 
 # %%
-# deduped_rna_authors_df = rna_authors_df
+rna_remaining_authors_df = pd.read_pickle('./outputs/rna_group/rna_remaining_authors.pkl')
+print(rna_remaining_authors_df)
 
 # %%
-def get_intials(row):
-    initials = row['FirstName'][0]
-    if pd.notnull(row['MiddleName']):
+zymolase_authors_df = pd.read_pickle('./outputs/zymolase/zymolase_authors.pkl')
+
+# %%
+zymolase_authors_df.drop(columns=['firstName'], inplace=True)
+print(zymolase_authors_df)
+
+
+# %%
+def get_initials(row):
+    initials = row['firstName'][0]
+    if 'MiddleName' in row and pd.notnull(row['MiddleName']):
         middle_names = row['MiddleName'].split()
         for name in middle_names:
             initials += name[0]
@@ -41,26 +56,58 @@ def get_intials(row):
 
 
 # %%
-rneasy_df['Initials'] = rneasy_df.apply(get_intials, axis=1)
-print("RNEASY DF WITH INITIALS:\n", rneasy_df)
+def process_author_dicts(
+    pubmed_result_file_path,
+    lead_source_file_path,
+    last_name_column_name,
+    first_name_column_name
+):
+    pubmed_result_df = pd.read_csv(pubmed_result_file_path)
+    # drop 'firstName' column because all n/a values
+    pubmed_result_df.drop(columns=['firstName'], inplace=True)
+    print("PUBMED RESULT DF:\n", pubmed_result_df)
+
+    lead_source_df = pd.read_csv(lead_source_file_path).rename(
+        columns={
+            last_name_column_name: 'lastName',
+            first_name_column_name: 'firstName'
+        }
+    )
+    lead_source_df['initials'] = lead_source_df.apply(get_initials, axis=1)
+    print("LEAD DF WITH INITIALS:\n", lead_source_df)
+    merged_df = pd.merge(pubmed_result_df, lead_source_df, on=['lastName'], how='inner')
+    print("MERGED DF: \n", merged_df)
+    filtered_df = merged_df[['firstName', 'initials', 'lastName', 'affiliation', 'institute']]
+    print("FILTERED DF:\n", filtered_df)
+    deduped_filtered_df = filtered_df.drop_duplicates().reset_index(drop=True)
+
 
 # %%
-merged_df = pd.merge(result_df, rneasy_df, left_on=['initials', 'lastName'], right_on=['Initials', 'LastName'], how='inner')
-filtered_df = merged_df[['initials', 'lastName', 'affiliation', 'institute']]
+zymolase_df['initials'] = zymolase_df.apply(get_initials, axis=1)
+print("ZYMOLASE DF WITH INITIALS:\n", zymolase_df)
+
+# %%
+# merged_df = pd.merge(rna_authors_df, rna_df, left_on=['initials', 'lastName'], right_on=['initials', 'LastName'], how='inner')
+# filtered_df = merged_df[['initials', 'lastName', 'affiliation', 'institute']]
+# print("FILTERED DF:\n", filtered_df)
+
+merged_df = pd.merge(zymolase_authors_df, zymolase_df, on=['lastName', 'initials'], how='inner')
+print("MERGED DF: \n", merged_df)
+
+# %%
+filtered_df = merged_df[['firstName', 'initials', 'lastName', 'affiliation', 'institute']]
 print("FILTERED DF:\n", filtered_df)
 
 # %%
-deduped_filtered_df = filtered_df.drop_duplicates()
+deduped_filtered_df = filtered_df.drop_duplicates().reset_index(drop=True)
 print("DEDUPED FILTERED DF:\n", deduped_filtered_df)
 
 # %%
 author_dicts = deduped_filtered_df.to_dict('records')
+# print(author_dicts)
 
 # %%
 print("length of author_dicts:", len(author_dicts))
-
-# %%
-print("first few author dicts:", author_dicts[:5])
 
 
 # %%
@@ -88,10 +135,11 @@ def get_address_from_author_dicts(author_dicts: list, api_key: str):
             best_match_address = filter_best_match(result_list, author_dict[key])
             if best_match_address:
                 result_dict = {
+                    "firstName": author_dict.get('firstName'),
                     "initials": author_dict.get('initials'),
                     "lastName": author_dict.get('lastName'),
-                    "affiliation": author_dict.get('affiliation', "Unspecified"),
-                    "institute": author_dict.get('institute', "Unparsed"),
+                    "pubmed_affiliation": author_dict.get('affiliation', "Unspecified"),
+                    "pubmed_institute": author_dict.get('institute', "Unparsed"),
                     "address": best_match_address
                 }
                 all_results.append(result_dict)
@@ -105,32 +153,29 @@ address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_a
 
 # %%
 address_df = pd.DataFrame(address_dicts)
-address_df.to_pickle('./outputs/addresses_from_names/rneasy_addresses.pkl')
+address_df.to_pickle('./outputs/rna_group/rna_remaining_addresses.pkl')
 
 # %%
-address_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_addresses.pkl')
-# Rename address_df "initials" column due to typo in get_address_from_author_dicts at the time the code was run:
-address_df = address_df.rename(columns={'intials': 'initials'})
+address_df = pd.read_pickle('./outputs/rna_group/rna_remaining_addresses.pkl')
+# # Rename address_df "initials" column due to typo in get_address_from_author_dicts at the time the code was run:
+# address_df = address_df.rename(columns={'intials': 'initials'})
 print("ADDRESS DF:\n", address_df)
 
 # %%
-print("RNEASY DF:\n", rneasy_df)
-
-# %%
-filename = './outputs/addresses_from_names/rneasy_addresses.csv'
+filename = './outputs/rna_group/rna_remaining_addresses.csv'
 address_df.to_csv(filename, index=False)
 
 # %%
-rneasy_renamed_df = rneasy_df.rename(columns={'LastName': 'lastName', 'Organisation': 'institute', 'Initials': 'initials'})
-print("RNEASY RENAMED DF:\n", rneasy_renamed_df)
+full_address_df = pd.read_csv('./outputs/rna_group/matched_rna_addresses.csv')
+print("FULL ADDRESS DF: \n", full_address_df)
 
-# %% Get rows with matching last name and institute
-matching_df = pd.merge(address_df, rneasy_renamed_df, on=['initials', 'lastName', 'institute']).drop_duplicates().reset_index(drop=True)
-# %%
+# %% Get rows with matching column values
+# matching_df = pd.merge(rna_df, address_df, on=['firstName', 'lastName'], how='left').reset_index(drop=True)
+matching_df = pd.merge(full_address_df, address_df, on=['firstName', 'lastName', 'initials'], how='left').reset_index(drop=True)
 print("MATCHING DF:\n", matching_df)
 
 # %%
-filename = './outputs/addresses_from_names/matched_rneasy_addresses.csv'
+filename = './outputs/rna_group/matched_full_rna_addresses.csv'
 matching_df.to_csv(filename, index=False)
 
 # %%
@@ -138,7 +183,7 @@ unparsed_institute_df = address_df[address_df['institute'] == 'Unparsed']
 print("UNPARSED INSTITUTE DF:\n", unparsed_institute_df)
 
 # %%
-matching_unparsed_df = pd.merge(unparsed_institute_df, rneasy_renamed_df, on=['initials', 'lastName']).drop_duplicates().reset_index(drop=True)
+matching_unparsed_df = pd.merge(unparsed_institute_df, rna_renamed_df, on=['initials', 'lastName']).drop_duplicates().reset_index(drop=True)
 print("MATCHING UNPARSED DF:\n", matching_unparsed_df)
 
 # %%

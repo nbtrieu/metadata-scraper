@@ -230,14 +230,22 @@ def extract_pmids(url_list: list):
 
 
 # %%
-rna_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rna_group/rna_domestic_only.csv')
-url_list = rna_df['publication link'].tolist()
+# rna_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rna_group/rna_domestic_only.csv')
+zymolase_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/zymolase/zymolase_leads_updated.csv')
+empty_pubmed_link_count = zymolase_df['PubMed Link'].isna().sum()
+print(empty_pubmed_link_count)
+
+# %%
+url_list = zymolase_df['PubMed Link'].dropna().tolist()
 print(url_list)
+print(len(url_list))
 
 # %% Running the asynchronous function (in an event loop):
 # pmids_list_test = ["37971890", "37630833"]
 pmid_list = extract_pmids(url_list)
+# pmid_list = ['34799566', '34754035', '35477301']
 print(pmid_list)
+print(len(pmid_list))
 
 # %%
 nest_asyncio.apply()
@@ -255,10 +263,10 @@ print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_pickle('./outputs/rna_group/rna_authors.pkl')
+result_df.to_pickle('./outputs/zymolase/zymolase_authors.pkl')
 
 # %%
-result_df = pd.read_pickle('./outputs/rna_group/rna_authors.pkl')
+result_df = pd.read_pickle('./outputs/zymolase/zymolase_authors.pkl')
 print(result_df)
 
 # %%

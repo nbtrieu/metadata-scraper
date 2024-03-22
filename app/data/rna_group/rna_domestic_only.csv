@@ -1,4 +1,4 @@
-First Name,Last Name,email address,institution,publication link
+firstName,lastName,email_address,institution,publication_link
 Struan,Grant,grants@chop.edu, Children's Hospital of Philadelphia,https://pubmed.ncbi.nlm.nih.gov/34799566/
 Sheridan,Littleton,littletons@email.chop.edu, Children's Hospital of Philadelphia,https://pubmed.ncbi.nlm.nih.gov/34799566/
 Peter,Barbuti,pab2184@cumc.columbia.edu,Columbia University Irving Medical Center,https://pubmed.ncbi.nlm.nih.gov/34754035/
