@@ -80,6 +80,10 @@ def process_author_dicts(
     filtered_df = merged_df[['firstName', 'initials', 'lastName', 'affiliation', 'institute']]
     print("FILTERED DF:\n", filtered_df)
     deduped_filtered_df = filtered_df.drop_duplicates().reset_index(drop=True)
+    author_dicts = deduped_filtered_df.to_dict('records')
+    print("length of author_dicts:", len(author_dicts))
+
+    return author_dicts
 
 
 # %%
@@ -153,10 +157,10 @@ address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_a
 
 # %%
 address_df = pd.DataFrame(address_dicts)
-address_df.to_pickle('./outputs/rna_group/rna_remaining_addresses.pkl')
+address_df.to_pickle('./outputs/zymolase/zymolase_addresses.pkl')
 
 # %%
-address_df = pd.read_pickle('./outputs/rna_group/rna_remaining_addresses.pkl')
+address_df = pd.read_pickle('./outputs/zymolase/zymolase_addresses.pkl')
 # # Rename address_df "initials" column due to typo in get_address_from_author_dicts at the time the code was run:
 # address_df = address_df.rename(columns={'intials': 'initials'})
 print("ADDRESS DF:\n", address_df)
@@ -171,7 +175,7 @@ print("FULL ADDRESS DF: \n", full_address_df)
 
 # %% Get rows with matching column values
 # matching_df = pd.merge(rna_df, address_df, on=['firstName', 'lastName'], how='left').reset_index(drop=True)
-matching_df = pd.merge(full_address_df, address_df, on=['firstName', 'lastName', 'initials'], how='left').reset_index(drop=True)
+matching_df = pd.merge(zymolase_df, address_df, on=['firstName', 'lastName'], how='left').reset_index(drop=True)
 print("MATCHING DF:\n", matching_df)
 
 # %%
