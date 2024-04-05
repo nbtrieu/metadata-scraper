@@ -4,7 +4,7 @@ import nest_asyncio
 import aiohttp
 import logging
 import json
-from tqdm.asyncio import tqdm
+# from tqdm.asyncio import tqdm
 import pandas as pd
 from tqdm import tqdm
 from get_address import search_place, filter_best_match
@@ -15,10 +15,6 @@ with open('../config.json', 'r') as file:
 google_maps_places_api_key = config['apiKeys']['googleMapsPlaces']
 
 # %%
-result_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
-print("RESULT DF:\n", result_df)
-
-# %%
 # rneasy_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rneasy_20_23.csv')
 rna_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rna_group/rna_domestic_only.csv')
 
@@ -26,7 +22,10 @@ rna_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/dat
 zymolase_df = pd.read_csv('./data/zymolase/zymolase_leads_updated.csv').rename(columns={'LastName': 'lastName', 'FirstName': 'firstName'})
 
 # %%
-print("ZYMOLASE DF:\n", zymolase_df)
+coral_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/cold/coral.csv')
+
+# %%
+print("CORAL DF:\n", coral_df)
 
 # %%
 rna_authors_df = pd.read_pickle('./outputs/rna_group/rna_authors.pkl')
@@ -40,8 +39,16 @@ print(rna_remaining_authors_df)
 zymolase_authors_df = pd.read_pickle('./outputs/zymolase/zymolase_authors.pkl')
 
 # %%
+coral_authors_df = pd.read_pickle('./outputs/cold/coral_authors.pkl')
+print("CORAL AUTHORS DF:\n", coral_authors_df)
+
+# %%
 zymolase_authors_df.drop(columns=['firstName'], inplace=True)
 print(zymolase_authors_df)
+
+# %%
+coral_authors_df.drop(columns=['firstName'], inplace=True)
+print("CORAL AUTHORS DF:\n", coral_authors_df)
 
 
 # %%
@@ -59,8 +66,8 @@ def get_initials(row):
 def process_author_dicts(
     pubmed_result_file_path,
     lead_source_file_path,
-    last_name_column_name,
-    first_name_column_name
+    leadsource_lastname_column_name,
+    leadsource_firstname_column_name
 ):
     pubmed_result_df = pd.read_pickle(pubmed_result_file_path)
     # drop 'firstName' column because all n/a values
@@ -69,13 +76,13 @@ def process_author_dicts(
 
     lead_source_df = pd.read_csv(lead_source_file_path).rename(
         columns={
-            last_name_column_name: 'lastName',
-            first_name_column_name: 'firstName'
+            leadsource_lastname_column_name: 'lastName',
+            leadsource_firstname_column_name: 'firstName'
         }
     )
     lead_source_df['initials'] = lead_source_df.apply(get_initials, axis=1)
     print("LEAD DF WITH INITIALS:\n", lead_source_df)
-    merged_df = pd.merge(pubmed_result_df, lead_source_df, on=['lastName'], how='inner')
+    merged_df = pd.merge(pubmed_result_df, lead_source_df, on=['lastName', 'initials'], how='inner')
     print("MERGED DF: \n", merged_df)
     filtered_df = merged_df[['firstName', 'initials', 'lastName', 'affiliation', 'institute']]
     print("FILTERED DF:\n", filtered_df)
@@ -88,10 +95,10 @@ def process_author_dicts(
 
 # %%
 author_dicts = process_author_dicts(
-    pubmed_result_file_path='./outputs/zymolase/zymolase_authors.pkl',
-    lead_source_file_path='./data/zymolase/zymolase_leads_updated.csv',
-    last_name_column_name='LastName',
-    first_name_column_name='FirstName'
+    pubmed_result_file_path='./outputs/cold/coral_authors.pkl',
+    lead_source_file_path='./data/cold/coral.csv',
+    leadsource_lastname_column_name='LastName',
+    leadsource_firstname_column_name='FirstName'
 )
 
 print(len(author_dicts))
@@ -167,12 +174,10 @@ address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_a
 
 # %%
 address_df = pd.DataFrame(address_dicts)
-address_df.to_pickle('./outputs/zymolase/zymolase_addresses.pkl')
+address_df.to_pickle('./outputs/cold/coral_addresses.pkl')
 
 # %%
-address_df = pd.read_pickle('./outputs/zymolase/zymolase_addresses.pkl')
-# # Rename address_df "initials" column due to typo in get_address_from_author_dicts at the time the code was run:
-# address_df = address_df.rename(columns={'intials': 'initials'})
+address_df = pd.read_pickle('./outputs/cold/coral_addresses.pkl')
 print("ADDRESS DF:\n", address_df)
 
 # %%
@@ -187,14 +192,17 @@ deduped_address_df.to_csv(filename, index=False)
 full_address_df = pd.read_csv('./outputs/rna_group/matched_rna_addresses.csv')
 print("FULL ADDRESS DF: \n", full_address_df)
 
+# %% Rename columns to match
+coral_df.rename(columns={'LastName': 'lastName', 'FirstName': 'firstName'}, inplace=True)
+print(coral_df)
+
 # %% Get rows with matching column values
-# matching_df = pd.merge(rna_df, address_df, on=['firstName', 'lastName'], how='left').reset_index(drop=True)
-matching_df = pd.merge(zymolase_df, address_df, on=['firstName', 'lastName'], how='left').reset_index(drop=True)
+matching_df = pd.merge(coral_df, address_df, on=['firstName', 'lastName'], how='left').reset_index(drop=True)
 print("MATCHING DF:\n", matching_df)
 
 # %%
-deduped_matching_df = matching_df.drop_duplicates()
-print("DEDUPED MATCHING DF:\n", deduped_matching_df)
+filename = './outputs/cold/matched_coral_addresses.csv'
+matching_df.to_csv(filename, index=False)
 
 # %%
 filename = './outputs/rna_group/matched_full_rna_addresses.csv'
@@ -207,10 +215,6 @@ print("UNPARSED INSTITUTE DF:\n", unparsed_institute_df)
 # %%
 matching_unparsed_df = pd.merge(unparsed_institute_df, rna_renamed_df, on=['initials', 'lastName']).drop_duplicates().reset_index(drop=True)
 print("MATCHING UNPARSED DF:\n", matching_unparsed_df)
-
-# %%
-filename = './outputs/addresses_from_names/matched_unparsed_rneasy_addresses.csv'
-matching_unparsed_df.to_csv(filename, index=False)
 
 # %% Drop "institute_x" column because it contains all "Unparsed" values:
 matching_unparsed_df_cleaned = matching_unparsed_df.drop(columns=['institute_x'])

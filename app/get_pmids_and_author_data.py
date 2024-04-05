@@ -236,13 +236,22 @@ empty_pubmed_link_count = zymolase_df['PubMed Link'].isna().sum()
 print(empty_pubmed_link_count)
 
 # %%
+coral_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/cold/coral.csv')
+print(coral_df)
+
+# %%
 url_list = zymolase_df['PubMed Link'].dropna().tolist()
 print(url_list)
 print(len(url_list))
 
+# %%
+coral_url_list = coral_df['PubMed Link'].dropna().tolist()
+print(coral_url_list)
+print(len(coral_url_list))
+
 # %% Running the asynchronous function (in an event loop):
 # pmids_list_test = ["37971890", "37630833"]
-pmid_list = extract_pmids(url_list)
+pmid_list = extract_pmids(coral_url_list)
 # pmid_list = ['34799566', '34754035', '35477301']
 print(pmid_list)
 print(len(pmid_list))
@@ -263,7 +272,7 @@ print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_pickle('./outputs/zymolase/zymolase_authors.pkl')
+result_df.to_pickle('./outputs/cold/coral_authors.pkl')
 
 # %%
 result_df = pd.read_pickle('./outputs/zymolase/zymolase_authors.pkl')
