@@ -172,6 +172,24 @@ def get_address_from_author_dicts(author_dicts: list, api_key: str):
 # %%
 address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_api_key)
 
+
+# %%
+def process_addresses(address_dicts: dict, leadsource_df: pd.DataFrame, output_filename: str):
+    address_df = pd.DataFrame(address_dicts)
+    print("ADDRESS DF:\n", address_df)
+    address_df.to_pickle('./outputs/cold/coral_addresses.pkl')
+    deduped_address_df = address_df.drop_duplicates()
+    print("DEDUPED ADDRESS DF:\n", deduped_address_df)
+    leadsource_df.rename(columns={'LastName': 'lastName', 'FirstName': 'firstName'}, inplace=True)
+    print("LEADSOURCE DF:\n", leadsource_df)
+    matching_df = pd.merge(leadsource_df, deduped_address_df, on=['firstName', 'lastName'], how='left').drop_duplicates().reset_index(drop=True)
+    print("MATCHING DF:\n", matching_df)
+    matching_df.to_csv(output_filename, index=False)
+
+
+# %%
+process_addresses(address_dicts)
+
 # %%
 address_df = pd.DataFrame(address_dicts)
 address_df.to_pickle('./outputs/cold/coral_addresses.pkl')
@@ -197,7 +215,7 @@ coral_df.rename(columns={'LastName': 'lastName', 'FirstName': 'firstName'}, inpl
 print(coral_df)
 
 # %% Get rows with matching column values
-matching_df = pd.merge(coral_df, address_df, on=['firstName', 'lastName'], how='left').reset_index(drop=True)
+matching_df = pd.merge(coral_df, address_df, on=['firstName', 'lastName'], how='left').drop_duplicates().reset_index(drop=True)
 print("MATCHING DF:\n", matching_df)
 
 # %%
