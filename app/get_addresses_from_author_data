@@ -14,42 +14,6 @@ with open('../config.json', 'r') as file:
     config = json.load(file)
 google_maps_places_api_key = config['apiKeys']['googleMapsPlaces']
 
-# %%
-# rneasy_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rneasy_20_23.csv')
-rna_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rna_group/rna_domestic_only.csv')
-
-# %%
-zymolase_df = pd.read_csv('./data/zymolase/zymolase_leads_updated.csv').rename(columns={'LastName': 'lastName', 'FirstName': 'firstName'})
-
-# %%
-coral_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/cold/coral.csv')
-
-# %%
-print("CORAL DF:\n", coral_df)
-
-# %%
-rna_authors_df = pd.read_pickle('./outputs/rna_group/rna_authors.pkl')
-print(rna_authors_df)
-
-# %%
-rna_remaining_authors_df = pd.read_pickle('./outputs/rna_group/rna_remaining_authors.pkl')
-print(rna_remaining_authors_df)
-
-# %%
-zymolase_authors_df = pd.read_pickle('./outputs/zymolase/zymolase_authors.pkl')
-
-# %%
-coral_authors_df = pd.read_pickle('./outputs/cold/coral_authors.pkl')
-print("CORAL AUTHORS DF:\n", coral_authors_df)
-
-# %%
-zymolase_authors_df.drop(columns=['firstName'], inplace=True)
-print(zymolase_authors_df)
-
-# %%
-coral_authors_df.drop(columns=['firstName'], inplace=True)
-print("CORAL AUTHORS DF:\n", coral_authors_df)
-
 
 # %%
 def get_initials(row):
@@ -95,40 +59,13 @@ def process_author_dicts(
 
 # %%
 author_dicts = process_author_dicts(
-    pubmed_result_file_path='./outputs/cold/coral_authors.pkl',
-    lead_source_file_path='./data/cold/coral.csv',
+    pubmed_result_file_path='./outputs/cold/corn_authors.pkl',
+    lead_source_file_path='./data/cold/corn.csv',
     leadsource_lastname_column_name='LastName',
     leadsource_firstname_column_name='FirstName'
 )
 
 print(len(author_dicts))
-
-# %%
-zymolase_df['initials'] = zymolase_df.apply(get_initials, axis=1)
-print("ZYMOLASE DF WITH INITIALS:\n", zymolase_df)
-
-# %%
-# merged_df = pd.merge(rna_authors_df, rna_df, left_on=['initials', 'lastName'], right_on=['initials', 'LastName'], how='inner')
-# filtered_df = merged_df[['initials', 'lastName', 'affiliation', 'institute']]
-# print("FILTERED DF:\n", filtered_df)
-
-merged_df = pd.merge(zymolase_authors_df, zymolase_df, on=['lastName', 'initials'], how='inner')
-print("MERGED DF: \n", merged_df)
-
-# %%
-filtered_df = merged_df[['firstName', 'initials', 'lastName', 'affiliation', 'institute']]
-print("FILTERED DF:\n", filtered_df)
-
-# %%
-deduped_filtered_df = filtered_df.drop_duplicates().reset_index(drop=True)
-print("DEDUPED FILTERED DF:\n", deduped_filtered_df)
-
-# %%
-author_dicts = deduped_filtered_df.to_dict('records')
-# print(author_dicts)
-
-# %%
-print("length of author_dicts:", len(author_dicts))
 
 
 # %%
@@ -174,12 +111,13 @@ address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_a
 
 
 # %%
-def process_addresses(address_dicts: dict, leadsource_df: pd.DataFrame, output_filename: str):
+def process_addresses(address_dicts: dict, lead_source_file_path: str, output_filename: str):
     address_df = pd.DataFrame(address_dicts)
     print("ADDRESS DF:\n", address_df)
     address_df.to_pickle('./outputs/cold/coral_addresses.pkl')
     deduped_address_df = address_df.drop_duplicates()
     print("DEDUPED ADDRESS DF:\n", deduped_address_df)
+    leadsource_df = pd.read_csv(lead_source_file_path)
     leadsource_df.rename(columns={'LastName': 'lastName', 'FirstName': 'firstName'}, inplace=True)
     print("LEADSOURCE DF:\n", leadsource_df)
     matching_df = pd.merge(leadsource_df, deduped_address_df, on=['firstName', 'lastName'], how='left').drop_duplicates().reset_index(drop=True)
@@ -188,199 +126,96 @@ def process_addresses(address_dicts: dict, leadsource_df: pd.DataFrame, output_f
 
 
 # %%
-process_addresses(address_dicts)
-
-# %%
-address_df = pd.DataFrame(address_dicts)
-address_df.to_pickle('./outputs/cold/coral_addresses.pkl')
-
-# %%
-address_df = pd.read_pickle('./outputs/cold/coral_addresses.pkl')
-print("ADDRESS DF:\n", address_df)
-
-# %%
-deduped_address_df = address_df.drop_duplicates()
-print("DEDUPED ADDRESS DF:\n", deduped_address_df)
-
-# %%
-filename = './outputs/zymolase/zymolase_addresses.csv'
-deduped_address_df.to_csv(filename, index=False)
-
-# %%
-full_address_df = pd.read_csv('./outputs/rna_group/matched_rna_addresses.csv')
-print("FULL ADDRESS DF: \n", full_address_df)
-
-# %% Rename columns to match
-coral_df.rename(columns={'LastName': 'lastName', 'FirstName': 'firstName'}, inplace=True)
-print(coral_df)
-
-# %% Get rows with matching column values
-matching_df = pd.merge(coral_df, address_df, on=['firstName', 'lastName'], how='left').drop_duplicates().reset_index(drop=True)
-print("MATCHING DF:\n", matching_df)
-
-# %%
-filename = './outputs/cold/matched_coral_addresses.csv'
-matching_df.to_csv(filename, index=False)
-
-# %%
-filename = './outputs/rna_group/matched_full_rna_addresses.csv'
-matching_df.to_csv(filename, index=False)
-
-# %%
-unparsed_institute_df = address_df[address_df['institute'] == 'Unparsed']
-print("UNPARSED INSTITUTE DF:\n", unparsed_institute_df)
-
-# %%
-matching_unparsed_df = pd.merge(unparsed_institute_df, rna_renamed_df, on=['initials', 'lastName']).drop_duplicates().reset_index(drop=True)
-print("MATCHING UNPARSED DF:\n", matching_unparsed_df)
-
-# %% Drop "institute_x" column because it contains all "Unparsed" values:
-matching_unparsed_df_cleaned = matching_unparsed_df.drop(columns=['institute_x'])
-# %% Rename "institute_y" as just "institute":
-matching_unparsed_df_cleaned = matching_unparsed_df_cleaned.rename(columns={'institute_y': 'institute'})
-# %%
-print("MATCHING UNPARSED CLEANED DF:\n", matching_unparsed_df_cleaned)
-
-# %% Check to see if their indices are aligned:
-indices_are_aligned = matching_df.index.equals(matching_unparsed_df_cleaned.index)
-print(f"Indices are aligned: {indices_are_aligned}")
-
-# %% Reorder columns in matching_unparsed_df_cleaned to be same as that of matching_df:
-matching_unparsed_df_cleaned = matching_unparsed_df_cleaned[matching_df.columns]
-print("MATCHING UNPARSED CLEANED REORDERED DF:\n", matching_unparsed_df_cleaned)
-
-# %%
-filename = './outputs/addresses_from_names/matched_cleaned_unparsed_rneasy_addresses.csv'
-matching_unparsed_df_cleaned.to_csv(filename, index=False)
-
-# %% Concatenate dataframes vertically:
-combined_matching_df = pd.concat([matching_df, matching_unparsed_df_cleaned], axis=0).reset_index(drop=True)
-print("COMBINED MATCHING DF:\n", combined_matching_df)
-
-# %%
-filename = './outputs/addresses_from_names/combined_matching_rneasy_addresses.csv'
-combined_matching_df.to_csv(filename, index=False)
+process_addresses(
+    address_dicts=address_dicts,
+    lead_source_file_path='./data/cold/corn.csv',
+    output_filename='./outputs/cold/matched_corn_addresses.csv'
+)
 
 
 # %%
-deduped_filtered_df = deduped_filtered_df.copy()
-deduped_filtered_df['unique_id'] = deduped_filtered_df['lastName'].str.lower() + deduped_filtered_df['initials'].str.lower() + deduped_filtered_df['institute'].str.lower()
-print("DEDUPED FILTERED DF WITH UNIQUE ID:\n", deduped_filtered_df)
+# async def search_place_async(place, api_key):
+#     url = 'https://places.googleapis.com/v1/places:searchText'
+#     payload = {"textQuery": f"address for {place}"}
+#     headers = {
+#         'Content-Type': 'application/json',
+#         'X-Goog-Api-Key': api_key,
+#         'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.priceLevel'
+#     }
 
-# %%
-matching_df['unique_id'] = matching_df['FirstName'].str.lower() + matching_df['lastName'].str.lower() + matching_df['institute'].str.lower()
-print("MATCHING DF WITH UNIQUE ID:\n", matching_df)
+#     async with aiohttp.ClientSession() as session:
+#         try:
+#             async with session.post(url, json=payload, headers=headers) as response:
+#                 if response.status == 200:
+#                     return await response.json()
+#                 else:
+#                     return {"error": True, "status_code": response.status, "message": await response.text}
 
-# %%
-remaining_leads_df = deduped_filtered_df[~deduped_filtered_df['unique_id'].isin(matching_df['unique_id'])]
-print("REMAINING LEADS DF:\n", remaining_leads_df)
+#         except aiohttp.ClientError as e:
+#             logging.error(f'HTTP client error occurred: {e}')
+#             return {"error": True, "message": f'HTTP client error occurred: {e}'}
+#         except asyncio.TimeoutError as e:
+#             logging.error(f'Timeout error occurred: {e}')
+#             return {"error": True, "message": f'Timeout error occurred: {e}'}
+#         except Exception as e:
+#             logging.error(f'An unexpected error occurred: {e}')
+#             return {"error": True, "message": f'An unexpected error occurred: {e}'}
 
-# %%
-sample_unique_id = deduped_filtered_df['unique_id'].iloc[0]  # Example
-print(sample_unique_id in matching_df['unique_id'].values)
-
-# %%
-remaining_author_dicts = remaining_leads_df.apply(lambda row: {
-    "initials": row["initials"],
-    "lastName": row["lastName"],
-    "affiliation": row["affiliation"],
-    "institute": row["institute"]
-}, axis=1).tolist()
-
-print("first few remaining author dicts:", remaining_author_dicts[:5])
 
 # # %%
-# filtered_address_df = pd.concat([matching_df, unparsed_institute_df]).drop_duplicates().reset_index(drop=True)
-# print("FILTERED ADDRESS DF:\n", filtered_address_df)
+# async def get_address_from_author_dicts_async(author_dicts: list, api_key: str):
+#     all_results = []
+
+#     async def process_author_dict(author_dict):
+#         for key in ['affiliation', 'institute']:
+#             if author_dict.get(key, "") == "Unparsed":
+#                 continue
+
+#             search_result = await search_place_async(author_dict[key], api_key)
+
+#             if search_result == {}:
+#                 continue
+#             if search_result.get("error"):
+#                 print(search_result.get("message"))
+#                 continue
+
+#             result_list = search_result.get("places", [])
+#             if not result_list:
+#                 continue
+
+#             best_match_address = filter_best_match(result_list, author_dict[key])  # Assuming this is a synchronous function
+#             if best_match_address:
+#                 return {
+#                     "intials": author_dict.get('initials'),
+#                     "lastName": author_dict.get('lastName'),
+#                     "affiliation": author_dict.get('affiliation', "Unspecified"),
+#                     "institute": author_dict.get('institute', "Unparsed"),
+#                     "address": best_match_address
+#                 }
+
+#     tasks = [process_author_dict(author_dict) for author_dict in author_dicts]
+#     for i in tqdm(range(0, len(tasks), 10), desc="Getting Addresses"):
+#         batch = tasks[i:i+10]
+#         results = await asyncio.gather(*batch)
+#         # Filter out None results and extend all_results
+#         all_results.extend([result for result in results if result])
+#         await asyncio.sleep(1)  # Sleep to respect the rate limit of 10 req/s
+
+#     return all_results
+
 
 # # %%
-# filename = './outputs/addresses_from_names/filtered_rneasy_addresses.csv'
-# filtered_address_df.to_csv(filename, index=False)
+# nest_asyncio.apply()
 
-
-# %%
-async def search_place_async(place, api_key):
-    url = 'https://places.googleapis.com/v1/places:searchText'
-    payload = {"textQuery": f"address for {place}"}
-    headers = {
-        'Content-Type': 'application/json',
-        'X-Goog-Api-Key': api_key,
-        'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.priceLevel'
-    }
-
-    async with aiohttp.ClientSession() as session:
-        try:
-            async with session.post(url, json=payload, headers=headers) as response:
-                if response.status == 200:
-                    return await response.json()
-                else:
-                    return {"error": True, "status_code": response.status, "message": await response.text}
-
-        except aiohttp.ClientError as e:
-            logging.error(f'HTTP client error occurred: {e}')
-            return {"error": True, "message": f'HTTP client error occurred: {e}'}
-        except asyncio.TimeoutError as e:
-            logging.error(f'Timeout error occurred: {e}')
-            return {"error": True, "message": f'Timeout error occurred: {e}'}
-        except Exception as e:
-            logging.error(f'An unexpected error occurred: {e}')
-            return {"error": True, "message": f'An unexpected error occurred: {e}'}
-
-
-# %%
-async def get_address_from_author_dicts_async(author_dicts: list, api_key: str):
-    all_results = []
-
-    async def process_author_dict(author_dict):
-        for key in ['affiliation', 'institute']:
-            if author_dict.get(key, "") == "Unparsed":
-                continue
-
-            search_result = await search_place_async(author_dict[key], api_key)
-
-            if search_result == {}:
-                continue
-            if search_result.get("error"):
-                print(search_result.get("message"))
-                continue
-
-            result_list = search_result.get("places", [])
-            if not result_list:
-                continue
-
-            best_match_address = filter_best_match(result_list, author_dict[key])  # Assuming this is a synchronous function
-            if best_match_address:
-                return {
-                    "intials": author_dict.get('initials'),
-                    "lastName": author_dict.get('lastName'),
-                    "affiliation": author_dict.get('affiliation', "Unspecified"),
-                    "institute": author_dict.get('institute', "Unparsed"),
-                    "address": best_match_address
-                }
-
-    tasks = [process_author_dict(author_dict) for author_dict in author_dicts]
-    for i in tqdm(range(0, len(tasks), 10), desc="Getting Addresses"):
-        batch = tasks[i:i+10]
-        results = await asyncio.gather(*batch)
-        # Filter out None results and extend all_results
-        all_results.extend([result for result in results if result])
-        await asyncio.sleep(1)  # Sleep to respect the rate limit of 10 req/s
-
-    return all_results
-
-
-# %%
-nest_asyncio.apply()
-
-loop = asyncio.get_event_loop()
-if loop.is_running():
-    task = asyncio.ensure_future(get_address_from_author_dicts_async(
-            author_dicts, google_maps_places_api_key
-        ))
-    address_dicts = loop.run_until_complete(task)
-else:
-    address_dicts = loop.run_until_complete(
-        get_address_from_author_dicts_async(
-            author_dicts, google_maps_places_api_key
-        )
-    )
+# loop = asyncio.get_event_loop()
+# if loop.is_running():
+#     task = asyncio.ensure_future(get_address_from_author_dicts_async(
+#             author_dicts, google_maps_places_api_key
+#         ))
+#     address_dicts = loop.run_until_complete(task)
+# else:
+#     address_dicts = loop.run_until_complete(
+#         get_address_from_author_dicts_async(
+#             author_dicts, google_maps_places_api_key
+#         )
+#     )

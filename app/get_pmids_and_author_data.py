@@ -19,97 +19,97 @@ ncbi_api_key = config['apiKeys']['ncbi']
 
 
 # %%
-def get_pmids_from_term(api_key: str, term: str):
-    url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+# def get_pmids_from_term(api_key: str, term: str):
+#     url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 
-    params = {
-        "db": "pubmed",
-        "term": term,
-        "retmode": "json",
-        "retmax": 2,  # limit to 2 PMIDs per term to reduce redundancy while also account for cases of missing "affiliation" or "institute" field for the same author
-        "api_key": api_key
-    }
+#     params = {
+#         "db": "pubmed",
+#         "term": term,
+#         "retmode": "json",
+#         "retmax": 2,  # limit to 2 PMIDs per term to reduce redundancy while also account for cases of missing "affiliation" or "institute" field for the same author
+#         "api_key": api_key
+#     }
 
-    # Create a session object
-    session = requests.Session()
+#     # Create a session object
+#     session = requests.Session()
 
-    # Define retry strategy
-    retries = Retry(total=5, backoff_factor=1, status_forcelist=[500, 502, 503, 504], method_whitelist=["GET"])
-    adapter = HTTPAdapter(max_retries=retries)
-    session.mount('http://', adapter)
-    session.mount('https://', adapter)
+#     # Define retry strategy
+#     retries = Retry(total=5, backoff_factor=1, status_forcelist=[500, 502, 503, 504], method_whitelist=["GET"])
+#     adapter = HTTPAdapter(max_retries=retries)
+#     session.mount('http://', adapter)
+#     session.mount('https://', adapter)
 
-    try:
-        # Respect the rate limit
-        time.sleep(0.1)
+#     try:
+#         # Respect the rate limit
+#         time.sleep(0.1)
 
-        response = session.get(url=url, params=params)
+#         response = session.get(url=url, params=params)
 
-        if response.status_code == 200:
-            data = response.json()
+#         if response.status_code == 200:
+#             data = response.json()
 
-            if 'esearchresult' in data and 'idlist' in data['esearchresult']:
-                idlist = data['esearchresult']['idlist']
-            else:
-                print(f"The expected 'idlist' for {term} was not found in the response.")
-                return []
+#             if 'esearchresult' in data and 'idlist' in data['esearchresult']:
+#                 idlist = data['esearchresult']['idlist']
+#             else:
+#                 print(f"The expected 'idlist' for {term} was not found in the response.")
+#                 return []
 
-            if not idlist:
-                print(f"No PMIDs found for term: {term}")
-                return []
-            else:
-                # Instead of returning a string of PMIDs, return the list directly
-                return idlist
-        else:
-            print(f"Failed to retrieve search result: {response.status_code}")
-            return []
+#             if not idlist:
+#                 print(f"No PMIDs found for term: {term}")
+#                 return []
+#             else:
+#                 # Instead of returning a string of PMIDs, return the list directly
+#                 return idlist
+#         else:
+#             print(f"Failed to retrieve search result: {response.status_code}")
+#             return []
 
-    except requests.exceptions.RequestException as e:
-        print(f"Request failed: {e}")
-        return []
+#     except requests.exceptions.RequestException as e:
+#         print(f"Request failed: {e}")
+#         return []
 
 
-# %%
+# # %%
 # Testing:
-term = 'Nikolai Kolba'
-idlist = get_pmids_from_term(ncbi_api_key, term)
-print(idlist)
+# term = 'Nikolai Kolba'
+# idlist = get_pmids_from_term(ncbi_api_key, term)
+# print(idlist)
 
-# %%
-rneasy_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rneasy_20_23.csv')
-rneasy_df["FullName"] = rneasy_df.apply(
-    lambda row: str(row["FirstName"]) + " " + str(row["LastName"]),
-    axis=1
-)
-author_names = rneasy_df["FullName"].tolist()
-print(author_names)
-
-
-# %%
-def process_pmids_from_author_names(api_key: str, author_names: list):
-    all_pmids = []
-
-    for name in tqdm(author_names, desc="Getting PMIDS"):
-        idlist = get_pmids_from_term(api_key, name)
-        all_pmids.extend(idlist)
-
-    return all_pmids
+# # %%
+# rneasy_df = pd.read_csv('./data/rneasy_20_23.csv')
+# rneasy_df["FullName"] = rneasy_df.apply(
+#     lambda row: str(row["FirstName"]) + " " + str(row["LastName"]),
+#     axis=1
+# )
+# author_names = rneasy_df["FullName"].tolist()
+# print(author_names)
 
 
-# %%
-pmids_list = process_pmids_from_author_names(ncbi_api_key, author_names)
+# # %%
+# def process_pmids_from_author_names(api_key: str, author_names: list):
+#     all_pmids = []
 
-# %%
-pmids_df = pd.DataFrame(pmids_list)
-pmids_df.to_pickle('./outputs/addresses_from_names/rneasy_pmids.pkl')
+#     for name in tqdm(author_names, desc="Getting PMIDS"):
+#         idlist = get_pmids_from_term(api_key, name)
+#         all_pmids.extend(idlist)
 
-# %%
-pmids_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_pmids.pkl')
-print("PMIDS_DF FROM PICKLE:\n", pmids_df)
-pmid_column_dtype = pmids_df.iloc[:, 0].dtype
-print(f"The data type of the first column is: {pmid_column_dtype}")
-are_all_values_strings = pmids_df.iloc[:, 0].apply(lambda x: isinstance(x, str)).all()
-print(f"Are all values in the first column strings? {are_all_values_strings}")
+#     return all_pmids
+
+
+# # %%
+# pmids_list = process_pmids_from_author_names(ncbi_api_key, author_names)
+
+# # %%
+# pmids_df = pd.DataFrame(pmids_list)
+# pmids_df.to_pickle('./outputs/addresses_from_names/rneasy_pmids.pkl')
+
+# # %%
+# pmids_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_pmids.pkl')
+# print("PMIDS_DF FROM PICKLE:\n", pmids_df)
+# pmid_column_dtype = pmids_df.iloc[:, 0].dtype
+# print(f"The data type of the first column is: {pmid_column_dtype}")
+# are_all_values_strings = pmids_df.iloc[:, 0].apply(lambda x: isinstance(x, str)).all()
+# print(f"Are all values in the first column strings? {are_all_values_strings}")
 
 
 # %%
@@ -230,28 +230,17 @@ def extract_pmids(url_list: list):
 
 
 # %%
-# rna_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/rna_group/rna_domestic_only.csv')
-zymolase_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/zymolase/zymolase_leads_updated.csv')
-empty_pubmed_link_count = zymolase_df['PubMed Link'].isna().sum()
-print(empty_pubmed_link_count)
+source_df = pd.read_csv('./data/cold/corn.csv')
+print(source_df)
 
 # %%
-coral_df = pd.read_csv('/Users/nicoletrieu/Documents/zymo/metadata-scraper/app/data/cold/coral.csv')
-print(coral_df)
-
-# %%
-url_list = zymolase_df['PubMed Link'].dropna().tolist()
-print(url_list)
-print(len(url_list))
-
-# %%
-coral_url_list = coral_df['PubMed Link'].dropna().tolist()
-print(coral_url_list)
-print(len(coral_url_list))
+source_url_list = source_df['PubMed Link'].dropna().tolist()
+print(source_url_list)
+print(len(source_url_list))
 
 # %% Running the asynchronous function (in an event loop):
 # pmids_list_test = ["37971890", "37630833"]
-pmid_list = extract_pmids(coral_url_list)
+pmid_list = extract_pmids(source_url_list)
 # pmid_list = ['34799566', '34754035', '35477301']
 print(pmid_list)
 print(len(pmid_list))
@@ -272,21 +261,21 @@ print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_pickle('./outputs/cold/coral_authors.pkl')
+result_df.to_pickle('./outputs/cold/corn_authors.pkl')
 
 # %%
-result_df = pd.read_pickle('./outputs/zymolase/zymolase_authors.pkl')
-print(result_df)
+# result_df = pd.read_pickle('./outputs/zymolase/zymolase_authors.pkl')
+# print(result_df)
 
-# %%
-filtered_df = result_df[result_df['lastName'].isin(rneasy_df["LastName"])]
-# print("RNEASY DF:\n", rneasy_df)
-print("FILTERED DF:\n", filtered_df)
+# # %%
+# filtered_df = result_df[result_df['lastName'].isin(rneasy_df["LastName"])]
+# # print("RNEASY DF:\n", rneasy_df)
+# print("FILTERED DF:\n", filtered_df)
 
-# %%
-pmids_test = ["37971890", "37630833"]
-author_data_test = query_pubmed(pmids_list=pmids_test)
-print(author_data_test)
+# # %%
+# pmids_test = ["37971890", "37630833"]
+# author_data_test = query_pubmed(pmids_list=pmids_test)
+# print(author_data_test)
 
 # # %%
 # author_data_list = query_pubmed(pmids_list)
