@@ -1,6 +1,6 @@
 # Metadata Scraper
-## 1. Add API keys
-Copy `config.json` file to project's root directory.
+## 1. Install  `poetry` for package management
+Open Integrated Terminal and run `poetry shell` and `poetry install`.
 
 ## 2. Import source data
 Make new directory inside `data` with distinct name (e.g. "zymolase"). Copy or download source **CSV file** to this new directory and rename file for readability (e.g. "zymolase_leads.csv").
