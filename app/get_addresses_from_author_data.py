@@ -55,17 +55,6 @@ def process_author_dicts(
 
     return author_dicts
 
-# %%
-author_dicts = process_author_dicts(
-    pubmed_result_file_path='./outputs/rabbit/rabbit_authors_2_1.pkl',
-    lead_source_file_path='./data/rabbit/smaller_csv_file_2.csv',
-    leadsource_lastname_column_name='LastName',
-    leadsource_firstname_column_name='FirstName'
-)
-
-print(len(author_dicts))
-
-
 
 # %%
 def get_address_from_author_dicts(author_dicts: list, api_key: str):
@@ -106,14 +95,9 @@ def get_address_from_author_dicts(author_dicts: list, api_key: str):
 
 
 # %%
-address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_api_key)
-
-
-# %%
 def process_addresses(address_dicts: dict, lead_source_file_path: str, output_filename: str):
     address_df = pd.DataFrame(address_dicts)
     print("ADDRESS DF:\n", address_df)
-    address_df.to_pickle('./outputs/cold/coral_addresses.pkl')
     deduped_address_df = address_df.drop_duplicates()
     print("DEDUPED ADDRESS DF:\n", deduped_address_df)
     leadsource_df = pd.read_csv(lead_source_file_path)
@@ -125,10 +109,23 @@ def process_addresses(address_dicts: dict, lead_source_file_path: str, output_fi
 
 
 # %%
+author_dicts = process_author_dicts(
+    pubmed_result_file_path='./outputs/rabbit/rabbit_authors_3_1.pkl',
+    lead_source_file_path='./data/rabbit/smaller_csv_file_3.csv',
+    leadsource_lastname_column_name='LastName',
+    leadsource_firstname_column_name='FirstName'
+)
+
+print(len(author_dicts))
+
+# %%
+address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_api_key)
+
+# %%
 process_addresses(
     address_dicts=address_dicts,
-    lead_source_file_path='./data/rabbit/smaller_csv_file_2.csv',
-    output_filename='./outputs/rabbit/addresses/matched_rabbit_addresses_2_2.csv'
+    lead_source_file_path='./data/rabbit/smaller_csv_file_3.csv',
+    output_filename='./outputs/rabbit/addresses/matched_rabbit_addresses_3_1.csv'
 )
 
 
