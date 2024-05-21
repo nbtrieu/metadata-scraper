@@ -127,8 +127,8 @@ def process_addresses(address_dicts: dict, lead_source_file_path: str, output_fi
 # %%
 process_addresses(
     address_dicts=address_dicts,
-    lead_source_file_path='./data/rabbit/smaller_csv_file_1.csv',
-    output_filename='./outputs/rabbit/addresses/matched_rabbit_addresses_1_2.csv'
+    lead_source_file_path='./data/rabbit/smaller_csv_file_2.csv',
+    output_filename='./outputs/rabbit/addresses/matched_rabbit_addresses_2_2.csv'
 )
 
 
