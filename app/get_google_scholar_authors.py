@@ -2,6 +2,7 @@
 import serpapi
 import json
 import pickle
+import ast
 import pandas as pd
 from tqdm import tqdm
 
@@ -14,7 +15,7 @@ client = serpapi.Client(api_key=serp_api_key)
 # %%
 test_results = client.search({
     'engine': 'google_scholar',
-    'q': 'lyticase',
+    'q': 'duplex-specific nuclease Evrogen',
     'num': '20',
     'start': 100
 })
@@ -25,7 +26,7 @@ print(test_results)
 print(len(test_results))
 
 # %%
-author_id = test_results["organic_results"][5]["publication_info"]["authors"][0]["author_id"]
+author_id = test_results["organic_results"][0]["publication_info"]["authors"][0]["author_id"]
 # publication_info = results["organic_results"][1]["publication_info"]
 print(author_id)
 
@@ -47,16 +48,16 @@ def get_google_scholar_results(keyword: str):
 
 
 # %%
-lyticase_results = get_google_scholar_results("lyticase")  # list of objects
+dsn_results = get_google_scholar_results("duplex-specific nuclease Evrogen")  # list of objects
 
 # %%
-print(lyticase_results)
+print(dsn_results)
 
 # %%
-print(len(lyticase_results))
+print(len(dsn_results))
 
 # %% Get author_id from Google Scholar API
-author_id = lyticase_results[0]["organic_results"][1]["publication_info"]["authors"][0]["author_id"]
+author_id = dsn_results[1]["organic_results"][1]["publication_info"]["authors"][0]["author_id"]
 # publication_info = results["organic_results"][1]["publication_info"]
 print(author_id)
 
@@ -103,26 +104,85 @@ def get_author_data(google_scholar_results):
 
 
 # %%
-lyticase_author_data = get_author_data(lyticase_results)
+dsn_author_data = get_author_data(dsn_results)
 
 # %%
-print(lyticase_author_data[0])
+print(dsn_author_data[0])
 
 # %%
-file_path = './outputs/lyticase_google/lyticase_author_data.pkl'
+file_path = './outputs/dsn_google/dsn_author_data.pkl'
 with open(file_path, 'wb') as file:
-    pickle.dump(lyticase_author_data, file)
+    pickle.dump(dsn_author_data, file)
 
 # %%
-lyticase_df = pd.DataFrame(lyticase_author_data)
-print(lyticase_df)
+dsn_df = pd.DataFrame(dsn_author_data)
+print(dsn_df)
 
 # %%
-# lyticase_df = lyticase_df.drop_duplicates()
-# print(lyticase_df)
+file_path = './outputs/dsn_google/dsn_authors.csv'
+dsn_df.to_csv(file_path)
 
 # %%
-file_path = './outputs/lyticase_google/lyticase_authors.csv'
-lyticase_df.to_csv(file_path)
+print("Data type of 'interests':", dsn_df['interests'].dtype)
+# %%
+print("First 10 entries in 'interests':\n", dsn_df['interests'].head(10))
+
+# %% Print raw format of a few entries to see their actual content
+for idx, row in dsn_df.head(5).iterrows():
+    print(f"Raw entry {idx}: {row['interests']}")
+
+# %%
+test_string = "[{'title': 'microbiology', 'link': 'https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:microbiology', 'serpapi_link': 'https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amicrobiology'}, {'title': 'veterinary medicine', 'link': 'https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:veterinary_medicine', 'serpapi_link': 'https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aveterinary_medicine'}]"
+
+# Try parsing it
+try:
+    parsed_list = ast.literal_eval(test_string)
+    print("Parsed successfully:", parsed_list)
+    titles = [d['title'] for d in parsed_list]
+    print("Extracted titles:", titles)
+except Exception as e:
+    print("Error during parsing:", e)
+
+# %%
+print(dsn_df['interests'].dtype)
+print(dsn_df['interests'].head(10))
+
+
+# %%
+def extract_titles(interests):
+    if pd.isna(interests):
+        return None  # Handle NaN values directly
+
+    # If the entry is a string, try to convert it to a list
+    if isinstance(interests, str):
+        try:
+            interests = ast.literal_eval(interests)
+        except Exception as e:
+            print(f"Error converting string to list: {interests[:100]}... Error: {e}")
+            return None
+
+    # At this point, interests should be a list
+    if not isinstance(interests, list):
+        print(f"Unexpected data type after conversion: {type(interests)}")
+        return None
+
+    try:
+        # Extract 'title' from each dictionary in the list
+        titles = [d['title'] for d in interests if 'title' in d]
+        return ', '.join(titles)
+    except Exception as e:
+        print(f"Error processing interests list: {interests[:100]}... Error: {e}")
+        return None
+
+
+# %% Apply the function and print results for the first few rows
+dsn_df['interests'] = dsn_df['interests'].apply(extract_titles)
+
+# %%
+print(dsn_df.head())
+
+# %%
+file_path = './outputs/lyticase_google/processed_lyticase_authors.csv'
+dsn_df.to_csv(file_path)
 
 # %%

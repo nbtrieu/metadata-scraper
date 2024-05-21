@@ -17,6 +17,8 @@ def search_place(place, api_key):
         'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.priceLevel'
     }
 
+    response = None
+
     try:
         response = requests.post(url, json=payload, headers=headers)
         response.raise_for_status()  # This will raise an HTTPError for bad responses

@@ -230,7 +230,7 @@ def extract_pmids(url_list: list):
 
 
 # %%
-source_df = pd.read_csv('./data/cold/corn.csv')
+source_df = pd.read_csv('./data/rabbit/smaller_csv_file_10.csv')
 print(source_df)
 
 # %%
@@ -239,9 +239,7 @@ print(source_url_list)
 print(len(source_url_list))
 
 # %% Running the asynchronous function (in an event loop):
-# pmids_list_test = ["37971890", "37630833"]
 pmid_list = extract_pmids(source_url_list)
-# pmid_list = ['34799566', '34754035', '35477301']
 print(pmid_list)
 print(len(pmid_list))
 
@@ -261,7 +259,7 @@ print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_pickle('./outputs/cold/corn_authors.pkl')
+result_df.to_pickle('./outputs/rabbit/rabbit_authors_10.pkl')
 
 # %%
 # result_df = pd.read_pickle('./outputs/zymolase/zymolase_authors.pkl')

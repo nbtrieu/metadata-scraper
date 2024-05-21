@@ -17,16 +17,15 @@ google_maps_places_api_key = config['apiKeys']['googleMapsPlaces']
 
 # %%
 def get_initials(row):
-    initials = row['firstName'][0]
-    if 'MiddleName' in row and pd.notnull(row['MiddleName']):
-        middle_names = row['MiddleName'].split()
-        for name in middle_names:
-            initials += name[0]
-
+    initials = ""
+    if pd.notnull(row['firstName']) and isinstance(row['firstName'], str):
+        initials = row['firstName'][0]
+        if 'MiddleName' in row and pd.notnull(row['MiddleName']):
+            middle_names = row['MiddleName'].split()
+            for name in middle_names:
+                initials += name[0]
     return initials
 
-
-# %%
 def process_author_dicts(
     pubmed_result_file_path,
     lead_source_file_path,
@@ -56,16 +55,16 @@ def process_author_dicts(
 
     return author_dicts
 
-
 # %%
 author_dicts = process_author_dicts(
-    pubmed_result_file_path='./outputs/cold/corn_authors.pkl',
-    lead_source_file_path='./data/cold/corn.csv',
+    pubmed_result_file_path='./outputs/rabbit/rabbit_authors_2_1.pkl',
+    lead_source_file_path='./data/rabbit/smaller_csv_file_2.csv',
     leadsource_lastname_column_name='LastName',
     leadsource_firstname_column_name='FirstName'
 )
 
 print(len(author_dicts))
+
 
 
 # %%
@@ -128,10 +127,65 @@ def process_addresses(address_dicts: dict, lead_source_file_path: str, output_fi
 # %%
 process_addresses(
     address_dicts=address_dicts,
-    lead_source_file_path='./data/cold/corn.csv',
-    output_filename='./outputs/cold/matched_corn_addresses.csv'
+    lead_source_file_path='./data/rabbit/smaller_csv_file_1.csv',
+    output_filename='./outputs/rabbit/addresses/matched_rabbit_addresses_1_2.csv'
 )
 
+
+# %%
+def get_address_from_google_scholar_authors(author_dicts: list, api_key: str):
+    all_results = []
+
+    for author_dict in tqdm(author_dicts, desc="Getting Addresses"):
+        if author_dict.get('affiliations', "") == "Unparsed":  # Skip 'Unparsed' values
+            continue
+
+        search_result = search_place(author_dict['affiliations'], api_key)
+
+        if search_result == {}:
+            continue  # Skip empty search result
+        if search_result.get("error"):
+            print(search_result.get("message"))  # Log the error message
+            continue
+
+        result_list = search_result.get("places", [])
+        if not result_list:
+            continue  # Skip if no results found
+
+        # Find the best match:
+        best_match_address = filter_best_match(result_list, author_dict['affiliations'])
+        if best_match_address:
+            result_dict = {
+                "name": author_dict.get('name'),
+                "gscholar_affiliation": author_dict.get('affiliations', "Unspecified"),
+                "interests": author_dict.get('interests', "N/A"),
+                "address": best_match_address
+            }
+            all_results.append(result_dict)
+
+    return all_results
+
+
+# %%
+lyticase_author_df = pd.read_csv('./outputs/lyticase_google/processed_lyticase_authors.csv').drop_duplicates()
+print(lyticase_author_df)
+
+# %%
+lyticase_author_dicts = lyticase_author_df.to_dict('records')
+print(len(lyticase_author_dicts))
+
+# %%
+lyticase_addresses = get_address_from_google_scholar_authors(lyticase_author_dicts, google_maps_places_api_key)
+
+# %%
+lyticase_address_df = pd.DataFrame(lyticase_addresses)
+print("ADDRESS DF:\n", lyticase_address_df)
+
+# %%
+lyticase_address_df.to_pickle('./outputs/lyticase_google/lyticase_gscholar_addresses.pkl')
+deduped_lyticase_address_df = lyticase_address_df.drop_duplicates()
+print("DEDUPED ADDRESS DF:\n", deduped_lyticase_address_df)
+deduped_lyticase_address_df.to_csv('./outputs/lyticase_google/lyticase_gscholar_addresses.csv', index=False)
 
 # %%
 # async def search_place_async(place, api_key):
