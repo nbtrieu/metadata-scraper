@@ -17,9 +17,9 @@ def split_csv(original_csv: str, output_file_path: str):
     remainder = num_rows % 10
 
     # Split the DataFrame and save smaller CSV files
-    for i in range(10):
+    for i in range(2):
         start_row = i * rows_per_file
-        if i == 9:  # Last file includes the remainder rows
+        if i == 1:  # Last file includes the remainder rows
             end_row = start_row + rows_per_file + remainder
         else:
             end_row = start_row + rows_per_file
@@ -36,8 +36,9 @@ def split_csv(original_csv: str, output_file_path: str):
     print("CSV files have been successfully divided.")
 
 
+
 # %% 
-# split_csv('./data/rabbit/rabbit.csv', './data/rabbit')
+split_csv('./data/zebrafish/zebrafish.csv', './data/zebrafish')
 
 
 # %%
@@ -74,6 +75,14 @@ def split_pickle(original_pickle: str, output_file_path: str):
 
 
 # %%
-split_pickle('./outputs/rabbit/rabbit_authors_3.pkl', './outputs/rabbit')
+split_pickle('./outputs/rabbit/rabbit_authors_5.pkl', './outputs/rabbit')
+
+# %%
+authors_df = pd.read_pickle('./outputs/rabbit/rabbit_authors_7_1.pkl')
+print(authors_df)
+
+# %%
+source_df = pd.read_csv('./data/rabbit/smaller_csv_file_7.csv')
+print(source_df)
 
 # %%
