@@ -37,9 +37,9 @@ def process_csv_files(file1, file2, output_file):
 
 
 # %%
-file1 = './outputs/rabbit/addresses/matched_rabbit_addresses_10_1.csv'
-file2 = './outputs/rabbit/addresses/matched_rabbit_addresses_10_2.csv'
-output_file = './outputs/rabbit/addresses/processed/processed_rabbit_addresses_10.csv'
+file1 = './outputs/rabbit/addresses/matched_rabbit_addresses_4_1.csv'
+file2 = './outputs/rabbit/addresses/matched_rabbit_addresses_4_2.csv'
+output_file = './outputs/rabbit/addresses/processed/processed_rabbit_addresses_4.csv'
 processed_df = process_csv_files(file1, file2, output_file)
 print(processed_df)
 

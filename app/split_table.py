@@ -4,7 +4,7 @@ import os
 
 
 # %%
-def split_csv(original_csv: str, output_file_path: str):
+def split_csv(original_csv: str, output_file_path: str, num_parts: int):
     # Ensure the output directory exists
     os.makedirs(output_file_path, exist_ok=True)
 
@@ -13,13 +13,13 @@ def split_csv(original_csv: str, output_file_path: str):
 
     # Determine the number of rows per smaller CSV file
     num_rows = len(df)
-    rows_per_file = num_rows // 10
-    remainder = num_rows % 10
+    rows_per_file = num_rows // num_parts
+    remainder = num_rows % num_parts
 
     # Split the DataFrame and save smaller CSV files
-    for i in range(2):
+    for i in range(num_parts):
         start_row = i * rows_per_file
-        if i == 1:  # Last file includes the remainder rows
+        if i == num_parts - 1:  # Last file includes the remainder rows
             end_row = start_row + rows_per_file + remainder
         else:
             end_row = start_row + rows_per_file
@@ -33,12 +33,12 @@ def split_csv(original_csv: str, output_file_path: str):
         # Save the smaller DataFrame to a CSV file
         df_small.to_csv(output_csv, index=False)
 
-    print("CSV files have been successfully divided.")
+    print(f"CSV files have been successfully divided into {num_parts} parts.")
 
 
 
 # %% 
-split_csv('./data/zebrafish/zebrafish.csv', './data/zebrafish')
+split_csv(original_csv='./data/zebrafish/zebrafish.csv', output_file_path='./data/zebrafish', num_parts=4)
 
 
 # %%
@@ -75,14 +75,9 @@ def split_pickle(original_pickle: str, output_file_path: str):
 
 
 # %%
-split_pickle('./outputs/rabbit/rabbit_authors_5.pkl', './outputs/rabbit')
+split_pickle('./outputs/rabbit/rabbit_authors_4.pkl', './outputs/rabbit')
 
 # %%
-authors_df = pd.read_pickle('./outputs/rabbit/rabbit_authors_7_1.pkl')
+authors_df = pd.read_pickle('./outputs/rabbit/rabbit_authors_3.pkl')
 print(authors_df)
-
-# %%
-source_df = pd.read_csv('./data/rabbit/smaller_csv_file_7.csv')
-print(source_df)
-
 # %%
