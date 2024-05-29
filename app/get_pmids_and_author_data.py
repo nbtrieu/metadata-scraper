@@ -11,11 +11,15 @@ import pandas as pd
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 from tqdm import tqdm
+import os
 
 # %%
 with open('../config.json', 'r') as file:
     config = json.load(file)
 ncbi_api_key = config['apiKeys']['ncbi']
+
+log_directory = './logs'
+os.makedirs(log_directory, exist_ok=True)
 
 
 # %%
@@ -152,46 +156,43 @@ def query_pubmed(pmids_list: list) -> list:
 
 
 # %%
-async def fetch_pmid_data(pmid, script_path):
-    """
-    Asynchronously executes the pubmedAuthorAffiliation.py script for a given PMID
-    and returns the parsed JSON data.
-
-    Parameters:
-    pmid (str): The PMID for which to fetch author affiliation data.
-    script_path (str): The path to the pubmedAuthorAffiliation.py script.
-
-    Returns:
-    dict: The JSON data returned by the pubmedAuthorAffiliation.py script.
-    """
+async def fetch_pmid_data(pmid, script_path, retries=3, backoff_factor=0.3):
     command = f'poetry run python {script_path} -i {pmid}'
-    # Create subprocess
-    process = await asyncio.create_subprocess_shell(
-        command,
-        stdout=asyncio.subprocess.PIPE,
-        stderr=asyncio.subprocess.PIPE)
+    log_file = os.path.join(log_directory, f'log_pmid_{pmid}.txt')
+    for attempt in range(retries):
+        process = await asyncio.create_subprocess_shell(
+            command,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE)
+        stdout, stderr = await process.communicate()
 
-    # Wait for the subprocess to finish
-    stdout, stderr = await process.communicate()
+        with open(log_file, 'a') as f:
+            f.write(f"Attempt {attempt + 1}:\n")
+            f.write(f"STDOUT:\n{stdout.decode()}\n")
+            f.write(f"STDERR:\n{stderr.decode()}\n")
 
-    if process.returncode == 0:
-        # Process finished successfully, parse JSON output
-        try:
-            return json.loads(stdout.decode())
-        except json.JSONDecodeError:
-            print(f"Failed to decode JSON output for PMID {pmid}.")
-            return None
-    else:
-        # Process failed, log error
-        print(f"Error querying PMID {pmid}: {stderr.decode()}")
-        return None
+        if process.returncode == 0:
+            try:
+                result = json.loads(stdout.decode())
+                if "authorList" in result:
+                    return result["authorList"]
+                else:
+                    with open(log_file, 'a') as f:
+                        f.write(f"No authorList found in result for PMID {pmid}.\n")
+                    return None
+            except json.JSONDecodeError as e:
+                with open(log_file, 'a') as f:
+                    f.write(f"Failed to decode JSON output for PMID {pmid}: {e}\n")
+                return None
+        else:
+            with open(log_file, 'a') as f:
+                f.write(f"Error querying PMID {pmid} (Attempt {attempt + 1}): {stderr.decode()}\n")
+            await asyncio.sleep(backoff_factor * (2 ** attempt))  # Exponential backoff
+
+    return None
 
 
 async def query_pubmed_async(pmids_list: list):
-    """
-    Query PubMed asynchronously for a list of PMIDs and extract "authorList" from each result,
-    with a progress bar.
-    """
     script_path = "pubmedAuthorAffiliation/pubmedAuthorAffiliation.py"
     all_author_data = []  # This will store all the authorLists
 
@@ -202,8 +203,8 @@ async def query_pubmed_async(pmids_list: list):
         tasks = [asyncio.create_task(fetch_pmid_data(pmid, script_path)) for pmid in batch_pmids]
         results = await asyncio.gather(*tasks)
         for result in results:
-            if result and "authorList" in result:
-                all_author_data.extend(result["authorList"])
+            if result:
+                all_author_data.extend(result)
             progress_bar.update(1)  # Update progress bar per PMID processed
         await asyncio.sleep(1)  # Respect the rate limit
 
@@ -211,26 +212,23 @@ async def query_pubmed_async(pmids_list: list):
     return all_author_data
 
 
-# %%
 def extract_pmids(url_list: list):
     pmid_list = []
     pattern = r"https://pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/"
 
     for url in url_list:
         match = re.search(pattern, url)
-
         if match:
             pmid = match.group(1)
         else:
             pmid = None
-
         pmid_list.append(pmid)
 
     return pmid_list
 
 
 # %%
-source_df = pd.read_csv('./data/rabbit/smaller_csv_file_10.csv')
+source_df = pd.read_csv('./data/zebrafish/smaller_csv_file_1.csv')
 print(source_df)
 
 # %%
@@ -238,12 +236,13 @@ source_url_list = source_df['PubMed Link'].dropna().tolist()
 print(source_url_list)
 print(len(source_url_list))
 
-# %% Running the asynchronous function (in an event loop):
+# %%
 pmid_list = extract_pmids(source_url_list)
+# pmid_list = ['38137552', '34578575', '34577566', '35052775', '35681505', '35055737']
 print(pmid_list)
 print(len(pmid_list))
 
-# %%
+# %% Running the asynchronous function (in an event loop):
 nest_asyncio.apply()
 
 loop = asyncio.get_event_loop()
@@ -259,30 +258,9 @@ print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_pickle('./outputs/rabbit/rabbit_authors_10.pkl')
+result_df.to_pickle('./outputs/zebrafish/zebrafish_authors_1.pkl')
 
 # %%
-# result_df = pd.read_pickle('./outputs/zymolase/zymolase_authors.pkl')
-# print(result_df)
+print(result_df)
 
-# # %%
-# filtered_df = result_df[result_df['lastName'].isin(rneasy_df["LastName"])]
-# # print("RNEASY DF:\n", rneasy_df)
-# print("FILTERED DF:\n", filtered_df)
-
-# # %%
-# pmids_test = ["37971890", "37630833"]
-# author_data_test = query_pubmed(pmids_list=pmids_test)
-# print(author_data_test)
-
-# # %%
-# author_data_list = query_pubmed(pmids_list)
-# print(author_data_list)
-
-# # %%
-# author_data_df = pd.DataFrame(author_data_list)
-# author_data_df.to_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
-
-# # %%
-# author_data_df = pd.read_pickle('./outputs/addresses_from_names/rneasy_authors.pkl')
-# print("AUTHOR_DATA_DF FROM PICKLE:", author_data_df)
+# %%

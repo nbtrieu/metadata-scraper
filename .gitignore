@@ -20,8 +20,7 @@ data/**
 !data/README.md
 
 # Ignore files (but not sub-folders) in the logs folder
-logs/**
-!logs/**/
+app/logs/**
 !logs/**/.gitkeep
 
 # also keep all .gitkeep files
