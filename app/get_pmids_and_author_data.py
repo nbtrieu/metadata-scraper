@@ -258,9 +258,13 @@ print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_pickle('./outputs/zebrafish/zebrafish_authors_4.pkl')
+result_df.to_csv('./outputs/zebrafish/zebrafish_authors_4.csv')
 
 # %%
 print(result_df)
+
+# %%
+author_data = pd.read_pickle('./outputs/zebrafish/zebrafish_authors_2.pkl')
+print(author_data)
 
 # %%
