@@ -80,7 +80,7 @@ os.makedirs(log_directory, exist_ok=True)
 # print(idlist)
 
 # # %%
-# rneasy_df = pd.read_csv('./data/rneasy_20_23.csv')
+# rneasy_df = pd.read_csv('./data/rneasy_40_43.csv')
 # rneasy_df["FullName"] = rneasy_df.apply(
 #     lambda row: str(row["FirstName"]) + " " + str(row["LastName"]),
 #     axis=1
@@ -228,7 +228,7 @@ def extract_pmids(url_list: list):
 
 
 # %%
-source_df = pd.read_csv('./data/zebrafish/smaller_csv_file_1.csv')
+source_df = pd.read_csv('./data/zebrafish/smaller_csv_file_4.csv')
 print(source_df)
 
 # %%
@@ -238,7 +238,7 @@ print(len(source_url_list))
 
 # %%
 pmid_list = extract_pmids(source_url_list)
-# pmid_list = ['38137552', '34578575', '34577566', '35052775', '35681505', '35055737']
+# pmid_list = ['36017742', '32542850', '34625548', '35698192', '32776983', '35324428']
 print(pmid_list)
 print(len(pmid_list))
 
@@ -258,7 +258,7 @@ print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_pickle('./outputs/zebrafish/zebrafish_authors_1.pkl')
+result_df.to_pickle('./outputs/zebrafish/zebrafish_authors_4.pkl')
 
 # %%
 print(result_df)
