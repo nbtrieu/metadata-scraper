@@ -111,8 +111,8 @@ def process_addresses(address_dicts: dict, lead_source_file_path: str, output_fi
 
 # %%
 author_dicts = process_author_dicts(
-    pubmed_result_file_path='./outputs/rabbit/rabbit_authors_4_2.pkl',
-    lead_source_file_path='./data/rabbit/smaller_csv_file_4.csv',
+    pubmed_result_file_path='./outputs/zebrafish/zebrafish_authors_4_1.pkl',
+    lead_source_file_path='./data/zebrafish/smaller_csv_file_4.csv',
     leadsource_lastname_column_name='LastName',
     leadsource_firstname_column_name='FirstName'
 )
@@ -125,6 +125,8 @@ address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_a
 # %%
 process_addresses(
     address_dicts=address_dicts,
-    lead_source_file_path='./data/rabbit/smaller_csv_file_4.csv',
-    output_filename='./outputs/rabbit/addresses/matched_rabbit_addresses_4_2.csv'
+    lead_source_file_path='./data/zebrafish/smaller_csv_file_4.csv',
+    output_filename='./outputs/zebrafish/addresses/matched_zebrafish_addresses_4_1.csv'
 )
+
+# %%

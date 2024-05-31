@@ -75,9 +75,9 @@ def split_pickle(original_pickle: str, output_file_path: str):
 
 
 # %%
-split_pickle('./outputs/rabbit/rabbit_authors_4.pkl', './outputs/rabbit')
+split_pickle('./outputs/zebrafish/zebrafish_authors_4.pkl', './outputs/zebrafish')
 
 # %%
-authors_df = pd.read_pickle('./outputs/rabbit/rabbit_authors_3.pkl')
+authors_df = pd.read_pickle('./outputs/zebrafish/zebrafish_authors_4.pkl')
 print(authors_df)
 # %%
