@@ -228,7 +228,7 @@ def extract_pmids(url_list: list):
 
 
 # %%
-source_df = pd.read_csv('./data/zebrafish/smaller_csv_file_4.csv')
+source_df = pd.read_csv('./data/wheat/smaller_csv_file_4.csv')
 print(source_df)
 
 # %%
@@ -238,7 +238,7 @@ print(len(source_url_list))
 
 # %%
 pmid_list = extract_pmids(source_url_list)
-# pmid_list = ['36017742', '32542850', '34625548', '35698192', '32776983', '35324428']
+# pmid_list = ['35112798', '37964407', '37169742', '37470706', '35890527', '35877723']
 print(pmid_list)
 print(len(pmid_list))
 
@@ -258,13 +258,13 @@ print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_csv('./outputs/zebrafish/zebrafish_authors_4.csv')
+result_df.to_csv('./outputs/wheat/wheat_authors_4.csv')
 
 # %%
 print(result_df)
 
 # %%
-author_data = pd.read_pickle('./outputs/zebrafish/zebrafish_authors_2.pkl')
+author_data = pd.read_csv('./outputs/wheat/wheat_authors_4.csv')
 print(author_data)
 
 # %%

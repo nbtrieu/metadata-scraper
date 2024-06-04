@@ -37,7 +37,7 @@ def split_csv(original_csv: str, output_file_path: str, num_parts: int):
 
 
 # %% 
-split_csv(original_csv='./data/zebrafish/zebrafish.csv', output_file_path='./data/zebrafish', num_parts=4)
+split_csv(original_csv='./data/wheat/wheat.csv', output_file_path='./data/wheat', num_parts=4)
 
 
 # %%
