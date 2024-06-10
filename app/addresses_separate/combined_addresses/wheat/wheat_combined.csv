@@ -1,0 +1,602 @@
+huazhong,No. Of Matching Keywords,firstName,lastName,Email,Organization,address,Street Address,City,State,Zip Code,Country
+mo,0,Ye,Xia,xia.374@osu.edu,The Ohio State University,"1100 Bates Ave, Houston, TX 77030, USA",1100 Bates Ave,Houston,TX,77030,USA
+"Gene Expression, Genomics, RNA sequencing, Liquid Handling",4,Kevin,Eggan,eggan@mcb.harvard.edu,Harvard University,"7 Divinity Ave, Cambridge, MA 02138, USA",7 Divinity Ave,Cambridge,MA,02138,USA
+"Gene Expression, Yeast",2,Fengjie,Sun,fsun@ggc.edu,Georgia Gwinnett College,"1000 University Center Ln, Lawrenceville, GA 30043, USA",1000 University Center Ln,Lawrenceville,GA,30043,USA
+Transcriptome,1,Fengjie,Sun,fsun@ggc.edu,Georgia Gwinnett College,"1000 University Center Ln, Lawrenceville, GA 30043, USA",1000 University Center Ln,Lawrenceville,GA,30043,USA
+"Gene Expression, Yeast, Transcriptome",3,Fengjie,Sun,fsun@ggc.edu,Georgia Gwinnett College,"1000 University Center Ln, Lawrenceville, GA 30043, USA",1000 University Center Ln,Lawrenceville,GA,30043,USA
+"Gene Expression, Yeast",2,Zhixiang,Chen,zhixiang@purdue.edu,Purdue University,"915 W State St, West Lafayette, IN 47907, USA",915 W State St,West Lafayette,IN,47907,USA
+"Gene Expression, Yeast",2,Zhixiang,Chen,zhixiang@purdue.edu,Purdue University,"1601 Dove St #290, Newport Beach, CA 92660, USA",1601 Dove St #290,Newport Beach,CA,92660,USA
+"Gene Expression, Yeast",2,Zhixiang,Chen,zhixiang@purdue.edu,Purdue University,"9 Davis Dr, Durham, NC 27703, USA",9 Davis Dr,Durham,NC,27703,USA
+Gene Expression,1,Jun,Ma,jma603@umn.edu,University of Minnesota,"500 SE Harvard St, Minneapolis, MN 55455, USA",500 SE Harvard St,Minneapolis,MN,55455,USA
+Gene Expression,1,Jun,Ma,jma603@umn.edu,University of Minnesota,"3528 General Atomics Ct, San Diego, CA 92121, USA",3528 General Atomics Ct,San Diego,CA,92121,USA
+"Gene Expression, Transcriptomics, RNA sequencing, Transcriptome",4,Mijia,Lu,lu.1383@osu.edu,The Ohio State University,"1925 Coffey Rd, Columbus, OH 43210, USA",1925 Coffey Rd,Columbus,OH,43210,USA
+Gene Expression,1,Adam,Thrash,thrash@igbb.msstate.edu,Mississippi State University,"402 Dorman Hall, Mississippi State, MS 39762, USA",402 Dorman Hall,Mississippi State,MS,39762,USA
+"Gene Expression, Yeast",2,Kotaro,Nakanishi,nakanishi.9@osu.edu,The Ohio State University,"Northwood-High Bldg, 2231 N High St #200, Columbus, OH 43201, USA","Northwood-High Bldg, 2231 N High St #200",Columbus,OH,43201,USA
+"Gene Expression, Yeast",2,Kotaro,Nakanishi,nakanishi.9@osu.edu,The Ohio State University,"112, Biological Sciences Bldg, 484 W 12th Ave, Columbus, OH 43210, USA","112, Biological Sciences Bldg, 484 W 12th Ave",Columbus,OH,43210,USA
+,0,Kotaro,Nakanishi,nakanishi.9@osu.edu,The Ohio State University,"Northwood-High Bldg, 2231 N High St #200, Columbus, OH 43201, USA","Northwood-High Bldg, 2231 N High St #200",Columbus,OH,43201,USA
+,0,Kotaro,Nakanishi,nakanishi.9@osu.edu,The Ohio State University,"112, Biological Sciences Bldg, 484 W 12th Ave, Columbus, OH 43210, USA","112, Biological Sciences Bldg, 484 W 12th Ave",Columbus,OH,43210,USA
+,0,Lai-Xi,Wang,wang518@umd.edu,University of Maryland College Park,"Thornton Hall, 351 McCormick Rd, Charlottesville, VA 22904, USA","Thornton Hall, 351 McCormick Rd",Charlottesville,VA,22904,USA
+,0,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"Greenville, NC 27858, USA",,Greenville,NC,27858,USA
+"Gene Expression, Transcriptome",2,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"Greenville, NC 27858, USA",,Greenville,NC,27858,USA
+"Gene Expression, Yeast",2,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"Greenville, NC 27858, USA",,Greenville,NC,27858,USA
+"Gene Expression, Genomics",2,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"Greenville, NC 27858, USA",,Greenville,NC,27858,USA
+,0,Maryanne,Drake,mdrake@ncsu.edu,North Carolina State University,"Schaub Food Science Bldg, 400 Dan Allen Dr, Raleigh, NC 27606, USA","Schaub Food Science Bldg, 400 Dan Allen Dr",Raleigh,NC,27606,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Naveen,Puppala,npuppala@nmsu.edu,New Mexico State University,"2346 NM-288, Clovis, NM 88101, USA",2346 NM-288,Clovis,NM,88101,USA
+,0,Bikash,Ghimire,bikash.ghimire@uga.edu,University Of Georgia Griffin Campus,"Center for Applied Genetic TECHNOLOGIES, 111 Riverbend Rd, Athens, GA 30602, USA","Center for Applied Genetic TECHNOLOGIES, 111 Riverbend Rd",Athens,GA,30602,USA
+,0,Xiaofang,Wang,xwang@tamhsc.edu,Texas A&M University College of Dentistry,"9200 W Wisconsin Ave, Milwaukee, WI 53226, USA",9200 W Wisconsin Ave,Milwaukee,WI,53226,USA
+,0,Xiaofang,Wang,xwang@tamhsc.edu,Texas A&M University College of Dentistry,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+Gene Expression,1,Christos,Andronis,andronis@ucla.edu,FORTH Institute of Molecular Biology and Biotechnology,"Irvine, CA 92697, USA",,Irvine,CA,92697,USA
+,0,Ivan,Baxter,ibaxter@danforthcenter.org,Donald Danforth Plant Science Center,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+"Gene Expression, Yeast",2,Guangpu,Li,guangpu-li@ouhsc.edu,University of Oklahoma Health Sciences Center,"1196 S San Antonio Ave, Pomona, CA 91766, USA",1196 S San Antonio Ave,Pomona,CA,91766,USA
+RNA sequencing,1,Gaurav,Luthria,gluthria@g.harvard.edu,Center for Systems Biology,"10 Shattuck St, Boston, MA 02115, USA",10 Shattuck St,Boston,MA,02115,USA
+"Gene Expression, Genomics, RNA sequencing",3,Zhen,Qiu,qiuzhen@msu.edu,Michigan State University,"Engineering Building, Room 2120, 474 S Shaw Ln, East Lansing, MI 48824, USA","Engineering Building, Room 2120, 474 S Shaw Ln",East Lansing,MI,48824,USA
+"Gene Expression, Transcriptome",2,Lahouaria,Hadri,lahouaria.hadri@mssm.edu,Icahn School of Medicine at Mount Sinai,"1190 5th Ave, New York, NY 10029, USA",1190 5th Ave,New York,NY,10029,USA
+"Gene Expression, Genomics, RNA sequencing, Transcriptome",4,Marius,Wernig,wernig@stanford.edu,Stanford University,"300 Pasteur Dr, Palo Alto, CA 94304, USA",300 Pasteur Dr,Palo Alto,CA,94304,USA
+"Gene Expression, Yeast",2,Bernhard,Kuhle,bkuhle@scripps.edu,Universitätsmedizin Göttingen,"10550 N Torrey Pines Rd, La Jolla, CA 92037, USA",10550 N Torrey Pines Rd,La Jolla,CA,92037,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Vishwajeet,Puri,puri@ohio.edu,Ohio University,"Grosvenor West, 16 W Green Dr, Athens, OH 45701, USA","Grosvenor West, 16 W Green Dr",Athens,OH,45701,USA
+,0,Francesca,Peduto Hand,hand.81@osu.edu,The Ohio State University,"201 Kottman Hall, 2021 Coffey Rd, Columbus, OH 43210, USA","201 Kottman Hall, 2021 Coffey Rd",Columbus,OH,43210,USA
+"Next generation sequencing, NGS, Gene Expression, Transcriptome",4,Kanhaiya,Singh,kanh@iu.edu,Indiana University,"450 Technology Dr, Pittsburgh, PA 15219, USA",450 Technology Dr,Pittsburgh,PA,15219,USA
+"NGS, Gene Expression, Genomics, Transcriptomics, Transcriptome",5,Manish,Tiwari,manishtiwari@ufl.edu,University of Wisconsin–Madison,"2002 Throckmorton Plant Sciences Center, 1712 Claflin Rd, Manhattan, KS 66506, USA","2002 Throckmorton Plant Sciences Center, 1712 Claflin Rd",Manhattan,KS,66506,USA
+RNA sequencing,1,Xiaosa,Xu,xu@cshl.edu,University of California Davis,"320, Qureshey Research Laboratory, 506c C Student Center, Irvine, CA 92697, USA","320, Qureshey Research Laboratory, 506c C Student Center",Irvine,CA,92697,USA
+,0,Wayne,Balkan,wbalkan@med.miami.edu,University Miami Miller School,"1600 NW 10th Ave, Miami, FL 33136, USA",1600 NW 10th Ave,Miami,FL,33136,USA
+"Gene Expression, Metagenomics, RNA sequencing",3,Erika,Ganda,ganda@psu.edu,Penn State University,"1572 S 1st St, San Jose, CA 95112, USA",1572 S 1st St,San Jose,CA,95112,USA
+Yeast,1,Maria,Maldonado,mmaldo@ucdavis.edu,University of California Davis,"Green Hall, Life Sciences, 605 Hutchison Dr, Davis, CA 95616, USA","Green Hall, Life Sciences, 605 Hutchison Dr",Davis,CA,95616,USA
+Gene Expression,1,Yue,Guo,guoxx390@umn.edu,University of Minnesota,"Chapel Hill, NC 27514, USA",,Chapel Hill,NC,27514,USA
+"Gene Expression, Transcriptomics, RNA sequencing",3,Li,Ye,liye@scripps.edu,Scripps Research Institute,"3528 General Atomics Ct, San Diego, CA 92121, USA",3528 General Atomics Ct,San Diego,CA,92121,USA
+,0,Yueyang,Wang,wang3654@purdue.edu,Harvard Medical School,"Urbana, IL 61801, USA",,Urbana,IL,61801,USA
+,0,Yueyang,Wang,wang3654@purdue.edu,Harvard Medical School,"455 Mission Bay Boulevard South, San Francisco, CA 94158, USA",455 Mission Bay Boulevard South,San Francisco,CA,94158,USA
+,0,Xiaoxiao,Shi,xxsshi@ucdavis.edu,University of California Davis,"333 Bostwick Ave NE, Grand Rapids, MI 49503, USA",333 Bostwick Ave NE,Grand Rapids,MI,49503,USA
+Gene Expression,1,Weicang,Wang,wcwwang@ucdavis.edu,Purdue University,"1196 S San Antonio Ave, Pomona, CA 91766, USA",1196 S San Antonio Ave,Pomona,CA,91766,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Ru,Zhang,rzhang@danforthcenter.org,Donald Danforth Plant Science Center,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+"Gene Expression, Transcriptome",2,Ru,Zhang,rzhang@danforthcenter.org,Donald Danforth Plant Science Center,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+"Gene Expression, Transcriptomics, RNA sequencing",3,Ranjita,Sinha,rsfkf@missouri.edu,University of Missouri,"1-31 Agriculture Science Building, 700 Hitt St, Columbia, MO 65201, USA","1-31 Agriculture Science Building, 700 Hitt St",Columbia,MO,65201,USA
+,0,Yang,He,yangh@bcm.edu,Baylor College of Medicine,"1100 Bates Ave, Houston, TX 77030, USA",1100 Bates Ave,Houston,TX,77030,USA
+,0,Yang,He,yangh@bcm.edu,Baylor College of Medicine,"1414 Geronimo Dr, El Paso, TX 79925, USA",1414 Geronimo Dr,El Paso,TX,79925,USA
+,0,Sharven,Taghavi,staghavi@tulane.edu,Tulane University,"2000 Tulane Ave, New Orleans, LA 70112, USA",2000 Tulane Ave,New Orleans,LA,70112,USA
+,0,Yajun,Wu,yajun.wu@sdstate.edu,South Dakota State University,"1912 W Commonwealth Ave, Fullerton, CA 92833, USA",1912 W Commonwealth Ave,Fullerton,CA,92833,USA
+,0,Yajun,Wu,yajun.wu@sdstate.edu,South Dakota State University,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+,0,Lai-Xi,Wang,wang518@umd.edu,University of Maryland College Park,"1414 Geronimo Dr, El Paso, TX 79925, USA",1414 Geronimo Dr,El Paso,TX,79925,USA
+,0,Lai-Xi,Wang,wang518@umd.edu,University of Maryland College Park,"Princeton, NJ 08540, USA",,Princeton,NJ,08540,USA
+,0,Lai-Xi,Wang,wang518@umd.edu,University of Maryland College Park,"1334 Eckles Ave, St Paul, MN 55108, USA",1334 Eckles Ave,St Paul,MN,55108,USA
+,0,Lai-Xi,Wang,wang518@umd.edu,University of Maryland College Park,"Biological Sciences Bldg, 130 Science Dr, Durham, NC 27710, USA","Biological Sciences Bldg, 130 Science Dr",Durham,NC,27710,USA
+,0,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+,0,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"Irvine, CA 92617, USA",,Irvine,CA,92617,USA
+"Gene Expression, Transcriptome",2,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+"Gene Expression, Transcriptome",2,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"Irvine, CA 92617, USA",,Irvine,CA,92617,USA
+"Gene Expression, Yeast",2,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+"Gene Expression, Yeast",2,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"Irvine, CA 92617, USA",,Irvine,CA,92617,USA
+"Gene Expression, Genomics",2,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+"Gene Expression, Genomics",2,Baohong,Zhang,zhangb@ecu.edu,East Carolina University,"Irvine, CA 92617, USA",,Irvine,CA,92617,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Da-Zhi,Wang,dazhiw@usf.edu,University of South Florida,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Da-Zhi,Wang,dazhiw@usf.edu,University of South Florida,"111 N Grand Ave, Lansing, MI 48933, USA",111 N Grand Ave,Lansing,MI,48933,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Da-Zhi,Wang,dazhiw@usf.edu,University of South Florida,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Da-Zhi,Wang,dazhiw@usf.edu,University of South Florida,"111 N Grand Ave, Lansing, MI 48933, USA",111 N Grand Ave,Lansing,MI,48933,USA
+,0,Xiaofang,Wang,xwang@tamhsc.edu,Texas A&M University College of Dentistry,"625 Robert St N, St Paul, MN 55164, USA",625 Robert St N,St Paul,MN,55164,USA
+,0,Xiaofang,Wang,xwang@tamhsc.edu,Texas A&M University College of Dentistry,"120 W Green St, Athens, GA 30602, USA",120 W Green St,Athens,GA,30602,USA
+,0,Xiaofang,Wang,xwang@tamhsc.edu,Texas A&M University College of Dentistry,"6450 E Cullen St, Houston, TX 77030, USA",6450 E Cullen St,Houston,TX,77030,USA
+,0,Xiaofang,Wang,xwang@tamhsc.edu,Texas A&M University College of Dentistry,"1801 W Taylor St #1e, Chicago, IL 60612, USA",1801 W Taylor St #1e,Chicago,IL,60612,USA
+,0,Xiaofang,Wang,xwang@tamhsc.edu,Texas A&M University College of Dentistry,"College Station Independent School District, TX, USA",,,,nan,USA
+Gene Expression,1,Manjul,Dutt,manjul@ufl.edu,University of Florida,"700 Experiment Station Rd, Lake Alfred, FL 33850, USA",700 Experiment Station Rd,Lake Alfred,FL,33850,USA
+"Gene Expression, Yeast",2,Guangpu,Li,guangpu-li@ouhsc.edu,University of Oklahoma Health Sciences Center,"30 Thomas, Irvine, CA 92618, USA",30 Thomas,Irvine,CA,92618,USA
+"Gene Expression, Yeast",2,Guangpu,Li,guangpu-li@ouhsc.edu,University of Oklahoma Health Sciences Center,"6201 Forsyth Blvd, St. Louis, MO 63105, USA",6201 Forsyth Blvd,St. Louis,MO,63105,USA
+"Gene Expression, Yeast",2,Raham,Khan,rahamsher@awkum.edu.pk,Abdul Wali Khan University Mardan,"847 N Hollywood Way, Burbank, CA 91505, USA",847 N Hollywood Way,Burbank,CA,91505,USA
+"Next generation sequencing, NGS, Gene Expression, Transcriptome",4,Kanhaiya,Singh,kanh@iu.edu,Indiana University,"1000 Hilltop Cir, Baltimore, MD 21250, USA",1000 Hilltop Cir,Baltimore,MD,21250,USA
+,0,Mara,Parren,mparren@scripps.edu,Scripps Research Institute,"10466 N Torrey Pines Rd, La Jolla, CA 92037, USA",10466 N Torrey Pines Rd,La Jolla,CA,92037,USA
+Gene Expression,1,Yue,Guo,guoxx390@umn.edu,University of Minnesota,"1334 Eckles Ave, St Paul, MN 55108, USA",1334 Eckles Ave,St Paul,MN,55108,USA
+,0,David,Galo,dgalo@agcenter.lsu.edu,Louisiana State University,"Baton Rouge, LA 70808, USA",,Baton Rouge,LA,70808,USA
+,0,Yueyang,Wang,wang3654@purdue.edu,Harvard Medical School,"1889 E Monument St, Baltimore, MD 21205, USA",1889 E Monument St,Baltimore,MD,21205,USA
+,0,Yueyang,Wang,wang3654@purdue.edu,Harvard Medical School,"700 Experiment Station Rd, Lake Alfred, FL 33850, USA",700 Experiment Station Rd,Lake Alfred,FL,33850,USA
+,0,Yueyang,Wang,wang3654@purdue.edu,Harvard Medical School,"660 S Euclid Ave, St. Louis, MO 63110, USA",660 S Euclid Ave,St. Louis,MO,63110,USA
+,0,Yueyang,Wang,wang3654@purdue.edu,Harvard Medical School,"Department of Pathology, 300 Longwood Ave, Boston, MA 02115, USA","Department of Pathology, 300 Longwood Ave",Boston,MA,02115,USA
+,0,Xiaoxiao,Shi,xxsshi@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+,0,Xiaoxiao,Shi,xxsshi@ucdavis.edu,University of California Davis,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+,0,Xiaoxiao,Shi,xxsshi@ucdavis.edu,University of California Davis,"105, Tucker Hall, 612 Hitt St, Columbia, MO 65201, USA","105, Tucker Hall, 612 Hitt St",Columbia,MO,65201,USA
+Yeast,1,Diane,Wang,drwang@purdue.edu,Purdue University,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+Yeast,1,Diane,Wang,drwang@purdue.edu,Purdue University,"111 N Grand Ave, Lansing, MI 48933, USA",111 N Grand Ave,Lansing,MI,48933,USA
+Gene Expression,1,Weicang,Wang,wcwwang@ucdavis.edu,Purdue University,"Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4308, Manhattan, KS 66506, USA","Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4308",Manhattan,KS,66506,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Eric,Patterson,patte543@msu.edu,Michigan State University,"Plant and Soil Sciences Building, 1066 Bogue St Room A286, East Lansing, MI 48824, USA","Plant and Soil Sciences Building, 1066 Bogue St Room A286",East Lansing,MI,48824,USA
+"Gene Expression, Genomics, RNA sequencing, Transcriptome",4,Eric,Patterson,patte543@msu.edu,Michigan State University,"Plant and Soil Sciences Building, 1066 Bogue St Room A286, East Lansing, MI 48824, USA","Plant and Soil Sciences Building, 1066 Bogue St Room A286",East Lansing,MI,48824,USA
+Gene Expression,1,Eric,Patterson,patte543@msu.edu,Michigan State University,"Plant and Soil Sciences Building, 1066 Bogue St Room A286, East Lansing, MI 48824, USA","Plant and Soil Sciences Building, 1066 Bogue St Room A286",East Lansing,MI,48824,USA
+Gene Expression,1,Georgina,Gyarmati,gyarmati@usc.edu,University of Southern California,"1501 San Pablo St, Los Angeles, CA 90033, USA",1501 San Pablo St,Los Angeles,CA,90033,USA
+Genomics,1,Jason,Gorman,jason.gorman@fda.hhs.gov,United States Food and Drug Administration,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Ru,Zhang,rzhang@danforthcenter.org,Donald Danforth Plant Science Center,"30 Thomas, Irvine, CA 92618, USA",30 Thomas,Irvine,CA,92618,USA
+"Gene Expression, Transcriptome",2,Ru,Zhang,rzhang@danforthcenter.org,Donald Danforth Plant Science Center,"30 Thomas, Irvine, CA 92618, USA",30 Thomas,Irvine,CA,92618,USA
+Genomics,1,Artem,Sokolov,artem_sokolov@hms.harvard.edu,Harvard Medical School,"10 Shattuck St, Boston, MA 02115, USA",10 Shattuck St,Boston,MA,02115,USA
+,0,Yang,He,yangh@bcm.edu,Baylor College of Medicine,"10550 N Torrey Pines Rd, La Jolla, CA 92037, USA",10550 N Torrey Pines Rd,La Jolla,CA,92037,USA
+Gene Expression,1,Xiaoen,Huang,alanwong@ufl.edu,University of Florida,"800 Linden Ave 8th Floor, Baltimore, MD 21201, USA",800 Linden Ave 8th Floor,Baltimore,MD,21201,USA
+Gene Expression,1,Xiaoen,Huang,alanwong@ufl.edu,University of Florida,"1001 Potrero Ave, San Francisco, CA 94110, USA",1001 Potrero Ave,San Francisco,CA,94110,USA
+Gene Expression,1,Xiaoen,Huang,alanwong@ufl.edu,University of Florida,"700 Experiment Station Rd, Lake Alfred, FL 33850, USA",700 Experiment Station Rd,Lake Alfred,FL,33850,USA
+,0,Xiaoen,Huang,alanwong@ufl.edu,University of Florida,"800 Linden Ave 8th Floor, Baltimore, MD 21201, USA",800 Linden Ave 8th Floor,Baltimore,MD,21201,USA
+,0,Xiaoen,Huang,alanwong@ufl.edu,University of Florida,"1001 Potrero Ave, San Francisco, CA 94110, USA",1001 Potrero Ave,San Francisco,CA,94110,USA
+,0,Xiaoen,Huang,alanwong@ufl.edu,University of Florida,"700 Experiment Station Rd, Lake Alfred, FL 33850, USA",700 Experiment Station Rd,Lake Alfred,FL,33850,USA
+,0,Kyumin,Kim,iamkim@ucdavis.edu,University of California Davis,"1002 Childs Way, Los Angeles, CA 90089, USA",1002 Childs Way,Los Angeles,CA,90089,USA
+"Gene Expression, Yeast, Transcriptomics, RNA sequencing",4,Andrea,Mair,maira@stanford.edu,Stanford University,"1201 Welch Rd, Stanford, CA 94305, USA",1201 Welch Rd,Stanford,CA,94305,USA
+"Yeast, Transcriptomics",2,Andrea,Mair,maira@stanford.edu,Stanford University,"1201 Welch Rd, Stanford, CA 94305, USA",1201 Welch Rd,Stanford,CA,94305,USA
+Yeast,1,Ely,Oliveira-Garcia,eoliveiragarcia@agcenter.lsu.edu,Louisiana State University,"Baton Rouge, LA 70808, USA",,Baton Rouge,LA,70808,USA
+"Gene Expression, Transcriptome",2,Islam,El-Sharkawy,islam.elsharkawy@famu.edu,Florida Agricultural and Mechanical University,"6361 Mahan Dr #6201, Tallahassee, FL 32308, USA",6361 Mahan Dr #6201,Tallahassee,FL,32308,USA
+"Gene Expression, Yeast, Transcriptome",3,Yaereen,Dho,ydho120@stanford.edu,Stanford University,"333 Campus Drive, Stanford, CA 94305, USA",333 Campus Drive,Stanford,CA,94305,USA
+Genomics,1,Clarence,Yapp,clarence@hms.harvard.edu,Harvard Medical School,"20-18 Shattuck St, Boston, MA 02115, USA",20-18 Shattuck St,Boston,MA,02115,USA
+Gene Expression,1,Darnell,Cuylear,darnell.cuylear@ucsf.edu,University of California San Francisco,"1001 Potrero Ave, San Francisco, CA 94110, USA",1001 Potrero Ave,San Francisco,CA,94110,USA
+Gene Expression,1,Ashish,Manne,manne.17@osu.edu,Ohio State University Comprehensive Cancer Center,"460 W 10th Ave, Columbus, OH 43210, USA",460 W 10th Ave,Columbus,OH,43210,USA
+"NGS, Gene Expression, Yeast, RNA sequencing, Liquid Handling",5,Jiwei,Zhang,zhan3437@umn.edu,Regents Of The University Of Minnesota,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+"NGS, Gene Expression, Yeast, RNA sequencing, Liquid Handling",5,Jiwei,Zhang,zhan3437@umn.edu,Regents Of The University Of Minnesota,"Kaufert Laboratory, 2004 Folwell Ave, Falcon Heights, MN 55108, USA","Kaufert Laboratory, 2004 Folwell Ave",Falcon Heights,MN,55108,USA
+"NGS, Gene Expression, Yeast, RNA sequencing, Liquid Handling",5,Jiwei,Zhang,zhan3437@umn.edu,Regents Of The University Of Minnesota,"2701 Fairview Rd, Costa Mesa, CA 92626, USA",2701 Fairview Rd,Costa Mesa,CA,92626,USA
+,0,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"Bird Rd, Los Angeles, CA 90041, USA",Bird Rd,Los Angeles,CA,90041,USA
+,0,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"250, Lincoln Tower, 1800 Cannon Dr, Columbus, OH 43210, USA","250, Lincoln Tower, 1800 Cannon Dr",Columbus,OH,43210,USA
+,0,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"Goldblatt Pavilion, 5841 S Maryland Ave, Chicago, IL 60637, USA","Goldblatt Pavilion, 5841 S Maryland Ave",Chicago,IL,60637,USA
+,0,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+Transcriptome,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"Bird Rd, Los Angeles, CA 90041, USA",Bird Rd,Los Angeles,CA,90041,USA
+Transcriptome,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"250, Lincoln Tower, 1800 Cannon Dr, Columbus, OH 43210, USA","250, Lincoln Tower, 1800 Cannon Dr",Columbus,OH,43210,USA
+Transcriptome,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"Goldblatt Pavilion, 5841 S Maryland Ave, Chicago, IL 60637, USA","Goldblatt Pavilion, 5841 S Maryland Ave",Chicago,IL,60637,USA
+Transcriptome,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+Genomics,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"Bird Rd, Los Angeles, CA 90041, USA",Bird Rd,Los Angeles,CA,90041,USA
+Genomics,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"250, Lincoln Tower, 1800 Cannon Dr, Columbus, OH 43210, USA","250, Lincoln Tower, 1800 Cannon Dr",Columbus,OH,43210,USA
+Genomics,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"Goldblatt Pavilion, 5841 S Maryland Ave, Chicago, IL 60637, USA","Goldblatt Pavilion, 5841 S Maryland Ave",Chicago,IL,60637,USA
+Genomics,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+Genomics,1,Tongqing,Zhou,tzhou@nih.gov,National Institutes of Health,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"8801 Tarter Ave, Amarillo, TX 79119, USA",8801 Tarter Ave,Amarillo,TX,79119,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"3115 College Ave, Manhattan, KS 66502, USA",3115 College Ave,Manhattan,KS,66502,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"341 E 25th St, New York, NY 10010, USA",341 E 25th St,New York,NY,10010,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"55 Heath St, Boston, MA 02130, USA",55 Heath St,Boston,MA,02130,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"6500 W Amarillo Blvd, Amarillo, TX 79106, USA",6500 W Amarillo Blvd,Amarillo,TX,79106,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"T. Boone Pickens Biomedical Building, 6407, 6001 Forest Park Rd, Dallas, TX 75235, USA","T. Boone Pickens Biomedical Building, 6407, 6001 Forest Park Rd",Dallas,TX,75235,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024, Manhattan, KS 66506, USA","Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024",Manhattan,KS,66506,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"8801 Tarter Ave, Amarillo, TX 79119, USA",8801 Tarter Ave,Amarillo,TX,79119,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"3115 College Ave, Manhattan, KS 66502, USA",3115 College Ave,Manhattan,KS,66502,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"341 E 25th St, New York, NY 10010, USA",341 E 25th St,New York,NY,10010,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"55 Heath St, Boston, MA 02130, USA",55 Heath St,Boston,MA,02130,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"6500 W Amarillo Blvd, Amarillo, TX 79106, USA",6500 W Amarillo Blvd,Amarillo,TX,79106,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"T. Boone Pickens Biomedical Building, 6407, 6001 Forest Park Rd, Dallas, TX 75235, USA","T. Boone Pickens Biomedical Building, 6407, 6001 Forest Park Rd",Dallas,TX,75235,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024, Manhattan, KS 66506, USA","Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024",Manhattan,KS,66506,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"8801 Tarter Ave, Amarillo, TX 79119, USA",8801 Tarter Ave,Amarillo,TX,79119,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"3115 College Ave, Manhattan, KS 66502, USA",3115 College Ave,Manhattan,KS,66502,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"341 E 25th St, New York, NY 10010, USA",341 E 25th St,New York,NY,10010,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"55 Heath St, Boston, MA 02130, USA",55 Heath St,Boston,MA,02130,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"6500 W Amarillo Blvd, Amarillo, TX 79106, USA",6500 W Amarillo Blvd,Amarillo,TX,79106,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"T. Boone Pickens Biomedical Building, 6407, 6001 Forest Park Rd, Dallas, TX 75235, USA","T. Boone Pickens Biomedical Building, 6407, 6001 Forest Park Rd",Dallas,TX,75235,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024, Manhattan, KS 66506, USA","Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024",Manhattan,KS,66506,USA
+"Gene Expression, Transcriptome",2,Shahid,Karim,shahid.karim@usm.edu,University of Southern Mississippi,"118 College Dr, Hattiesburg, MS 39406, USA",118 College Dr,Hattiesburg,MS,39406,USA
+"NGS, Gene Expression, Transcriptome",3,Seogchan,Kang,sxk55@psu.edu,Pennsylvania State University,"Buckhout Laboratory, State College, PA 16801, USA",Buckhout Laboratory,State College,PA,16801,USA
+Gene Expression,1,Nian,Wang,nianwang@ufl.edu,University of Florida,"7100 South Dr, Johnston, IA 50131, USA",7100 South Dr,Johnston,IA,50131,USA
+,0,Nian,Wang,nianwang@ufl.edu,University of Florida,"7100 South Dr, Johnston, IA 50131, USA",7100 South Dr,Johnston,IA,50131,USA
+,0,Qi,Wu,qiw@bcm.edu,Baylor College of Medicine,"1100 Bates Ave, Houston, TX 77030, USA",1100 Bates Ave,Houston,TX,77030,USA
+,0,Qi,Wu,qiw@bcm.edu,Baylor College of Medicine,"College of Pharmacy, 7 Greenhouse Rd, Kingston, RI 02881, USA","College of Pharmacy, 7 Greenhouse Rd",Kingston,RI,02881,USA
+"Gene Expression, Transcriptome",2,Qi,Wu,qiw@bcm.edu,Baylor College of Medicine,"1100 Bates Ave, Houston, TX 77030, USA",1100 Bates Ave,Houston,TX,77030,USA
+"Gene Expression, Transcriptome",2,Qi,Wu,qiw@bcm.edu,Baylor College of Medicine,"College of Pharmacy, 7 Greenhouse Rd, Kingston, RI 02881, USA","College of Pharmacy, 7 Greenhouse Rd",Kingston,RI,02881,USA
+"Gene Expression, Genomics, Yeast",3,Hong,An,anho@missouri.edu,University of Missouri,"1201 Rollins St #113, Columbia, MO 65211, USA",1201 Rollins St #113,Columbia,MO,65211,USA
+,0,Hong,An,anho@missouri.edu,University of Missouri,"1201 Rollins St #113, Columbia, MO 65211, USA",1201 Rollins St #113,Columbia,MO,65211,USA
+Gene Expression,1,Zhe,Han,zhan@som.umaryland.edu,University of Maryland Baltimore,"655 W Baltimore St S, Baltimore, MD 21201, USA",655 W Baltimore St S,Baltimore,MD,21201,USA
+"Metagenomics, Transcriptome",2,Zhongtang,Yu,yu.226@osu.edu,The Ohio State University,"Animal Science Bldg, 2029 Fyffe Rd, Columbus, OH 43210, USA","Animal Science Bldg, 2029 Fyffe Rd",Columbus,OH,43210,USA
+"Metagenomics, Transcriptome",2,Zhongtang,Yu,yu.226@osu.edu,The Ohio State University,"6450 E Cullen St, Houston, TX 77030, USA",6450 E Cullen St,Houston,TX,77030,USA
+Gene Expression,1,David,Meyerholz,david-meyerholz@uiowa.edu,University Of Iowa Roy J. And Lucille A. Carver College Of Medicine,"200 Hawkins Dr, Iowa City, IA 52242, USA",200 Hawkins Dr,Iowa City,IA,52242,USA
+Gene Expression,1,Ivan,Simko,ivan.simko@usda.gov,Agricultural Research Service,"1636 E Alisal St, Salinas, CA 93905, USA",1636 E Alisal St,Salinas,CA,93905,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Ivan,Simko,ivan.simko@usda.gov,Agricultural Research Service,"1636 E Alisal St, Salinas, CA 93905, USA",1636 E Alisal St,Salinas,CA,93905,USA
+"Gene Expression, Genomics, Transcriptome",3,Yang,Lim,ymlim@utar.edu.my,Universiti Tunku Abdul Rahman,"1100 Fairview Ave N, Seattle, WA 98109, USA",1100 Fairview Ave N,Seattle,WA,98109,USA
+"Gene Expression, Transcriptomics, RNA sequencing, Transcriptome",4,Ramanjulu,Sunkar,ramanjulu.sunkar@okstate.edu,Oklahoma State University,"307 Life Sciences E, Stillwater, OK 74078, USA",307 Life Sciences E,Stillwater,OK,74078,USA
+"Gene Expression, Genomics",2,Ramanjulu,Sunkar,ramanjulu.sunkar@okstate.edu,Oklahoma State University,"307 Life Sciences E, Stillwater, OK 74078, USA",307 Life Sciences E,Stillwater,OK,74078,USA
+Transcriptomics,1,Kiwamu,Tanaka,kiwamu.tanaka@wsu.edu,Washington State University,"1772 NE Stadium Way, Pullman, WA 99163, USA",1772 NE Stadium Way,Pullman,WA,99163,USA
+Gene Expression,1,Sung,Kim,sungwoo_kim@ncsu.edu,North Carolina State University,"1300 York Ave, New York, NY 10065, USA",1300 York Ave,New York,NY,10065,USA
+Gene Expression,1,Sung,Kim,sungwoo_kim@ncsu.edu,North Carolina State University,"170 Manning Dr, Chapel Hill, NC 27599, USA",170 Manning Dr,Chapel Hill,NC,27599,USA
+Gene Expression,1,Roger,Ruan,ruanx001@umn.edu,University of Minnesota,"BBE South, Biosystems and Agricultural Engineering Building, 1390 Eckles Ave, St Paul, MN 55108, USA","BBE South, Biosystems and Agricultural Engineering Building, 1390 Eckles Ave",St Paul,MN,55108,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Di,Wu,dwu@unc.edu,University of North Carolina System,"9240 S Riverbend Ave, Parlier, CA 93648, USA",9240 S Riverbend Ave,Parlier,CA,93648,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Di,Wu,dwu@unc.edu,University of North Carolina System,"321 S Columbia St, Chapel Hill, NC 27599, USA",321 S Columbia St,Chapel Hill,NC,27599,USA
+"Gene Expression, Yeast, Transcriptomics",3,Yang,Yen,yang.yen@sdstate.edu,South Dakota State University,"1451 Stadium Rd, Brookings, SD 57007, USA",1451 Stadium Rd,Brookings,SD,57007,USA
+,0,Yang,Yen,yang.yen@sdstate.edu,South Dakota State University,"1451 Stadium Rd, Brookings, SD 57007, USA",1451 Stadium Rd,Brookings,SD,57007,USA
+Gene Expression,1,Nishanth,Tharayil,ntharay@clemson.edu,Clemson University,"Calhoun Dr, Clemson, SC 29634, USA",Calhoun Dr,Clemson,SC,29634,USA
+Genomics,1,Huihui,Li,h.li@cgiar.org,Institute of Crop Sciences,"9240 S Riverbend Ave, Parlier, CA 93648, USA",9240 S Riverbend Ave,Parlier,CA,93648,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"1196 S San Antonio Ave, Pomona, CA 91766, USA",1196 S San Antonio Ave,Pomona,CA,91766,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"40 Convent Dr, Bethesda, MD 20814, USA",40 Convent Dr,Bethesda,MD,20814,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"1196 S San Antonio Ave, Pomona, CA 91766, USA",1196 S San Antonio Ave,Pomona,CA,91766,USA
+Yeast,1,Nayun,Kim,nayun.kim@uth.tmc.edu,University Of Texas Health Sci Center Houston,"Turner Hall, 1102 S Goodwin Ave, Urbana, IL 61801, USA","Turner Hall, 1102 S Goodwin Ave",Urbana,IL,61801,USA
+Gene Expression,1,Venkatesan,Sundaresan,sundar@ucdavis.edu,University of California Davis,"2151 Berkeley Way, Berkeley, CA 94720, USA",2151 Berkeley Way,Berkeley,CA,94720,USA
+,0,Jikui,Song,jikui.song@ucr.edu,University of California Riverside,"1041 Food Science Bldg, Ames, IA 50011, USA",1041 Food Science Bldg,Ames,IA,50011,USA
+,0,Theodora,Hatziioannou,thatziio@rockefeller.edu,Rockefeller University,"430 E 67th St, New York, NY 10065, USA",430 E 67th St,New York,NY,10065,USA
+"Gene Expression, Genomics",2,Faramarz,Valafar,faramarz@sdsu.edu,San Diego State University,"6565 Nancy Ridge Dr, San Diego, CA 92121, USA",6565 Nancy Ridge Dr,San Diego,CA,92121,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Pankaj,Jaiswal,jaiswalp@oregonstate.edu,National Science Foundation,"Cordley Hall, 2701 SW Campus Way, Corvallis, OR 97331, USA","Cordley Hall, 2701 SW Campus Way",Corvallis,OR,97331,USA
+"Gene Expression, Genomics",2,Pankaj,Jaiswal,jaiswalp@oregonstate.edu,National Science Foundation,"Cordley Hall, 2701 SW Campus Way, Corvallis, OR 97331, USA","Cordley Hall, 2701 SW Campus Way",Corvallis,OR,97331,USA
+,0,Bin,Tian,btian@wistar.org,Wistar Institute,"9 Davis Dr, Durham, NC 27703, USA",9 Davis Dr,Durham,NC,27703,USA
+,0,Bin,Tian,btian@wistar.org,Wistar Institute,"Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024, Manhattan, KS 66506, USA","Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024",Manhattan,KS,66506,USA
+Gene Expression,1,Hong,Li,hongli@sb.fsu.edu,Florida State University,"9240 S Riverbend Ave, Parlier, CA 93648, USA",9240 S Riverbend Ave,Parlier,CA,93648,USA
+"Gene Expression, Transcriptome",2,Anna,Lipzen,alipzen@lbl.gov,Lawrence Berkeley National Laboratory,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Anna,Lipzen,alipzen@lbl.gov,Lawrence Berkeley National Laboratory,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"Gene Expression, Genomics, RNA sequencing, Transcriptome",4,Anna,Lipzen,alipzen@lbl.gov,Lawrence Berkeley National Laboratory,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"RNA sequencing, Transcriptome",2,Anna,Lipzen,alipzen@lbl.gov,Lawrence Berkeley National Laboratory,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"NGS, Gene Expression, Yeast, RNA sequencing, Liquid Handling",5,Anna,Lipzen,alipzen@lbl.gov,Lawrence Berkeley National Laboratory,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+,0,Guangchun,Bai,baig@amc.edu,Albany Medical Center Hospital,"4008 Throckmorton Center, Manhattan, KS 66502, USA",4008 Throckmorton Center,Manhattan,KS,66502,USA
+"Gene Expression, Genomics, Yeast, Transcriptomics, RNA sequencing, Transcriptome",6,Takao,Kasuga,tkasuga@ucdavis.edu,Usda-Ars,"Life Sciences, Davis, CA 95616, USA",Life Sciences,Davis,CA,95616,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Zhenbiao,Yang,yang@ucr.edu,University of California Riverside,"University of California Irvine, 3200 Education Bldg, Irvine, CA 92697, USA","University of California Irvine, 3200 Education Bldg",Irvine,CA,92697,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Zhenbiao,Yang,yang@ucr.edu,University of California Riverside,"140 Peavy Forest Science Center, 3100 SW Jefferson Way, Corvallis, OR 97331, USA","140 Peavy Forest Science Center, 3100 SW Jefferson Way",Corvallis,OR,97331,USA
+"NGS, Gene Expression",2,Jialiang,Wang,jwang101@mgh.harvard.edu,Massachusetts General Hospital,"125 Paseo de la Plz, Los Angeles, CA 90012, USA",125 Paseo de la Plz,Los Angeles,CA,90012,USA
+"NGS, Gene Expression",2,Jialiang,Wang,jwang101@mgh.harvard.edu,Massachusetts General Hospital,"1041 Food Science Bldg, Ames, IA 50011, USA",1041 Food Science Bldg,Ames,IA,50011,USA
+"RNA sequencing, Transcriptome",2,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"16555 Von Karman Ave, Irvine, CA 92606, USA",16555 Von Karman Ave,Irvine,CA,92606,USA
+"RNA sequencing, Transcriptome",2,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"33329 Peoria Rd SW, Corvallis, OR 97333, USA",33329 Peoria Rd SW,Corvallis,OR,97333,USA
+"RNA sequencing, Transcriptome",2,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"170 Manning Dr, Chapel Hill, NC 27599, USA",170 Manning Dr,Chapel Hill,NC,27599,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"16555 Von Karman Ave, Irvine, CA 92606, USA",16555 Von Karman Ave,Irvine,CA,92606,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"33329 Peoria Rd SW, Corvallis, OR 97333, USA",33329 Peoria Rd SW,Corvallis,OR,97333,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"170 Manning Dr, Chapel Hill, NC 27599, USA",170 Manning Dr,Chapel Hill,NC,27599,USA
+,0,Ying,Sheng,ysheng@ucdavis.edu,University of California Davis,"2701 Fairview Rd, Costa Mesa, CA 92626, USA",2701 Fairview Rd,Costa Mesa,CA,92626,USA
+,0,Ying,Sheng,ysheng@ucdavis.edu,University of California Davis,"309 E 2nd St, Pomona, CA 91766, USA",309 E 2nd St,Pomona,CA,91766,USA
+"Gene Expression, Transcriptome",2,Dung-Fang,Lee,dung-fang.lee@uth.tmc.edu,The University of Texas Health Science Center at Houston,"4800 Sand Point Way NE, Seattle, WA 98105, USA",4800 Sand Point Way NE,Seattle,WA,98105,USA
+"Gene Expression, Transcriptomics",2,Sonali,Roy,sroy3@tnstate.edu,Tennessee State University,"2510 Sam Noble Pkwy, Ardmore, OK 73401, USA",2510 Sam Noble Pkwy,Ardmore,OK,73401,USA
+Gene Expression,1,Sonali,Roy,sroy3@tnstate.edu,Tennessee State University,"2510 Sam Noble Pkwy, Ardmore, OK 73401, USA",2510 Sam Noble Pkwy,Ardmore,OK,73401,USA
+Gene Expression,1,Hong,Luo,hluo@clemson.edu,Clemson University,"Jersey Ln, Clemson, SC 29634, USA",Jersey Ln,Clemson,SC,29634,USA
+Gene Expression,1,Hong,Luo,hluo@clemson.edu,Clemson University,"105 Sikes Hall, Clemson, SC 29634, USA",105 Sikes Hall,Clemson,SC,29634,USA
+"Gene Expression, RNA sequencing",2,Hong,Luo,hluo@clemson.edu,Clemson University,"Jersey Ln, Clemson, SC 29634, USA",Jersey Ln,Clemson,SC,29634,USA
+"Gene Expression, RNA sequencing",2,Hong,Luo,hluo@clemson.edu,Clemson University,"105 Sikes Hall, Clemson, SC 29634, USA",105 Sikes Hall,Clemson,SC,29634,USA
+Gene Expression,1,Xiaoli,Liu,xlliu@rics.bwh.harvard.edu,Brigham and Women's Hospital,"9240 S Riverbend Ave, Parlier, CA 93648, USA",9240 S Riverbend Ave,Parlier,CA,93648,USA
+Gene Expression,1,Xiaoli,Liu,xlliu@rics.bwh.harvard.edu,Brigham and Women's Hospital,"Hutchison Hall, Davis, CA 95616, USA",Hutchison Hall,Davis,CA,95616,USA
+Gene Expression,1,Xiaoli,Liu,xlliu@rics.bwh.harvard.edu,Brigham and Women's Hospital,"1801 W Taylor St #1e, Chicago, IL 60612, USA",1801 W Taylor St #1e,Chicago,IL,60612,USA
+Gene Expression,1,Xiaoli,Liu,xlliu@rics.bwh.harvard.edu,Brigham and Women's Hospital,"2015 Uppergate Dr, Atlanta, GA 30307, USA",2015 Uppergate Dr,Atlanta,GA,30307,USA
+Yeast,1,Alice,Barkan,abarkan@uoregon.edu,University of Oregon,"273, Onyx Bridge, 1318 Franklin Blvd, Eugene, OR 97403, USA","273, Onyx Bridge, 1318 Franklin Blvd",Eugene,OR,97403,USA
+,0,Chandrika,Piyathilake,piyathic@uab.edu,University of Alabama at Birmingham,"1675 University Blvd, Birmingham, AL 35233, USA",1675 University Blvd,Birmingham,AL,35233,USA
+"Gene Expression, Genomics, Yeast, RNA sequencing",4,Sean,Crosson,crosson4@msu.edu,Michigan State University,"Biomedical Physical Sciences, 567 Wilson Rd Room 2215, East Lansing, MI 48824, USA","Biomedical Physical Sciences, 567 Wilson Rd Room 2215",East Lansing,MI,48824,USA
+"Gene Expression, Genomics, Yeast",3,Sean,Crosson,crosson4@msu.edu,Michigan State University,"Biomedical Physical Sciences, 567 Wilson Rd Room 2215, East Lansing, MI 48824, USA","Biomedical Physical Sciences, 567 Wilson Rd Room 2215",East Lansing,MI,48824,USA
+"Gene Expression, Genomics, RNA sequencing, Transcriptome",4,Stephen,Richards,stephenr@bcm.edu,Baylor College of Medicine,"7200 Cambridge St, Houston, TX 77030, USA",7200 Cambridge St,Houston,TX,77030,USA
+"Gene Expression, Transcriptome",2,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"1102 Bates Ave, Houston, TX 77030, USA",1102 Bates Ave,Houston,TX,77030,USA
+"Gene Expression, Transcriptome",2,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"33329 Peoria Rd SW, Corvallis, OR 97333, USA",33329 Peoria Rd SW,Corvallis,OR,97333,USA
+"Gene Expression, Transcriptome",2,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"Irvine, CA 92617, USA",,Irvine,CA,92617,USA
+,0,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"1102 Bates Ave, Houston, TX 77030, USA",1102 Bates Ave,Houston,TX,77030,USA
+,0,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"33329 Peoria Rd SW, Corvallis, OR 97333, USA",33329 Peoria Rd SW,Corvallis,OR,97333,USA
+,0,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"Irvine, CA 92617, USA",,Irvine,CA,92617,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"619 19th St S, Birmingham, AL 35233, USA",619 19th St S,Birmingham,AL,35233,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"1414 Geronimo Dr, El Paso, TX 79925, USA",1414 Geronimo Dr,El Paso,TX,79925,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"710 N Pleasant St, Amherst, MA 01003, USA",710 N Pleasant St,Amherst,MA,01003,USA
+,0,Zheng,Sun,zheng.sun@bcm.edu,Baylor College of Medicine,"14 Corporate Plaza Dr # 200, Newport Beach, CA 92660, USA",14 Corporate Plaza Dr # 200,Newport Beach,CA,92660,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"14000-14976 Co Rd 114, Nunn, CO 80648, USA",14000-14976 Co Rd 114,Nunn,CO,80648,USA
+Transcriptome,1,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"14000-14976 Co Rd 114, Nunn, CO 80648, USA",14000-14976 Co Rd 114,Nunn,CO,80648,USA
+,0,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"14000-14976 Co Rd 114, Nunn, CO 80648, USA",14000-14976 Co Rd 114,Nunn,CO,80648,USA
+"Genomics, Metagenomics, RNA sequencing",3,Maher,Al Rwahnih,malrwahnih@ucdavis.edu,"University of California Davis: Davis, CA, US","Hutchison Hall, Davis, CA 95616, USA",Hutchison Hall,Davis,CA,95616,USA
+"NGS, Gene Expression, Genomics, RNA sequencing, Transcriptome",5,Fenglan,Zhang,zhangfenglan@nercv.org,Ministry of Agriculture,"1230 York Ave, New York, NY 10065, USA",1230 York Ave,New York,NY,10065,USA
+,0,Mohamed,Mergoum,mmergoum@uga.edu,University of Georgia,"Redding Building, Griffin, GA 30223, USA",Redding Building,Griffin,GA,30223,USA
+Gene Expression,1,Manjunath,Joshi,manjunath.joshi@manipal.edu,Manipal Academy of Higher Education Manipal School of Life Sciences,"1619 Garner Field Rd, Uvalde, TX 78801, USA",1619 Garner Field Rd,Uvalde,TX,78801,USA
+,0,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"4050 Barranca Pkwy #110, Irvine, CA 92604, USA",4050 Barranca Pkwy #110,Irvine,CA,92604,USA
+Transcriptome,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"4050 Barranca Pkwy #110, Irvine, CA 92604, USA",4050 Barranca Pkwy #110,Irvine,CA,92604,USA
+Genomics,1,Xuecai,Zhang,xc.zhang@cgiar.org,International Maize and Wheat Improvement Center,"4050 Barranca Pkwy #110, Irvine, CA 92604, USA",4050 Barranca Pkwy #110,Irvine,CA,92604,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"Texas A&M University, Heep Center, 370 Olsen Blvd #434, College Station, TX 77843, USA","Texas A&M University, Heep Center, 370 Olsen Blvd #434",College Station,TX,77843,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"Medical Research and Library Building, 975 W Walnut St IB 130, Indianapolis, IN 46202, USA","Medical Research and Library Building, 975 W Walnut St IB 130",Indianapolis,IN,46202,USA
+"Gene Expression, Transcriptome",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"2929 K St #200, Sacramento, CA 95816, USA",2929 K St #200,Sacramento,CA,95816,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"Texas A&M University, Heep Center, 370 Olsen Blvd #434, College Station, TX 77843, USA","Texas A&M University, Heep Center, 370 Olsen Blvd #434",College Station,TX,77843,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"Medical Research and Library Building, 975 W Walnut St IB 130, Indianapolis, IN 46202, USA","Medical Research and Library Building, 975 W Walnut St IB 130",Indianapolis,IN,46202,USA
+"Genomics, Metagenomics",2,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"2929 K St #200, Sacramento, CA 95816, USA",2929 K St #200,Sacramento,CA,95816,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"Texas A&M University, Heep Center, 370 Olsen Blvd #434, College Station, TX 77843, USA","Texas A&M University, Heep Center, 370 Olsen Blvd #434",College Station,TX,77843,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"Medical Research and Library Building, 975 W Walnut St IB 130, Indianapolis, IN 46202, USA","Medical Research and Library Building, 975 W Walnut St IB 130",Indianapolis,IN,46202,USA
+"Gene Expression, Genomics, Transcriptome",3,Shuyu,Liu,sliu@ag.tamu.edu,Texas A&M AgriLife research and Extension Center,"2929 K St #200, Sacramento, CA 95816, USA",2929 K St #200,Sacramento,CA,95816,USA
+"Metagenomics, Transcriptome",2,Zhongtang,Yu,yu.226@osu.edu,The Ohio State University,"1 Baylor Plz, Houston, TX 77030, USA",1 Baylor Plz,Houston,TX,77030,USA
+"Metagenomics, Transcriptome",2,Zhongtang,Yu,yu.226@osu.edu,The Ohio State University,"2929 K St #200, Sacramento, CA 95816, USA",2929 K St #200,Sacramento,CA,95816,USA
+"Gene Expression, Transcriptome",2,Bing,Yang,yangbi@missouri.edu,University of Missouri,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+Gene Expression,1,Bing,Yang,yangbi@missouri.edu,University of Missouri,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+"Gene Expression, Genomics",2,Bing,Yang,yangbi@missouri.edu,University of Missouri,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+Gene Expression,1,Roger,Ruan,ruanx001@umn.edu,University of Minnesota,"1918 University Ave, Berkeley, CA 94704, USA",1918 University Ave,Berkeley,CA,94704,USA
+Genomics,1,Huihui,Li,h.li@cgiar.org,Institute of Crop Sciences,"Dittmer Chemistry Lab, 95 Chieftan Way Suite 118, Tallahassee, FL 32306, USA","Dittmer Chemistry Lab, 95 Chieftan Way Suite 118",Tallahassee,FL,32306,USA
+"Gene Expression, Yeast",2,Oliver,Baars,obaars@ncsu.edu,North Carolina State University,"2731 Pillsbury Cir, Raleigh, NC 27607, USA",2731 Pillsbury Cir,Raleigh,NC,27607,USA
+"Gene Expression, Genomics",2,Oliver,Baars,obaars@ncsu.edu,North Carolina State University,"2731 Pillsbury Cir, Raleigh, NC 27607, USA",2731 Pillsbury Cir,Raleigh,NC,27607,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"9620 Carnegie Ave N Bldg, Cleveland, OH 44106, USA",9620 Carnegie Ave N Bldg,Cleveland,OH,44106,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"21 Ames St #56-651, Cambridge, MA 02139, USA",21 Ames St #56-651,Cambridge,MA,02139,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"260 Whitney Ave # 266, New Haven, CT 06511, USA",260 Whitney Ave # 266,New Haven,CT,06511,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"9620 Carnegie Ave N Bldg, Cleveland, OH 44106, USA",9620 Carnegie Ave N Bldg,Cleveland,OH,44106,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"21 Ames St #56-651, Cambridge, MA 02139, USA",21 Ames St #56-651,Cambridge,MA,02139,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Siyuan,Wang,siyuan.wang@yale.edu,Yale University,"260 Whitney Ave # 266, New Haven, CT 06511, USA",260 Whitney Ave # 266,New Haven,CT,06511,USA
+"Next generation sequencing, Gene Expression, Genomics, Transcriptomics, Transcriptome",5,Muhammad,Arif,arif@hawaii.edu,University of Hawaii at Manoa,"222 Piedmont Ave Suite 4000, Cincinnati, OH 45219, USA",222 Piedmont Ave Suite 4000,Cincinnati,OH,45219,USA
+"Gene Expression, Yeast, Transcriptomics, gut microbiota",4,Akihiko,Oka,akihiko_oka@med.unc.edu,Shimane University Faculty of Medicine,"Bioinformatics Building, 130 Mason Farm Rd, Chapel Hill, NC 27514, USA","Bioinformatics Building, 130 Mason Farm Rd",Chapel Hill,NC,27514,USA
+Gene Expression,1,Venkatesan,Sundaresan,sundar@ucdavis.edu,University of California Davis,"Los Angeles, CA 90095, USA",,Los Angeles,CA,90095,USA
+"Gene Expression, Genomics, Yeast, Transcriptomics, RNA sequencing, Transcriptome",6,Maria,Barna,mbarna@stanford.edu,Stanford University,"279 Campus Drive, Stanford, CA 94305, USA",279 Campus Drive,Stanford,CA,94305,USA
+,0,Jikui,Song,jikui.song@ucr.edu,University of California Riverside,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"Next generation sequencing, Gene Expression, Genomics, RNA sequencing",4,Hamid,Band,hband@unmc.edu,University of Nebraska Medical Center,"505 S 45th St, Omaha, NE 68105, USA",505 S 45th St,Omaha,NE,68105,USA
+"Gene Expression, Yeast, gut microbiome, gut microbiota",4,Jerko,Hrabar,hrabar@izor.hr,Institute of Oceanography and Fisheries,"24200 Dana Point Harbor Dr, Dana Point, CA 92629, USA",24200 Dana Point Harbor Dr,Dana Point,CA,92629,USA
+,0,Jian,Feng,jfeng@tamu.edu,Texas A&M University,"2929 K St #200, Sacramento, CA 95816, USA",2929 K St #200,Sacramento,CA,95816,USA
+"Gene Expression, Genomics",2,Rebecca,Bart,rbart@danforthcenter.org,Donald Danforth Plant Science Center,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+"Gene Expression, RNA sequencing, 16S rRNA gene sequencing, gut microbiota",4,Gary,Borisy,gborisy@forsyth.org,The Forsyth Institute,"245 First St, Cambridge, MA 02142, USA",245 First St,Cambridge,MA,02142,USA
+"Gene Expression, Yeast",2,Wusheng,Liu,wliu25@ncsu.edu,North Carolina State University,"Kilgore Hall, 2721 Founders Dr, Raleigh, NC 27607, USA","Kilgore Hall, 2721 Founders Dr",Raleigh,NC,27607,USA
+,0,Steven,Bassnett,bassnett@wustl.edu,Washington University in St. Louis,"St. Louis, MO 63110, USA",,St. Louis,MO,63110,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Vijay,Joshi,vijay.joshi@tamu.edu,Texas A&M AgriLife Research,"1619 Garner Field Rd, Uvalde, TX 78801, USA",1619 Garner Field Rd,Uvalde,TX,78801,USA
+Gene Expression,1,Vijay,Joshi,vijay.joshi@tamu.edu,Texas A&M AgriLife Research,"1619 Garner Field Rd, Uvalde, TX 78801, USA",1619 Garner Field Rd,Uvalde,TX,78801,USA
+Genomics,1,Vijay,Joshi,vijay.joshi@tamu.edu,Texas A&M AgriLife Research,"1619 Garner Field Rd, Uvalde, TX 78801, USA",1619 Garner Field Rd,Uvalde,TX,78801,USA
+"Gene Expression, Genomics, Transcriptome",3,Matteo,Pellegrini,matteop@mcdb.ucla.edu,Ucla - University Of California Los Angeles,"Los Angeles, CA 90095, USA",,Los Angeles,CA,90095,USA
+"Genomics, Transcriptome",2,Ales,Kovarik,kovarik@ibp.cz,Academy of Sciences of the Czech Republic,"Medical Sciences D, Irvine, CA 92617, USA",Medical Sciences D,Irvine,CA,92617,USA
+Gene Expression,1,Hong,Li,hongli@sb.fsu.edu,Florida State University,"Dittmer Chemistry Lab, 95 Chieftan Way Suite 118, Tallahassee, FL 32306, USA","Dittmer Chemistry Lab, 95 Chieftan Way Suite 118",Tallahassee,FL,32306,USA
+"Gene Expression, Genomics, Transcriptome",3,Jeromy,Rech,jeromy@live.unc.edu,University of North Carolina at Asheville,"125 South Rd, Chapel Hill, NC 27514, USA",125 South Rd,Chapel Hill,NC,27514,USA
+"Gene Expression, Yeast",2,Andrea,Gallavotti,agallavotti@waksman.rutgers.edu,Rutgers University,"190 Frelinghuysen Rd, Piscataway, NJ 08854, USA",190 Frelinghuysen Rd,Piscataway,NJ,08854,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Andrea,Gallavotti,agallavotti@waksman.rutgers.edu,Rutgers University,"190 Frelinghuysen Rd, Piscataway, NJ 08854, USA",190 Frelinghuysen Rd,Piscataway,NJ,08854,USA
+"Gene Expression, Genomics, RNA sequencing, Transcriptome",4,Nathan,Maren,namaren@ncsu.edu,North Carolina State University,"Kilgore Hall, 2721 Founders Dr, Raleigh, NC 27607, USA","Kilgore Hall, 2721 Founders Dr",Raleigh,NC,27607,USA
+,0,Guangchun,Bai,baig@amc.edu,Albany Medical Center Hospital,"1515 College Ave, Manhattan, KS 66502, USA",1515 College Ave,Manhattan,KS,66502,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Zhenbiao,Yang,yang@ucr.edu,University of California Riverside,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"NGS, Gene Expression",2,Jialiang,Wang,jwang101@mgh.harvard.edu,Massachusetts General Hospital,"1100 Bates Ave, Houston, TX 77030, USA",1100 Bates Ave,Houston,TX,77030,USA
+"NGS, Gene Expression",2,Jialiang,Wang,jwang101@mgh.harvard.edu,Massachusetts General Hospital,"Gainesville, FL 32603, USA",,Gainesville,FL,32603,USA
+"NGS, Gene Expression",2,Jialiang,Wang,jwang101@mgh.harvard.edu,Massachusetts General Hospital,"Mueller Laboratory, 208 Curtin Rd, State College, PA 16801, USA","Mueller Laboratory, 208 Curtin Rd",State College,PA,16801,USA
+"Gene Expression, RNA sequencing",2,Nidhi,Rohatgi,nidhirohatgi@wustl.edu,Washington University in St. Louis,"660 S Euclid Ave, St. Louis, MO 63110, USA",660 S Euclid Ave,St. Louis,MO,63110,USA
+Gene Expression,1,Perwez,Alam,alamp@missouri.edu,University of Missouri,"234 Goodman Dr # 110, Cincinnati, OH 45219, USA",234 Goodman Dr # 110,Cincinnati,OH,45219,USA
+"RNA sequencing, Transcriptome",2,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"Tucson, AZ 85719, USA",,Tucson,AZ,85719,USA
+"RNA sequencing, Transcriptome",2,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"2452 Watson Ct, Palo Alto, CA 94303, USA",2452 Watson Ct,Palo Alto,CA,94303,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"Tucson, AZ 85719, USA",,Tucson,AZ,85719,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Xianchun,Li,lxc@ag.arizona.edu,University of Arizona,"2452 Watson Ct, Palo Alto, CA 94303, USA",2452 Watson Ct,Palo Alto,CA,94303,USA
+,0,Yueqiang,Leng,yueqiang.leng@ndsu.edu,North Dakota State University,"1360 Bolley Dr, Fargo, ND 58102, USA",1360 Bolley Dr,Fargo,ND,58102,USA
+Genomics,1,Jeewan,Pandey,yourjeewan@tamu.edu,Texas A&M Agrilife,"495 Horticulture Rd Suite 202, College Station, TX 77843, USA",495 Horticulture Rd Suite 202,College Station,TX,77843,USA
+,0,Ying,Sheng,ysheng@ucdavis.edu,University of California Davis,"300 Halket St # 4750, Pittsburgh, PA 15213, USA",300 Halket St # 4750,Pittsburgh,PA,15213,USA
+"Genomics, Yeast",2,Qingfang,He,qfhe@ualr.edu,University of Arkansas at Fayetteville,"2801 S University Ave, Little Rock, AR 72204, USA",2801 S University Ave,Little Rock,AR,72204,USA
+Gene Expression,1,Bingzhong,Xue,bxue@gsu.edu,Georgia State University,"46 Decatur St. SE, Atlanta, GA 30303, USA",46 Decatur St. SE,Atlanta,GA,30303,USA
+"Gene Expression, Genomics, RNA sequencing, Transcriptome",4,Stephen,Richards,stephenr@bcm.edu,Baylor College of Medicine,"6450 E Cullen St, Houston, TX 77030, USA",6450 E Cullen St,Houston,TX,77030,USA
+,0,Hiroyuki,Nakai,nakaih@ohsu.edu,Oregon Health & Science University,"505 NW 185th Ave, Beaverton, OR 97006, USA",505 NW 185th Ave,Beaverton,OR,97006,USA
+,0,Thomas,Gallagher,tgallag@luc.edu,Loyola University Chicago,"2160 S 1st Ave, Maywood, IL 60153, USA",2160 S 1st Ave,Maywood,IL,60153,USA
+"Gene Expression, Transcriptome",2,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"1 Baylor Plz, Houston, TX 77030, USA",1 Baylor Plz,Houston,TX,77030,USA
+"Gene Expression, Transcriptome",2,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"473 W 12th Ave, Columbus, OH 43210, USA",473 W 12th Ave,Columbus,OH,43210,USA
+"Gene Expression, Transcriptome",2,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"231 Albert Sabin Way, Cincinnati, OH 45229, USA",231 Albert Sabin Way,Cincinnati,OH,45229,USA
+"Gene Expression, Transcriptome",2,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"6450 E Cullen St, Houston, TX 77030, USA",6450 E Cullen St,Houston,TX,77030,USA
+,0,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"1 Baylor Plz, Houston, TX 77030, USA",1 Baylor Plz,Houston,TX,77030,USA
+,0,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"473 W 12th Ave, Columbus, OH 43210, USA",473 W 12th Ave,Columbus,OH,43210,USA
+,0,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"231 Albert Sabin Way, Cincinnati, OH 45229, USA",231 Albert Sabin Way,Cincinnati,OH,45229,USA
+,0,Yong,Xu,yongx@bcm.edu,Baylor College of Medicine,"6450 E Cullen St, Houston, TX 77030, USA",6450 E Cullen St,Houston,TX,77030,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"Davis, CA 95616, USA",,Davis,CA,95616,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"3528 General Atomics Ct, San Diego, CA 92121, USA",3528 General Atomics Ct,San Diego,CA,92121,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"Nanaline H. Duke Basic Sciences Research Building, 307 Research Dr Suite 255, Durham, NC 27705, USA","Nanaline H. Duke Basic Sciences Research Building, 307 Research Dr Suite 255",Durham,NC,27705,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"1849 Auiki St, Honolulu, HI 96819, USA",1849 Auiki St,Honolulu,HI,96819,USA
+RNA sequencing,1,Yang,Zhang,yzhan219@central.uh.edu,University of Houston,"4302 University Dr, Houston, TX 77004, USA",4302 University Dr,Houston,TX,77004,USA
+,0,Zheng,Sun,zheng.sun@bcm.edu,Baylor College of Medicine,"7200 Cambridge St Floor 7, Houston, TX 77030, USA",7200 Cambridge St Floor 7,Houston,TX,77030,USA
+,0,Zheng,Sun,zheng.sun@bcm.edu,Baylor College of Medicine,"1102 Bates Ave, Houston, TX 77030, USA",1102 Bates Ave,Houston,TX,77030,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"St. Louis, MO 63110, USA",,St. Louis,MO,63110,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"101 Huck Life Sciences Building, University Park, PA 16802, USA",101 Huck Life Sciences Building,University Park,PA,16802,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"201 Old Main, University Park, PA 16802, USA",201 Old Main,University Park,PA,16802,USA
+Transcriptome,1,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"St. Louis, MO 63110, USA",,St. Louis,MO,63110,USA
+Transcriptome,1,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"101 Huck Life Sciences Building, University Park, PA 16802, USA",101 Huck Life Sciences Building,University Park,PA,16802,USA
+Transcriptome,1,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"201 Old Main, University Park, PA 16802, USA",201 Old Main,University Park,PA,16802,USA
+,0,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"St. Louis, MO 63110, USA",,St. Louis,MO,63110,USA
+,0,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"101 Huck Life Sciences Building, University Park, PA 16802, USA",101 Huck Life Sciences Building,University Park,PA,16802,USA
+,0,Hong,Ma,hxm16@psu.edu,Pennsylvania State University,"201 Old Main, University Park, PA 16802, USA",201 Old Main,University Park,PA,16802,USA
+"Gene Expression, Yeast",2,Hamed,Jafar-Nejad,hamedj@bcm.edu,Baylor College of Medicine,"1 Baylor Plz, Houston, TX 77030, USA",1 Baylor Plz,Houston,TX,77030,USA
+"Gene Expression, Yeast",2,Hamed,Jafar-Nejad,hamedj@bcm.edu,Baylor College of Medicine,"6450 E Cullen St, Houston, TX 77030, USA",6450 E Cullen St,Houston,TX,77030,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome, gut microbiome, gut microbiota",6,Hamed,Jafar-Nejad,hamedj@bcm.edu,Baylor College of Medicine,"1 Baylor Plz, Houston, TX 77030, USA",1 Baylor Plz,Houston,TX,77030,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome, gut microbiome, gut microbiota",6,Hamed,Jafar-Nejad,hamedj@bcm.edu,Baylor College of Medicine,"6450 E Cullen St, Houston, TX 77030, USA",6450 E Cullen St,Houston,TX,77030,USA
+"NGS, Genomics, Metagenomics",3,Bishwo,Adhikari,bishwo.n.adhikari@usda.gov,United States Department of Agriculture,"6351 Ammendale Rd, Beltsville, MD 20705, USA",6351 Ammendale Rd,Beltsville,MD,20705,USA
+Gene Expression,1,Byeongwoon,Song,bsong@mmc.edu,Meharry Medical College,"Emerson Hall, 331, 236 Mann Dr, Ithaca, NY 14850, USA","Emerson Hall, 331, 236 Mann Dr",Ithaca,NY,14850,USA
+"Gene Expression, Genomics",2,Zhaohui,Liu,zhh.liu@ndsu.edu,North Dakota State University,"1360 Bolley Dr, Fargo, ND 58102, USA",1360 Bolley Dr,Fargo,ND,58102,USA
+,0,Zhaohui,Liu,zhh.liu@ndsu.edu,North Dakota State University,"1360 Bolley Dr, Fargo, ND 58102, USA",1360 Bolley Dr,Fargo,ND,58102,USA
+,0,Oadi,Matny,onmatny@umn.edu,University of Minnesota,"1991 Upper Buford Cir, 495 Borlaug Hall, St Paul, MN 55108, USA","1991 Upper Buford Cir, 495 Borlaug Hall",St Paul,MN,55108,USA
+"Genomics, Metagenomics",2,Oadi,Matny,onmatny@umn.edu,University of Minnesota,"1991 Upper Buford Cir, 495 Borlaug Hall, St Paul, MN 55108, USA","1991 Upper Buford Cir, 495 Borlaug Hall",St Paul,MN,55108,USA
+"Genomics, RNA sequencing, Transcriptome",3,Oadi,Matny,onmatny@umn.edu,University of Minnesota,"1991 Upper Buford Cir, 495 Borlaug Hall, St Paul, MN 55108, USA","1991 Upper Buford Cir, 495 Borlaug Hall",St Paul,MN,55108,USA
+Transcriptome,1,Oadi,Matny,onmatny@umn.edu,University of Minnesota,"1991 Upper Buford Cir, 495 Borlaug Hall, St Paul, MN 55108, USA","1991 Upper Buford Cir, 495 Borlaug Hall",St Paul,MN,55108,USA
+Gene Expression,1,Ruairidh,Sawers,rjs6686@psu.edu,Pennsylvania State University,"103 Tyson Bldg, University Park, PA 16802, USA",103 Tyson Bldg,University Park,PA,16802,USA
+"Next generation sequencing, Gene Expression, RNA sequencing, Transcriptome",4,Ruairidh,Sawers,rjs6686@psu.edu,Pennsylvania State University,"103 Tyson Bldg, University Park, PA 16802, USA",103 Tyson Bldg,University Park,PA,16802,USA
+"Gene Expression, Yeast, Transcriptome",3,Parul,Johri,pjohri1@asu.edu,University of North Carolina at Chapel Hill,"Life Sciences Center Building, A, Rooms 181 and 189, 427 E Tyler Mall, Tempe, AZ 85281, USA","Life Sciences Center Building, A, Rooms 181 and 189, 427 E Tyler Mall",Tempe,AZ,85281,USA
+"NGS, Gene Expression",2,Nan,Wang,wangnx@stanford.edu,Stanford University,"299 Campus Drive, Palo Alto, CA 94304, USA",299 Campus Drive,Palo Alto,CA,94304,USA
+"NGS, Gene Expression",2,Nan,Wang,wangnx@stanford.edu,Stanford University,"7100 South Dr, Johnston, IA 50131, USA",7100 South Dr,Johnston,IA,50131,USA
+"Next generation sequencing, Gene Expression",2,Jeffrey,Ross-Ibarra,rossibarra@ucdavis.edu,University of California Davis,"Storer Hall, Davis, CA 95616, USA",Storer Hall,Davis,CA,95616,USA
+,0,Ji Yeon,Kim,jiyeon.kim1@yale.edu,Yale University,"900 S Ashland Ave, Chicago, IL 60607, USA",900 S Ashland Ave,Chicago,IL,60607,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Francisco,Dini-Andreote,andreote@psu.edu,Pennsylvania State University,"101 Huck Life Sciences Building, University Park, PA 16802, USA",101 Huck Life Sciences Building,University Park,PA,16802,USA
+"Gene Expression, Transcriptome",2,Xuewen,Wang,xuewen.wang@unthsc.edu,University of North Texas Health Science Center,"120 W Green St, Athens, GA 30602, USA",120 W Green St,Athens,GA,30602,USA
+"Gene Expression, Transcriptome",2,Xuewen,Wang,xuewen.wang@unthsc.edu,University of North Texas Health Science Center,"130, Biotechnology Bldg, 526 Campus Rd, Ithaca, NY 14853, USA","130, Biotechnology Bldg, 526 Campus Rd",Ithaca,NY,14853,USA
+"Gene Expression, Transcriptome",2,Xuewen,Wang,xuewen.wang@unthsc.edu,University of North Texas Health Science Center,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"Gene Expression, Transcriptome",2,Xuewen,Wang,xuewen.wang@unthsc.edu,University of North Texas Health Science Center,"5602 E La Palma Ave, Anaheim, CA 92807, USA",5602 E La Palma Ave,Anaheim,CA,92807,USA
+"Gene Expression, Transcriptome",2,Xuewen,Wang,xuewen.wang@unthsc.edu,University of North Texas Health Science Center,"1801 W Taylor St #1e, Chicago, IL 60612, USA",1801 W Taylor St #1e,Chicago,IL,60612,USA
+Gene Expression,1,Jiangqi,Wen,jiangqi.wen@okstate.edu,Oklahoma State University,"Stillwater, OK 74075, USA",,Stillwater,OK,74075,USA
+"Gene Expression, RNA sequencing",2,Sachin,Rustgi,srustgi@clemson.edu,Clemson University,"2200 Pocket Rd, Florence, SC 29506, USA",2200 Pocket Rd,Florence,SC,29506,USA
+"Gene Expression, Transcriptome",2,Sachin,Rustgi,srustgi@clemson.edu,Clemson University,"2200 Pocket Rd, Florence, SC 29506, USA",2200 Pocket Rd,Florence,SC,29506,USA
+Gene Expression,1,Sachin,Rustgi,srustgi@clemson.edu,Clemson University,"2200 Pocket Rd, Florence, SC 29506, USA",2200 Pocket Rd,Florence,SC,29506,USA
+"Gene Expression, Transcriptomics, RNA sequencing",3,Qiuxia,Li,qiuxia-li@uiowa.edu,The University of Iowa University College,"375 Newton Rd, Iowa City, IA 52242, USA",375 Newton Rd,Iowa City,IA,52242,USA
+Gene Expression,1,Kee-Hong,Kim,keehong@purdue.edu,Purdue University,"Gainesville, FL 32608, USA",,Gainesville,FL,32608,USA
+,0,Kee-Hong,Kim,keehong@purdue.edu,Purdue University,"Gainesville, FL 32608, USA",,Gainesville,FL,32608,USA
+"Gene Expression, Transcriptome",2,Xuan,Xu,xuan.xu@list.lu,Luxembourg Institute of Science and Technology,"1601 Dove St #290, Newport Beach, CA 92660, USA",1601 Dove St #290,Newport Beach,CA,92660,USA
+"Gene Expression, Transcriptome",2,Xuan,Xu,xuan.xu@list.lu,Luxembourg Institute of Science and Technology,"1111 Highland Ave #1005, Madison, WI 53705, USA",1111 Highland Ave #1005,Madison,WI,53705,USA
+Gene Expression,1,Elizabeth,Vargis,vargis@usu.edu,Utah State University,"Old Main Hill, Logan, UT 84322, USA",Old Main Hill,Logan,UT,84322,USA
+"Gene Expression, gut microbiome, gut microbiota",3,Bao-Hua,Song,bsong5@uncc.edu,University of North Carolina at Charlotte,"Emerson Hall, 331, 236 Mann Dr, Ithaca, NY 14850, USA","Emerson Hall, 331, 236 Mann Dr",Ithaca,NY,14850,USA
+"Gene Expression, Genomics",2,Feng,Qu,qu.28@osu.edu,The Ohio State University,"Selby Hall, Wooster, OH 44691, USA",Selby Hall,Wooster,OH,44691,USA
+,0,Feng,Qu,qu.28@osu.edu,The Ohio State University,"Selby Hall, Wooster, OH 44691, USA",Selby Hall,Wooster,OH,44691,USA
+"Gene Expression, gut microbiome, gut microbiota",3,Shirong,Liu,sliu22@bwh.harvard.edu,Dana–Farber Cancer Institute,"8801 Tarter Ave, Amarillo, TX 79119, USA",8801 Tarter Ave,Amarillo,TX,79119,USA
+"Gene Expression, gut microbiome, gut microbiota",3,Shirong,Liu,sliu22@bwh.harvard.edu,Dana–Farber Cancer Institute,"3115 College Ave, Manhattan, KS 66502, USA",3115 College Ave,Manhattan,KS,66502,USA
+"Gene Expression, gut microbiome, gut microbiota",3,Shirong,Liu,sliu22@bwh.harvard.edu,Dana–Farber Cancer Institute,"2929 K St #200, Sacramento, CA 95816, USA",2929 K St #200,Sacramento,CA,95816,USA
+,0,Getu,Beyene,gduguma@danforthcenter.org,Donald Danforth Plant Science Center,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+,0,Dandan,Li,dandan.li@usda.gov,North Dakota State University,"1360 Bolley Dr, Fargo, ND 58102, USA",1360 Bolley Dr,Fargo,ND,58102,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"W Lilac Rd, Escondido, CA 92026, USA",W Lilac Rd,Escondido,CA,92026,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"1196 S San Antonio Ave, Pomona, CA 91766, USA",1196 S San Antonio Ave,Pomona,CA,91766,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"5602 E La Palma Ave, Anaheim, CA 92807, USA",5602 E La Palma Ave,Anaheim,CA,92807,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"123 Huntington St, New Haven, CT 06511, USA",123 Huntington St,New Haven,CT,06511,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+,0,Suman,Sharma,suman30@nmsu.edu,New Mexico State University,"201 Brookline Ave, Boston, MA 02215, USA",201 Brookline Ave,Boston,MA,02215,USA
+"Gene Expression, Yeast",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"42nd and, Emile St, Omaha, NE 68198, USA","42nd and, Emile St",Omaha,NE,68198,USA
+"Gene Expression, Yeast",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"655 W Baltimore St S, Baltimore, MD 21201, USA",655 W Baltimore St S,Baltimore,MD,21201,USA
+"Gene Expression, Yeast",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"201 Kottman Hall, 2021 Coffey Rd, Columbus, OH 43210, USA","201 Kottman Hall, 2021 Coffey Rd",Columbus,OH,43210,USA
+"Gene Expression, Yeast",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"2288 Gourrier Ave, Baton Rouge, LA 70820, USA",2288 Gourrier Ave,Baton Rouge,LA,70820,USA
+Yeast,1,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"42nd and, Emile St, Omaha, NE 68198, USA","42nd and, Emile St",Omaha,NE,68198,USA
+Yeast,1,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"655 W Baltimore St S, Baltimore, MD 21201, USA",655 W Baltimore St S,Baltimore,MD,21201,USA
+Yeast,1,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"201 Kottman Hall, 2021 Coffey Rd, Columbus, OH 43210, USA","201 Kottman Hall, 2021 Coffey Rd",Columbus,OH,43210,USA
+Yeast,1,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"2288 Gourrier Ave, Baton Rouge, LA 70820, USA",2288 Gourrier Ave,Baton Rouge,LA,70820,USA
+"Gene Expression, Genomics",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"42nd and, Emile St, Omaha, NE 68198, USA","42nd and, Emile St",Omaha,NE,68198,USA
+"Gene Expression, Genomics",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"655 W Baltimore St S, Baltimore, MD 21201, USA",655 W Baltimore St S,Baltimore,MD,21201,USA
+"Gene Expression, Genomics",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"201 Kottman Hall, 2021 Coffey Rd, Columbus, OH 43210, USA","201 Kottman Hall, 2021 Coffey Rd",Columbus,OH,43210,USA
+"Gene Expression, Genomics",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"2288 Gourrier Ave, Baton Rouge, LA 70820, USA",2288 Gourrier Ave,Baton Rouge,LA,70820,USA
+,0,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"42nd and, Emile St, Omaha, NE 68198, USA","42nd and, Emile St",Omaha,NE,68198,USA
+,0,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"655 W Baltimore St S, Baltimore, MD 21201, USA",655 W Baltimore St S,Baltimore,MD,21201,USA
+,0,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"201 Kottman Hall, 2021 Coffey Rd, Columbus, OH 43210, USA","201 Kottman Hall, 2021 Coffey Rd",Columbus,OH,43210,USA
+,0,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"2288 Gourrier Ave, Baton Rouge, LA 70820, USA",2288 Gourrier Ave,Baton Rouge,LA,70820,USA
+,0,Liqun,Zhang,zhangl@uri.edu,University of Rhode Island,"J.T. Patterson Laboratories Bldg, 2415 Speedway, Austin, TX 78712, USA","J.T. Patterson Laboratories Bldg, 2415 Speedway",Austin,TX,78712,USA
+"NGS, Gene Expression",2,Nan,Wang,wangnx@stanford.edu,Stanford University,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"Gene Expression, Transcriptomics, RNA sequencing, Transcriptome",4,Xiao-Ning,Zhang,xzhang@sbu.edu,St. Bonaventure University,"1111 Highland Ave, Madison, WI 53792, USA",1111 Highland Ave,Madison,WI,53792,USA
+"Gene Expression, Transcriptomics, RNA sequencing, Transcriptome",4,Xiao-Ning,Zhang,xzhang@sbu.edu,St. Bonaventure University,"Gainesville, FL 32603, USA",,Gainesville,FL,32603,USA
+"Gene Expression, Transcriptomics, RNA sequencing, Transcriptome",4,Xiao-Ning,Zhang,xzhang@sbu.edu,St. Bonaventure University,"2985 Airport Dr, Madera, CA 93637, USA",2985 Airport Dr,Madera,CA,93637,USA
+"Gene Expression, Transcriptomics, RNA sequencing",3,Qiuxia,Li,qiuxia-li@uiowa.edu,The University of Iowa University College,"1414 Geronimo Dr, El Paso, TX 79925, USA",1414 Geronimo Dr,El Paso,TX,79925,USA
+"Gene Expression, Genomics, Transcriptome",3,Bradlee,Nelms,nelms@uga.edu,University of Georgia,"University of Georgia, 120 Carlton St, Athens, GA 30602, USA","University of Georgia, 120 Carlton St",Athens,GA,30602,USA
+"Gene Expression, gut microbiome, gut microbiota",3,Shirong,Liu,sliu22@bwh.harvard.edu,Dana–Farber Cancer Institute,"6500 W Amarillo Blvd, Amarillo, TX 79106, USA",6500 W Amarillo Blvd,Amarillo,TX,79106,USA
+"Gene Expression, gut microbiome, gut microbiota",3,Shirong,Liu,sliu22@bwh.harvard.edu,Dana–Farber Cancer Institute,"Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024, Manhattan, KS 66506, USA","Throckmorton Plant Sciences Center, 1712 Claflin Rd Suite 4024",Manhattan,KS,66506,USA
+Gene Expression,1,Mehdi,Kabbage,kabbage@wisc.edu,University of Wisconsin–Madison,"Russell Laboratories, 1630 Linden Dr Room 240, Madison, WI 53706, USA","Russell Laboratories, 1630 Linden Dr Room 240",Madison,WI,53706,USA
+"Gene Expression, Genomics, Metagenomics, Transcriptomics, Transcriptome, Skin Microbiome",6,Nathan,Formel,nathan.formel@whoi.edu,Woods Hole Oceanographic Institution Department of Biology,"15 School St, Woods Hole, MA 02543, USA",15 School St,Woods Hole,MA,02543,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"Los Angeles, CA 90095, USA",,Los Angeles,CA,90095,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"1600 SW Archer Rd, Gainesville, FL 32608, USA",1600 SW Archer Rd,Gainesville,FL,32608,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"100 Nassau Park Blvd #300, Princeton, NJ 08540, USA",100 Nassau Park Blvd #300,Princeton,NJ,08540,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"660 S Euclid Ave, St. Louis, MO 63110, USA",660 S Euclid Ave,St. Louis,MO,63110,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"Irvine, CA 92617, USA",,Irvine,CA,92617,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Yi,Wang,yi.wang@ct.gov,University of Connecticut,"1601 E 16th St, Newport Beach, CA 92663, USA",1601 E 16th St,Newport Beach,CA,92663,USA
+,0,Suman,Sharma,suman30@nmsu.edu,New Mexico State University,"940 College Dr, Las Cruces, NM 88003, USA",940 College Dr,Las Cruces,NM,88003,USA
+Genomics,1,Ugrappa,Nagalakshmi,unagalakshmi@ucdavis.edu,University of California Davis,"Life Sciences, Davis, CA 95616, USA",Life Sciences,Davis,CA,95616,USA
+"Gene Expression, Genomics, Transcriptome",3,Julian,Somers,jms53460@uga.edu,University of Georgia,"120 W Green St, Athens, GA 30602, USA",120 W Green St,Athens,GA,30602,USA
+"Gene Expression, Yeast",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+Yeast,1,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"Gene Expression, Genomics",2,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+,0,Guo-Liang,Wang,wang.620@osu.edu,The Ohio State University,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Jiyoung,Bae,jiyoung.bae@okstate.edu,Oklahoma State University,"Stillwater, OK 74075, USA",,Stillwater,OK,74075,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Xiaoya,Zhang,xzhang2372@wisc.edu,University of Wisconsin–Madison,"1111 Highland Ave, Madison, WI 53792, USA",1111 Highland Ave,Madison,WI,53792,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Xiaoya,Zhang,xzhang2372@wisc.edu,University of Wisconsin–Madison,"Gainesville, FL 32603, USA",,Gainesville,FL,32603,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Xiaoya,Zhang,xzhang2372@wisc.edu,University of Wisconsin–Madison,"2985 Airport Dr, Madera, CA 93637, USA",2985 Airport Dr,Madera,CA,93637,USA
+Yeast,1,Yang,Lim,yanglim@g.harvard.edu,Harvard Medical School,"Building C, 240 Longwood Ave, Boston, MA 02115, USA","Building C, 240 Longwood Ave",Boston,MA,02115,USA
+Gene Expression,1,Eduardo,Blumwald,eblumwald@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+"Gene Expression, Genomics, RNA sequencing, Transcriptome",4,Eduardo,Blumwald,eblumwald@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+"Genomics, Metagenomics",2,Nakian,Kim,nakiankim@lbl.gov,University of California Berkeley,"Turner Hall, 1102 S Goodwin Ave, Urbana, IL 61801, USA","Turner Hall, 1102 S Goodwin Ave",Urbana,IL,61801,USA
+,0,Liqun,Zhang,zhangl@uri.edu,University of Rhode Island,"529 S Jackson St, Louisville, KY 40202, USA",529 S Jackson St,Louisville,KY,40202,USA
+"Gene Expression, Transcriptome",2,Muhammad,Ali,amjad.ali@uaf.edu.pk,University of Agriculture Faisalabad,"Irvine, CA 92617, USA",,Irvine,CA,92617,USA
+"Gene Expression, Yeast",2,Muhammad,Ali,amjad.ali@uaf.edu.pk,University of Agriculture Faisalabad,"Irvine, CA 92617, USA",,Irvine,CA,92617,USA
+Gene Expression,1,Feng,Kong,Feng.Kong@uga.edu,University of Georgia,"120 Carlton St, Athens, GA 30602, USA",120 Carlton St,Athens,GA,30602,USA
+"RNA Seq, Gene Expression, Transcriptome",3,Venugopal,Mendu,venugopal.mendu@ttu.edu,Montana State University,"Plant Bioscience Building,, Bozeman, MT 59715, USA",Plant Bioscience Building,Bozeman,MT,59715,USA
+"Gene Expression, Genomics, Yeast, Transcriptome",4,Venugopal,Mendu,venugopal.mendu@ttu.edu,Montana State University,"Plant Bioscience Building,, Bozeman, MT 59715, USA",Plant Bioscience Building,Bozeman,MT,59715,USA
+,0,Wah,Chiu,wahc@stanford.edu,Stanford University,"2575 Sand Hill Rd, Menlo Park, CA 94025, USA",2575 Sand Hill Rd,Menlo Park,CA,94025,USA
+"Gene Expression, Transcriptomics, RNA sequencing",3,Saurabh,Yadav,s2yadav@ucsd.edu,University of California San Diego,"3528 General Atomics Ct, San Diego, CA 92121, USA",3528 General Atomics Ct,San Diego,CA,92121,USA
+"Gene Expression, Transcriptome",2,Jitendra,Kumar,jkumar@umn.edu,University of Minnesota,"411, 1991 Upper Buford Cir Borlaug Hall, St Paul, MN 55108, USA","411, 1991 Upper Buford Cir Borlaug Hall",St Paul,MN,55108,USA
+Gene Expression,1,Jitendra,Kumar,jkumar@umn.edu,University of Minnesota,"411, 1991 Upper Buford Cir Borlaug Hall, St Paul, MN 55108, USA","411, 1991 Upper Buford Cir Borlaug Hall",St Paul,MN,55108,USA
+"Genomics, Transcriptome",2,Jitendra,Kumar,jkumar@umn.edu,University of Minnesota,"411, 1991 Upper Buford Cir Borlaug Hall, St Paul, MN 55108, USA","411, 1991 Upper Buford Cir Borlaug Hall",St Paul,MN,55108,USA
+,0,David,Liu,drliu@fas.harvard.edu,Harvard University,"5200, 1 Bethel Valley Rd, Oak Ridge, TN 37830, USA","5200, 1 Bethel Valley Rd",Oak Ridge,TN,37830,USA
+,0,David,Liu,drliu@fas.harvard.edu,Harvard University,"Jackson Hall, Room 6-160, 321 Church St SE, Minneapolis, MN 55455, USA","Jackson Hall, Room 6-160, 321 Church St SE",Minneapolis,MN,55455,USA
+"Gene Expression, Genomics, RNA sequencing, Liquid Handling",4,Aparna,Nathan,aparna_nathan@hms.harvard.edu,Brigham and Women's Hospital,"10 Shattuck St, Boston, MA 02115, USA",10 Shattuck St,Boston,MA,02115,USA
+Yeast,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"San Diego, CA 92161, USA",,San Diego,CA,92161,USA
+Yeast,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1300 Morris Park Ave, Bronx, NY 10461, USA",1300 Morris Park Ave,Bronx,NY,10461,USA
+Yeast,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+Yeast,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"5200, 1 Bethel Valley Rd, Oak Ridge, TN 37830, USA","5200, 1 Bethel Valley Rd",Oak Ridge,TN,37830,USA
+Yeast,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1100 College St, Columbus, MS 39701, USA",1100 College St,Columbus,MS,39701,USA
+Yeast,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"University of California Irvine, Irvine, CA 92617, Irvine, CA 92617, USA",University of California Irvine,Irvine,CA,92617,USA
+Yeast,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1075 13th St S, Birmingham, AL 35294, USA",1075 13th St S,Birmingham,AL,35294,USA
+"Next generation sequencing, NGS, Gene Expression",3,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"San Diego, CA 92161, USA",,San Diego,CA,92161,USA
+"Next generation sequencing, NGS, Gene Expression",3,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1300 Morris Park Ave, Bronx, NY 10461, USA",1300 Morris Park Ave,Bronx,NY,10461,USA
+"Next generation sequencing, NGS, Gene Expression",3,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+"Next generation sequencing, NGS, Gene Expression",3,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"5200, 1 Bethel Valley Rd, Oak Ridge, TN 37830, USA","5200, 1 Bethel Valley Rd",Oak Ridge,TN,37830,USA
+"Next generation sequencing, NGS, Gene Expression",3,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1100 College St, Columbus, MS 39701, USA",1100 College St,Columbus,MS,39701,USA
+"Next generation sequencing, NGS, Gene Expression",3,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"University of California Irvine, Irvine, CA 92617, Irvine, CA 92617, USA",University of California Irvine,Irvine,CA,92617,USA
+"Next generation sequencing, NGS, Gene Expression",3,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1075 13th St S, Birmingham, AL 35294, USA",1075 13th St S,Birmingham,AL,35294,USA
+"Gene Expression, Genomics",2,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"San Diego, CA 92161, USA",,San Diego,CA,92161,USA
+"Gene Expression, Genomics",2,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1300 Morris Park Ave, Bronx, NY 10461, USA",1300 Morris Park Ave,Bronx,NY,10461,USA
+"Gene Expression, Genomics",2,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+"Gene Expression, Genomics",2,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"5200, 1 Bethel Valley Rd, Oak Ridge, TN 37830, USA","5200, 1 Bethel Valley Rd",Oak Ridge,TN,37830,USA
+"Gene Expression, Genomics",2,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1100 College St, Columbus, MS 39701, USA",1100 College St,Columbus,MS,39701,USA
+"Gene Expression, Genomics",2,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"University of California Irvine, Irvine, CA 92617, Irvine, CA 92617, USA",University of California Irvine,Irvine,CA,92617,USA
+"Gene Expression, Genomics",2,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1075 13th St S, Birmingham, AL 35294, USA",1075 13th St S,Birmingham,AL,35294,USA
+Transcriptome,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"San Diego, CA 92161, USA",,San Diego,CA,92161,USA
+Transcriptome,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1300 Morris Park Ave, Bronx, NY 10461, USA",1300 Morris Park Ave,Bronx,NY,10461,USA
+Transcriptome,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+Transcriptome,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"5200, 1 Bethel Valley Rd, Oak Ridge, TN 37830, USA","5200, 1 Bethel Valley Rd",Oak Ridge,TN,37830,USA
+Transcriptome,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1100 College St, Columbus, MS 39701, USA",1100 College St,Columbus,MS,39701,USA
+Transcriptome,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"University of California Irvine, Irvine, CA 92617, Irvine, CA 92617, USA",University of California Irvine,Irvine,CA,92617,USA
+Transcriptome,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1075 13th St S, Birmingham, AL 35294, USA",1075 13th St S,Birmingham,AL,35294,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"San Diego, CA 92161, USA",,San Diego,CA,92161,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1300 Morris Park Ave, Bronx, NY 10461, USA",1300 Morris Park Ave,Bronx,NY,10461,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"5200, 1 Bethel Valley Rd, Oak Ridge, TN 37830, USA","5200, 1 Bethel Valley Rd",Oak Ridge,TN,37830,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1100 College St, Columbus, MS 39701, USA",1100 College St,Columbus,MS,39701,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"University of California Irvine, Irvine, CA 92617, Irvine, CA 92617, USA",University of California Irvine,Irvine,CA,92617,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"1075 13th St S, Birmingham, AL 35294, USA",1075 13th St S,Birmingham,AL,35294,USA
+"Gene Expression, Transcriptome",2,Taslima,Haque,taslima@utexas.edu,University of Michigan-Ann Arbor,"J.T. Patterson Laboratories Bldg, 2415 Speedway, Austin, TX 78712, USA","J.T. Patterson Laboratories Bldg, 2415 Speedway",Austin,TX,78712,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Taslima,Haque,taslima@utexas.edu,University of Michigan-Ann Arbor,"J.T. Patterson Laboratories Bldg, 2415 Speedway, Austin, TX 78712, USA","J.T. Patterson Laboratories Bldg, 2415 Speedway",Austin,TX,78712,USA
+"Gene Expression, Yeast",2,Drew,Endy,endy@stanford.edu,Stanford University,"443 Via Ortega, Stanford, CA 94305, USA",443 Via Ortega,Stanford,CA,94305,USA
+,0,Kai,Wu,wuxx0803@umn.edu,Texas Tech University,"400 Parnassus Ave Sixth Floor, San Francisco, CA 94143, USA",400 Parnassus Ave Sixth Floor,San Francisco,CA,94143,USA
+Transcriptome,1,Zongwen,Zhang,z.zhang@cgiar.org,Alliance Of Bioversity International And CIAT,"Department of Plant Biology, 260 Panama St, Stanford, CA 94305, USA","Department of Plant Biology, 260 Panama St",Stanford,CA,94305,USA
+Transcriptome,1,Zongwen,Zhang,z.zhang@cgiar.org,Alliance Of Bioversity International And CIAT,"1000 Dexter Ave N Suite 320, Seattle, WA 98109, USA",1000 Dexter Ave N Suite 320,Seattle,WA,98109,USA
+Transcriptome,1,Zongwen,Zhang,z.zhang@cgiar.org,Alliance Of Bioversity International And CIAT,"2703 E Barstow Ave, Fresno, CA 93740, USA",2703 E Barstow Ave,Fresno,CA,93740,USA
+Transcriptome,1,Zongwen,Zhang,z.zhang@cgiar.org,Alliance Of Bioversity International And CIAT,"8801 Folsom Blvd #290, Sacramento, CA 95826, USA",8801 Folsom Blvd #290,Sacramento,CA,95826,USA
+"Gene Expression, Genomics, RNA sequencing",3,Fei,Wang,f.wang1@wustl.edu,Washington University in St. Louis,"400 Parnassus Ave Sixth Floor, San Francisco, CA 94143, USA",400 Parnassus Ave Sixth Floor,San Francisco,CA,94143,USA
+"Gene Expression, Genomics, RNA sequencing",3,Fei,Wang,f.wang1@wustl.edu,Washington University in St. Louis,"43 Vassar St, Cambridge, MA 02139, USA",43 Vassar St,Cambridge,MA,02139,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Henry,Nguyen,nguyenhenry@missouri.edu,University of Missouri,"2-64 Agriculture Building Columbia, Columbia, MO 65201, USA",2-64 Agriculture Building Columbia,Columbia,MO,65201,USA
+"Next generation sequencing, Genomics, Transcriptome",3,Henry,Nguyen,nguyenhenry@missouri.edu,University of Missouri,"2-64 Agriculture Building Columbia, Columbia, MO 65201, USA",2-64 Agriculture Building Columbia,Columbia,MO,65201,USA
+"Gene Expression, Genomics, Yeast, Transcriptome",4,Henry,Nguyen,nguyenhenry@missouri.edu,University of Missouri,"2-64 Agriculture Building Columbia, Columbia, MO 65201, USA",2-64 Agriculture Building Columbia,Columbia,MO,65201,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Henry,Nguyen,nguyenhenry@missouri.edu,University of Missouri,"2-64 Agriculture Building Columbia, Columbia, MO 65201, USA",2-64 Agriculture Building Columbia,Columbia,MO,65201,USA
+"NGS, Gene Expression, Yeast, RNA sequencing, Liquid Handling",5,Yu,Zhang,zhangy@ucsc.edu,Lawrence Berkeley National Laboratory,"651 Ilalo St, Honolulu, HI 96813, USA",651 Ilalo St,Honolulu,HI,96813,USA
+"NGS, Gene Expression, Yeast, RNA sequencing, Liquid Handling",5,Yu,Zhang,zhangy@ucsc.edu,Lawrence Berkeley National Laboratory,"110 Riverbend Rd # 161, Athens, GA 30602, USA",110 Riverbend Rd # 161,Athens,GA,30602,USA
+"NGS, Gene Expression, Yeast, RNA sequencing, Liquid Handling",5,Yu,Zhang,zhangy@ucsc.edu,Lawrence Berkeley National Laboratory,"15600 San Pasqual Valley Rd, Escondido, CA 92027, USA",15600 San Pasqual Valley Rd,Escondido,CA,92027,USA
+"NGS, Gene Expression, Yeast, RNA sequencing, Liquid Handling",5,Yu,Zhang,zhangy@ucsc.edu,Lawrence Berkeley National Laboratory,"Doherty Hall, 5000 Forbes Ave, Pittsburgh, PA 15213, USA","Doherty Hall, 5000 Forbes Ave",Pittsburgh,PA,15213,USA
+"NGS, Gene Expression, Yeast, RNA sequencing, Liquid Handling",5,Yu,Zhang,zhangy@ucsc.edu,Lawrence Berkeley National Laboratory,"4040 Memorial Pkwy SW, Huntsville, AL 35802, USA",4040 Memorial Pkwy SW,Huntsville,AL,35802,USA
+Gene Expression,1,Juexin,Wang,wangjuex@iu.edu,Indiana University � Purdue University Indianapolis,"Gainesville, FL 32603, USA",,Gainesville,FL,32603,USA
+Gene Expression,1,Juexin,Wang,wangjuex@iu.edu,Indiana University � Purdue University Indianapolis,"Indianapolis, IN 46202, USA",,Indianapolis,IN,46202,USA
+Gene Expression,1,Juexin,Wang,wangjuex@iu.edu,Indiana University � Purdue University Indianapolis,"Genetic Medicine Research Building, 120 Mason Farm Rd, Chapel Hill, NC 27514, USA","Genetic Medicine Research Building, 120 Mason Farm Rd",Chapel Hill,NC,27514,USA
+Gene Expression,1,Juexin,Wang,wangjuex@iu.edu,Indiana University � Purdue University Indianapolis,"Gainesville, FL 32601, USA",,Gainesville,FL,32601,USA
+Gene Expression,1,Juexin,Wang,wangjuex@iu.edu,Indiana University � Purdue University Indianapolis,"521 E 3rd St 1st Floor, Pomona, CA 91766, USA",521 E 3rd St 1st Floor,Pomona,CA,91766,USA
+Gene Expression,1,Juexin,Wang,wangjuex@iu.edu,Indiana University � Purdue University Indianapolis,"1100 Bates Ave, Houston, TX 77030, USA",1100 Bates Ave,Houston,TX,77030,USA
+"Gene Expression, Transcriptome",2,Yuan,Liu,yl218@iu.edu,Indiana University School of Medicine,"355 River Oaks Pkwy, San Jose, CA 95134, USA",355 River Oaks Pkwy,San Jose,CA,95134,USA
+"Gene Expression, Transcriptome",2,Yuan,Liu,yl218@iu.edu,Indiana University School of Medicine,"1300 Morris Park Ave, Bronx, NY 10461, USA",1300 Morris Park Ave,Bronx,NY,10461,USA
+"Gene Expression, Transcriptome",2,Yuan,Liu,yl218@iu.edu,Indiana University School of Medicine,"5200, 1 Bethel Valley Rd, Oak Ridge, TN 37830, USA","5200, 1 Bethel Valley Rd",Oak Ridge,TN,37830,USA
+,0,Manju,Ojha,manjuo1@umbc.edu,University of Maryland Baltimore County,"Baltimore, MD 21250, USA",,Baltimore,MD,21250,USA
+Yeast,1,Minjeong,Kang,mjkang@iastate.edu,Iowa State University,"1060, Roy J. Carver Co-Lab, 1111 Woi Rd, Ames, IA 50011, USA","1060, Roy J. Carver Co-Lab, 1111 Woi Rd",Ames,IA,50011,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Lei,Yang,lyang7@iu.edu,Beihang University,"1044 W Walnut St, Indianapolis, IN 46202, USA",1044 W Walnut St,Indianapolis,IN,46202,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Lei,Yang,lyang7@iu.edu,Beihang University,"10466 N Torrey Pines Rd, La Jolla, CA 92037, USA",10466 N Torrey Pines Rd,La Jolla,CA,92037,USA
+,0,Nidhi,Rawat,nidhirwt@umd.edu,University Of Maryland,"Plant Sciences Building, 4291 Fieldhouse Dr, College Park, MD 20742, USA","Plant Sciences Building, 4291 Fieldhouse Dr",College Park,MD,20742,USA
+,0,Nidhi,Rawat,nidhirwt@umd.edu,University Of Maryland,"College Park, MD 20742, USA",,College Park,MD,20742,USA
+,0,Yong,Li,yong.li@bcm.edu,Baylor College of Medicine,"3500 N Broad St, Philadelphia, PA 19140, USA",3500 N Broad St,Philadelphia,PA,19140,USA
+,0,Yong,Li,yong.li@bcm.edu,Baylor College of Medicine,"915 W State St, West Lafayette, IN 47907, USA",915 W State St,West Lafayette,IN,47907,USA
+,0,Yong,Li,yong.li@bcm.edu,Baylor College of Medicine,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+,0,Yong,Li,yong.li@bcm.edu,Baylor College of Medicine,"Wilfred B.Young Bldg, 1376 Storrs Rd #4067, Storrs, CT 06269, USA","Wilfred B.Young Bldg, 1376 Storrs Rd #4067",Storrs,CT,06269,USA
+,0,Yong,Li,yong.li@bcm.edu,Baylor College of Medicine,"1919 Old Spanish Trl, Houston, TX 77054, USA",1919 Old Spanish Trl,Houston,TX,77054,USA
+"Gene Expression, Genomics, Transcriptome",3,Hojun,Song,hojun.song@ag.tamu.edu,Texas A&M University,"J.T. Patterson Laboratories Bldg, 2415 Speedway, Austin, TX 78712, USA","J.T. Patterson Laboratories Bldg, 2415 Speedway",Austin,TX,78712,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Hojun,Song,hojun.song@ag.tamu.edu,Texas A&M University,"J.T. Patterson Laboratories Bldg, 2415 Speedway, Austin, TX 78712, USA","J.T. Patterson Laboratories Bldg, 2415 Speedway",Austin,TX,78712,USA
+Gene Expression,1,Priyatansh,Gurha,priyatansh.gurha@uth.tmc.edu,University Of Texas Health Sciences Center At Houston,"1825 Pressler St, Houston, TX 77030, USA",1825 Pressler St,Houston,TX,77030,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Xiongbin,Lu,xiolu@iu.edu,Indiana University School of Medicine,"Medical Research and Library Building, 975 W Walnut St IB 130, Indianapolis, IN 46202, USA","Medical Research and Library Building, 975 W Walnut St IB 130",Indianapolis,IN,46202,USA
+,0,Qingshan,Wei,qwei3@ncsu.edu,North Carolina State University,"Engineering Bldg I, 911 Partners Way room 2-009, Raleigh, NC 27606, USA","Engineering Bldg I, 911 Partners Way room 2-009",Raleigh,NC,27606,USA
+Genomics,1,Jeremy,Goecks,goecksj@ohsu.edu,Moffitt Cancer Center,"Medical, Building 3, 1130 NW 22nd Ave #150, Portland, OR 97210, USA","Medical, Building 3, 1130 NW 22nd Ave #150",Portland,OR,97210,USA
+"Gene Expression, Genomics, Transcriptome",3,Kranthi,Varala,kvarala@purdue.edu,Purdue University,"915 W State St, West Lafayette, IN 47907, USA",915 W State St,West Lafayette,IN,47907,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Jun,Wan,junwan@iu.edu,Indiana University School of Medicine,"Medical Research and Library Building, 975 W Walnut St IB 130, Indianapolis, IN 46202, USA","Medical Research and Library Building, 975 W Walnut St IB 130",Indianapolis,IN,46202,USA
+,0,Arnold,Bloom,ajbloom@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+Gene Expression,1,Arnold,Bloom,ajbloom@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+,0,Sundaram,Gunasekaran,guna@wisc.edu,University of Wisconsin–Madison,"115, Agricultural Engineering Bldg, 460 Henry Mall, Madison, WI 53706, USA","115, Agricultural Engineering Bldg, 460 Henry Mall",Madison,WI,53706,USA
+"Genomics, Metagenomics",2,Steven,Xu,steven.xu@usda.gov,Western Regional Research Center,"1616 Albrecht Blvd, Fargo, ND 58102, USA",1616 Albrecht Blvd,Fargo,ND,58102,USA
+"Gene Expression, Transcriptome",2,Chunming,Xu,xucm848@uga.edu,Northeast Normal University,"2015 Uppergate Dr, Atlanta, GA 30322, USA",2015 Uppergate Dr,Atlanta,GA,30322,USA
+"Next generation sequencing, NGS, Genomics",3,Bin,Tian,btian@k-state.edu,Syngenta Biotechnology Inc,"9 Davis Dr, Durham, NC 27703, USA",9 Davis Dr,Durham,NC,27703,USA
+"Gene Expression, Genomics, RNA sequencing",3,Bin,Tian,btian@k-state.edu,Syngenta Biotechnology Inc,"9 Davis Dr, Durham, NC 27703, USA",9 Davis Dr,Durham,NC,27703,USA
+"Next generation sequencing, Gene Expression, Transcriptomics",3,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"Gene Expression, Transcriptomics, Transcriptome",3,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"Gene Expression, Genomics",2,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"Gene Expression, Yeast, Transcriptomics, RNA sequencing, Transcriptome",5,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+Genomics,1,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"NGS, Gene Expression, Genomics, Transcriptomics, RNA sequencing, Transcriptome, Liquid Handling",7,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"Gene Expression, Genomics, RNA sequencing, Transcriptome",4,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+"RNA sequencing, Transcriptome",2,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+,0,Kerrie,Barry,kwbarry@lbl.gov,Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+,0,Krzysztof,Matyjaszewski,km3b@andrew.cmu.edu,Carnegie Mellon University,"Doherty Hall, 5000 Forbes Ave, Pittsburgh, PA 15213, USA","Doherty Hall, 5000 Forbes Ave",Pittsburgh,PA,15213,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Malia,Gehan,mgehan@danforthcenter.org,Donald Danforth Plant Science Center,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+,0,Malia,Gehan,mgehan@danforthcenter.org,Donald Danforth Plant Science Center,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+"NGS, Gene Expression, Genomics, Transcriptomics, Transcriptome",5,Sunita,Kumari,kumari@cshl.edu,Cold Spring Harbor Labs,"1 Bungtown Rd, Cold Spring Harbor, NY 11724, USA",1 Bungtown Rd,Cold Spring Harbor,NY,11724,USA
+"Gene Expression, Genomics",2,Jiming,Jiang,jiangjm@msu.edu,Michigan State University,"Agriculture Hall, 446 W Circle Dr #102, East Lansing, MI 48824, USA","Agriculture Hall, 446 W Circle Dr #102",East Lansing,MI,48824,USA
+Transcriptome,1,Chong,Teng,cteng@danforthcenter.org,Donald Danforth Plant Science Center,"975 N Warson Rd, Olivette, MO 63132, USA",975 N Warson Rd,Olivette,MO,63132,USA
+,0,Zhihui,Fong,zfong@ucdavis.edu,University of California Davis,"C. John Tupper Hall, Davis, CA 95616, USA",C. John Tupper Hall,Davis,CA,95616,USA
+"NGS, Gene Expression, Genomics, Transcriptomics, Transcriptome",5,Sook,Jung,sook_jung@wsu.edu,Washington State University,"255 E Main St, Pullman, WA 99163, USA",255 E Main St,Pullman,WA,99163,USA
+Gene Expression,1,John,Ralph,jralph@wisc.edu,Uw-Madison School Of Human Ecology,"DeLuca Biochemistry Laboratories, 433 Babcock Dr, Madison, WI 53706, USA","DeLuca Biochemistry Laboratories, 433 Babcock Dr",Madison,WI,53706,USA
+"RNA sequencing, Transcriptome",2,John,Ralph,jralph@wisc.edu,Uw-Madison School Of Human Ecology,"DeLuca Biochemistry Laboratories, 433 Babcock Dr, Madison, WI 53706, USA","DeLuca Biochemistry Laboratories, 433 Babcock Dr",Madison,WI,53706,USA
+"Gene Expression, Genomics",2,Anuj,Kumar,axk018@uark.edu,"Ricetec, Inc.","115 Plant Sciences Building, 495 N Campus Walk, Fayetteville, AR 72701, USA","115 Plant Sciences Building, 495 N Campus Walk",Fayetteville,AR,72701,USA
+"Gene Expression, Genomics, RNA sequencing",3,Doug,Allen,doug.allen@ars.usda.gov,"USDA-ARS Plant Genetics Research Unit, Donald Danforth Plant Science Center","Champaign, IL, USA",,,,nan,USA
+"Gene Expression, RNA sequencing",2,Kan,Wang,kanwang@iastate.edu,Iowa State University,"Agronomy Hall, 716 Farm House Ln Room G0401, Ames, IA 50011, USA","Agronomy Hall, 716 Farm House Ln Room G0401",Ames,IA,50011,USA
+"Transcriptomics, Transcriptome",2,Jizhong,Zhou,jzhou@ou.edu,Applied Microbiology International,"Gainesville, FL 32603, USA",,Gainesville,FL,32603,USA
+"Transcriptomics, Transcriptome",2,Jizhong,Zhou,jzhou@ou.edu,Applied Microbiology International,"111 Chesapeake St, Norman, OK 73019, USA",111 Chesapeake St,Norman,OK,73019,USA
+"Genomics, Yeast, 16S rRNA gene sequencing",3,Simon,Roux,sroux@lbl.gov,DOE Joint Genome Institute,"Berkeley, CA 94720, USA",,Berkeley,CA,94720,USA
+Transcriptome,1,Li,Tian,ltian@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+Gene Expression,1,Li,Tian,ltian@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+,0,Li,Tian,ltian@ucdavis.edu,University of California Davis,"Plant and Environmental Sciences Building, N Quad, Davis, CA 95616, USA","Plant and Environmental Sciences Building, N Quad",Davis,CA,95616,USA
+,0,David,Liu,drliu@fas.harvard.edu,Harvard University,"1414 Geronimo Dr, El Paso, TX 79925, USA",1414 Geronimo Dr,El Paso,TX,79925,USA
+Yeast,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"Next generation sequencing, NGS, Gene Expression",3,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"Gene Expression, Genomics",2,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+Transcriptome,1,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"Gene Expression, Yeast, Transcriptomics, Transcriptome",4,Junli,Zhang,psjzhang@ucdavis.edu,University of California Davis,"Riverside, CA 92507, USA",,Riverside,CA,92507,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Chaosheng,Li,lcs@gxaas.net,Biotechnology Research Institute,"2151 Berkeley Way, Berkeley, CA 94720, USA",2151 Berkeley Way,Berkeley,CA,94720,USA
+"Gene Expression, Transcriptome",2,Doreen,Ware,doreen.ware@usda.gov,Usda-Ars,"Ithaca, NY 14850, USA",,Ithaca,NY,14850,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Henry,Nguyen,nguyenhenry@missouri.edu,University of Missouri,"5601 S Rangeline Rd, Columbia, MO 65201, USA",5601 S Rangeline Rd,Columbia,MO,65201,USA
+"Next generation sequencing, Genomics, Transcriptome",3,Henry,Nguyen,nguyenhenry@missouri.edu,University of Missouri,"5601 S Rangeline Rd, Columbia, MO 65201, USA",5601 S Rangeline Rd,Columbia,MO,65201,USA
+"Gene Expression, Genomics, Yeast, Transcriptome",4,Henry,Nguyen,nguyenhenry@missouri.edu,University of Missouri,"5601 S Rangeline Rd, Columbia, MO 65201, USA",5601 S Rangeline Rd,Columbia,MO,65201,USA
+"Gene Expression, Yeast, RNA sequencing, Transcriptome",4,Henry,Nguyen,nguyenhenry@missouri.edu,University of Missouri,"5601 S Rangeline Rd, Columbia, MO 65201, USA",5601 S Rangeline Rd,Columbia,MO,65201,USA
+Gene Expression,1,Juexin,Wang,wangjuex@iu.edu,Indiana University � Purdue University Indianapolis,"700 Galleria Pkwy SE Suite 100, Atlanta, GA 30339, USA",700 Galleria Pkwy SE Suite 100,Atlanta,GA,30339,USA
+"Gene Expression, Transcriptome",2,Yuan,Liu,yl218@iu.edu,Indiana University School of Medicine,"3415 Valencia Hill Dr, Riverside, CA 92507, USA",3415 Valencia Hill Dr,Riverside,CA,92507,USA
+"Gene Expression, Transcriptome",2,Yuan,Liu,yl218@iu.edu,Indiana University School of Medicine,"Keim Hall, 1825 N 38th St Suite 203, Lincoln, NE 68503, USA","Keim Hall, 1825 N 38th St Suite 203",Lincoln,NE,68503,USA
+Yeast,1,Minjeong,Kang,mjkang@iastate.edu,Iowa State University,"2445 ATRB 2213, 1344 Advanced Teaching & Research Bldg, 2213 Pammel Dr, Ames, IA 50011, USA","2445 ATRB 2213, 1344 Advanced Teaching & Research Bldg, 2213 Pammel Dr",Ames,IA,50011,USA
+"Gene Expression, RNA sequencing, Transcriptome",3,Lei,Yang,lyang7@iu.edu,Beihang University,"1801 Senate Blvd Suite D3500, Indianapolis, IN 46202, USA",1801 Senate Blvd Suite D3500,Indianapolis,IN,46202,USA
+,0,Yong,Li,yong.li@bcm.edu,Baylor College of Medicine,"2112 S Huffer Ln, Flagstaff, AZ 86011, USA",2112 S Huffer Ln,Flagstaff,AZ,86011,USA
+Gene Expression,1,Priyatansh,Gurha,priyatansh.gurha@uth.tmc.edu,University Of Texas Health Sciences Center At Houston,"7000 Fannin St, Houston, TX 77030, USA",7000 Fannin St,Houston,TX,77030,USA
+"Gene Expression, Genomics, Transcriptomics, Transcriptome",4,Doreen,Ware,ware@cshl.edu,Cold Spring Harbor Laboratory,"Ithaca, NY 14850, USA",,Ithaca,NY,14850,USA
+Genomics,1,Doreen,Ware,ware@cshl.edu,Cold Spring Harbor Laboratory,"Ithaca, NY 14850, USA",,Ithaca,NY,14850,USA
+,0,Qingshan,Wei,qwei3@ncsu.edu,North Carolina State University,"Raleigh, NC 27695, USA",,Raleigh,NC,27695,USA
+"Gene Expression, Genomics",2,Anuj,Kumar,axk018@uark.edu,"Ricetec, Inc.","Agriculture Food and Life Sciences, Fayetteville, AR 72701, USA",Agriculture Food and Life Sciences,Fayetteville,AR,72701,USA
+"Gene Expression, Genomics",2,Anuj,Kumar,axk018@uark.edu,"Ricetec, Inc.","11 Hills Beach Rd, Biddeford, ME 04005, USA",11 Hills Beach Rd,Biddeford,ME,04005,USA
+,0,Abdur,Rahman,abdurrahman.ahmad@ku.edu.kw,"College of Life Sciences, Kuwait University","7601 Irvine Blvd, Irvine, CA 92618, USA",7601 Irvine Blvd,Irvine,CA,92618,USA
+"Transcriptomics, Transcriptome",2,Jizhong,Zhou,jzhou@ou.edu,Applied Microbiology International,"660 Parrington Oval, Norman, OK 73019, USA",660 Parrington Oval,Norman,OK,73019,USA
