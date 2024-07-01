@@ -11,8 +11,8 @@ def process_addresses(file_path, output_directory):
 
     # Filter conditions for address and email
     data = data[data['address'].str.contains('USA', na=False, case=True)]
-    data = data[~data['Email'].str.contains('cn|jp|ac|ao|dk|gr|au|br|in|fr|co|ch|pl|to|ch|il|it|es|pt|bg|sk|ie|hu|ca|hk|za|nz|fi|nl|be|tw|sa|uk|se|sg|kr|de|no', na=False, case=False) & data['Email'].notna()]
-    data = data[~data['Organization'].str.contains('Jiangsu|Rlr Va|Addenbrooke|Ningbo|Adelaide|Monash|Sungkyunkwan|Nantong|Catania|Peking|Seoul|Macau|Dalian|Soochow|Hunan|Cedars-Sinai|Tongren|Hainan|Yat-sen|Yonsei|Wuhan|Hebei|Jilin|Nanjing|Guangzhou|Luoyang|Hubei|Ruijin|Huizhou|Luzhou|Jimei|Sichuan|Guangdong|Shandong|Anhui|Shanghai|Yantai|Qingdao|Jiujiang|Jiangxi|Qiongzhou|Shenyang|Zhejiang|Beijing|Kunming|Chongqing|Chengdu|Shantou|Tianjin|Zunyi|Zhengzhou|Henan|Guangxi|Zhongkai|Hong Kong|Shaanxi|Fujian|Jiangnan|Tsinghua|Renji|Fudan|China|Nankai|Yangzhou|Changhai|Shanxi|Mgi|Shenzhen|Chinese', na=False, case=False)]
+    data = data[~data['Email'].str.contains('cn|jp|mx|pk|qa|ac|ao|dk|gr|au|br|in|fr|co|ch|pl|to|ch|il|it|es|pt|bg|sk|ie|hu|ca|hk|za|nz|fi|nl|be|mo|tw|sa|uk|se|sg|kr|de|no', na=False, case=False) & data['Email'].notna()]
+    data = data[~data['Organization'].str.contains('Jiangsu|Rlr Va|Addenbrooke|Ningbo|Adelaide|Monash|Sungkyunkwan|Nantong|Jiuzhou|Catania|Huazhong|Peking|Seoul|Macau|Dalian|Soochow|Hunan|Cedars-Sinai|Tongren|Hainan|Yat-sen|Yonsei|Wuhan|Hebei|Jilin|Nanjing|Guangzhou|Luoyang|Hubei|Ruijin|Huizhou|Luzhou|Jimei|Sichuan|Guangdong|Shandong|Anhui|Shanghai|Yantai|Qingdao|Jiujiang|Jiangxi|Qiongzhou|Shenyang|Zhejiang|Beijing|Kunming|Chongqing|Chengdu|Shantou|Tianjin|Zunyi|Zhengzhou|Henan|Guangxi|Zhongkai|Hong Kong|Shaanxi|Fujian|Jiangnan|Tsinghua|Renji|Fudan|China|Nankai|Yangzhou|Changhai|Shanxi|Mgi|Shenzhen|Chinese', na=False, case=False)]
 
     data['Street Address'] = ''
     data['City'] = ''
@@ -58,9 +58,10 @@ def process_all_files(input_directory, output_directory):
 
 #%%
 # Example usage/Change input and output dir everytime 
-input_directory = '/Users/oceanuszhang/Desktop/scraper/metadata-scraper/app/addresses_separate/input_addresses/rabbit'
-output_directory = '/Users/oceanuszhang/Desktop/scraper/metadata-scraper/app/addresses_separate/output_addresses/rabbit'
+input_directory = '/Users/oceanuszhang/Desktop/scraper/metadata-scraper/app/addresses_separate/input_addresses/porcine'
+output_directory = '/Users/oceanuszhang/Desktop/scraper/metadata-scraper/app/addresses_separate/output_addresses/porcine'
 process_all_files(input_directory, output_directory)
+
 
 # %%
 def combine_csv_files(output_directory, combined_file):
@@ -91,8 +92,8 @@ def combine_csv_files(output_directory, combined_file):
 
 #%%
 # Change input and output dir everytime 
-output_directory = '/Users/oceanuszhang/Desktop/scraper/metadata-scraper/app/addresses_separate/output_addresses/rabbit'
-combined_file = '/Users/oceanuszhang/Desktop/scraper/metadata-scraper/app/addresses_separate/combined_addresses/rabbit/rabbit_combined.csv'
+output_directory = '/Users/oceanuszhang/Desktop/scraper/metadata-scraper/app/addresses_separate/output_addresses/porcine'
+combined_file = '/Users/oceanuszhang/Desktop/scraper/metadata-scraper/app/addresses_separate/combined_addresses/porcine/porcine_combined.csv'
 combine_csv_files(output_directory, combined_file)
 
 # %%

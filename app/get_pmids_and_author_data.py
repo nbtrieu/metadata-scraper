@@ -166,6 +166,9 @@ async def fetch_pmid_data(pmid, script_path, retries=3, backoff_factor=0.3):
             stderr=asyncio.subprocess.PIPE)
         stdout, stderr = await process.communicate()
 
+        print(f"STDOUT for PMID {pmid}:\n{stdout.decode()}")  # Debug statement
+        print(f"STDERR for PMID {pmid}:\n{stderr.decode()}")  # Debug statement
+
         with open(log_file, 'a') as f:
             f.write(f"Attempt {attempt + 1}:\n")
             f.write(f"STDOUT:\n{stdout.decode()}\n")
@@ -228,7 +231,7 @@ def extract_pmids(url_list: list):
 
 
 # %%
-source_df = pd.read_csv('./data/zebrafish/smaller_csv_file_4.csv')
+source_df = pd.read_csv('./data/wheat/smaller_csv_file_1.csv')
 print(source_df)
 
 # %%
@@ -237,8 +240,8 @@ print(source_url_list)
 print(len(source_url_list))
 
 # %%
-pmid_list = extract_pmids(source_url_list)
-# pmid_list = ['36017742', '32542850', '34625548', '35698192', '32776983', '35324428']
+# pmid_list = extract_pmids(source_url_list)
+pmid_list = ['35112798', '37964407', '36333695', '36637731', '35890527', '34595749']
 print(pmid_list)
 print(len(pmid_list))
 
@@ -258,7 +261,7 @@ print(result)
 
 # %%
 result_df = pd.DataFrame(result)
-result_df.to_csv('./outputs/zebrafish/zebrafish_authors_4.pkl')
+result_df.to_csv('./outputs/wheat/wheat_authors_1.pkl')
 
 # %%
 print(result_df)

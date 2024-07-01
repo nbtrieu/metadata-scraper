@@ -32,7 +32,7 @@ def process_author_dicts(
     leadsource_lastname_column_name,
     leadsource_firstname_column_name
 ):
-    pubmed_result_df = pd.read_pickle(pubmed_result_file_path)
+    pubmed_result_df = pd.read_csv(pubmed_result_file_path)
     # drop 'firstName' column because all n/a values
     pubmed_result_df.drop(columns=['firstName'], inplace=True)
     print("PUBMED RESULT DF:\n", pubmed_result_df)
@@ -111,22 +111,19 @@ def process_addresses(address_dicts: dict, lead_source_file_path: str, output_fi
 
 # %%
 author_dicts = process_author_dicts(
-    pubmed_result_file_path='./outputs/zebrafish/zebrafish_authors_4_1.pkl',
-    lead_source_file_path='./data/zebrafish/smaller_csv_file_4.csv',
+    pubmed_result_file_path='./outputs/porcine/porcine_authors_4_2.csv',
+    lead_source_file_path='./data/porcine/smaller_csv_file_4.csv',
     leadsource_lastname_column_name='LastName',
     leadsource_firstname_column_name='FirstName'
 )
-
-print(len(author_dicts))
-
+print(len(author_dicts))#
 # %%
 address_dicts = get_address_from_author_dicts(author_dicts, google_maps_places_api_key)
 
 # %%
 process_addresses(
     address_dicts=address_dicts,
-    lead_source_file_path='./data/zebrafish/smaller_csv_file_4.csv',
-    output_filename='./outputs/zebrafish/addresses/matched_zebrafish_addresses_4_1.csv'
+    lead_source_file_path='./data/porcine/smaller_csv_file_4.csv',
+    output_filename='./outputs/porcine/addresses/matched_porcine_addresses_4_2.csv'
 )
-
 # %%

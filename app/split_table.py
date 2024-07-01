@@ -38,8 +38,10 @@ def split_csv(original_csv: str, output_file_path: str, num_parts: int):
 
 
 # %% 
-split_csv(original_csv='./data/zebrafish/zebrafish.csv', output_file_path='./data/zebrafish', num_parts=4)
+# split_csv(original_csv='./data/wheat/wheat.csv', output_file_path='./data/wheat', num_parts=2)
 
+# %%
+split_csv(original_csv='./outputs/porcine/porcine_authors_4.csv', output_file_path='./outputs/porcine', num_parts=2)
 
 # %%
 def split_pickle(original_pickle: str, output_file_path: str):
@@ -75,9 +77,9 @@ def split_pickle(original_pickle: str, output_file_path: str):
 
 
 # %%
-split_pickle('./outputs/zebrafish/zebrafish_authors_4.pkl', './outputs/zebrafish')
+split_pickle('./outputs/wheat/wheat_authors_2.pkl', './outputs/wheat')
 
 # %%
-authors_df = pd.read_pickle('./outputs/zebrafish/zebrafish_authors_4.pkl')
+authors_df = pd.read_pickle('./outputs/wheat/wheat_authors_2.pkl')
 print(authors_df)
 # %%
